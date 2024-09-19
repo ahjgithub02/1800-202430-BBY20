@@ -1,17 +1,17 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.
+This browser based web application to ...
 
 ## 2. Names of Contributors
-List team members and/or short bio's here... 
+List team members and/or short bio's here...
 * ...
 * Hi, my name is Mohammad and I am excited to start learning at BCIT!
 * Brownie Tran - CST International student at BCIT, very eager to learn, please tell me right away if I do anything wrong. I'm one of the main coders of this project, we'd love to make any changes to the app in the future!
 * ...
-* ...
-	
+* Hi, my name is Andrew! I love video games and coding!
+
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
 * HTML, CSS, JavaScript
@@ -37,12 +37,12 @@ What we'd like to build in the future:
 * ...
 * ...
 * ...
-	
+
 ## 7. Contents of Folder
 Content of the project folder:
 
 ```
- Top level of project folder: 
+ Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
@@ -52,9 +52,9 @@ It has the following subfolders and files:
 ├── images                   # Folder for images
     /blah.jpg                # Acknowledge source
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /blah.js                 #
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /blah.css                #
 
 
 
