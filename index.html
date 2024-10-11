@@ -72,33 +72,41 @@
         </div>
     </nav>
 
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Welcome to Elmo Hikes!</h1>
-          <p class="col-md-8 fs-4">Let's start the adventure now</p>
-  
-          <button class="btn btn-primary btn-lg" type="button">Login/Signup</button>
-          
-          <!-- Add an onclick attribute to define click event handler -->
-          <!-- <button onclick="window.location.href='login.html'" class="btn btn-primary btn-lg" type="button">Login/Signup</button> -->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to RemindMe - Your Ultimate Collaborative Reminder App</h1>
+            <p class="lead">RemindMe is your go-to app for managing tasks and deadlines while staying connected with peers. 
+                The Collaborative Live Active Calendar (CLAC) lets group members share assignments and reminders in real time, 
+                keeping everyone in sync. Whether in a class or work group, RemindMe keeps you updated on shared tasks while allowing 
+                you to organize your personal schedule. </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign me up!</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">I'll just look around for now</button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
+    <div class="sign-up">
+        <div class="form-group">
+            <label>Email:</label>
+            <br>
+            <input id="email" type="text">
+        </div>
 
-    <div class="form-group">
-        <label>Email:</label>
-        <br>
-        <input id="email" type="text">
-    </div>
+        <div class="form-group mb-4">
+            <label>Password:</label>
+            <br>
+            <input id="password" type="password">
+        </div>
 
-    <div class="form-group mb-4">
-        <label>Password:</label>
-        <br>
-        <input id="password" type="password">
-    </div>
-
-    <div class="d-grid gap-2 d-sm-flex">
-        <button type="button" class="btn btn-info btn-lg px-4 gap-3">Login/Signup</button>
+        <div class="d-grid gap-2 d-sm-flex">
+            <button type="button" class="btn btn-info btn-lg px-4 gap-3">Login/Signup</button>
+        </div>
     </div>
 
 
