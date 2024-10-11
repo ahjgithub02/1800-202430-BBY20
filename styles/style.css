@@ -1,0 +1,14 @@
+.nav-item .dropdown-toggle {
+    border: 2px solid black; 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 24px; 
+    display: flex; 
+    align-items: center; 
+    height: 40px; 
+}
+
+.nav-item .dropdown-toggle::after {
+    display: none; 
+}
+
