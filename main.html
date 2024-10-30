@@ -12,11 +12,14 @@
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">    
 
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    
 
     <!-- Other libraries go here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -26,6 +29,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Link to styles of your own -->
+    <link href="./styles/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
@@ -64,8 +68,91 @@
             </div>
         </div>
     </nav>
-
-
+        
+    <main class="inner cover">
+        <h1 class="cover-heading">Find your fresh start</h1>
+        <p class="lead"> Start reducing your procrastination right this moment by create and organize your tasks everyday with RemindMe! </p>
+    </main>
+  
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+  
+        <div class="container marketing">
+  
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="rounded-circle" src="./images/andrew.jpg" alt="Andrew profile image" width="140" height="140">              <h2>Andrew Hwang</h2>
+              <p> Project Manager - Designer</p>
+              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <img class="rounded-circle" src="./images/brownie.jpg" alt="Brownie profile image" width="140" height="140">
+              <h2>Brownie Tran</h2>
+              <p> Programmer - System Analyst</p>
+              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <img class="rounded-circle" src="./images/mohammad.png" alt="Mohammad profile image" width="140" height="140">
+              <h2>Mohammad Sadeghi</h2>
+              <p>Programmer - UX/UI</p>
+              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+  
+  
+          <!-- START THE FEATURETTES -->
+  
+          <hr class="featurette-divider">
+  
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading"> Create new reminders</h2>
+              <p class="lead"> Create your reminders to keep track with every assignments and projects in school.
+                Organize your tasks with our priority feature, helps you know which tasks needed to be done first and its deadline through set due dates feature. </p>
+              <p><a class="btn btn-secondary" href="./createNewReminders.html" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-5">
+              <img class="featurette-image img-fluid mx-auto" src="./images/to-doList.webp" alt="Generic placeholder image">
+            </div>
+          </div>
+  
+          <hr class="featurette-divider">
+  
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading"> Join reminders server</h2>
+              <p class="lead"> Helping each other out by collaborating in the reminders server. 
+                Everybody in a group can create a server for adding reminders, assigning tasks, as well as keeping track of events. 
+                This will help keeping everybody on the same page and avoid missing assignments.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img class="featurette-image img-fluid mx-auto" src="./images/reminders_server.webp" alt="Generic placeholder image">
+            </div>
+          </div>
+  
+          <hr class="featurette-divider">
+  
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading"> MyCalendar, for my own sake </h2>
+              <p class="lead"> Use your MyCalendar to organize your own tasks, reminders, and events. 
+                You can always synchronize data from a reminders server to your own MyCalendar to help modify task flow based on your own preferences.</p>
+              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-5">
+              <img class="featurette-image img-fluid mx-auto" src="./images/myCalendar.webp" alt="Generic placeholder image">
+            </div>
+          </div>
+  
+          <hr>
+          <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>   
+          <!-- /END THE FEATURETTES -->
+  
+        </div><!-- /.container -->
+       
     <footer class="py-3 bg-info fixed-bottom">
         <div class="container navbar justify-content-evenly">
             <a href="./createNewReminders.html"><i class="bi bi-plus-circle"></i></a>
@@ -76,8 +163,12 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-
+    
     <!-- Link to scripts of your own -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./scripts/jquery-3.2.1.slim.min.js"><\/script>')</script>
+    <script src="./scripts/popper.min.js"></script>
+    <script src="./scripts/bootstrap.min.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
