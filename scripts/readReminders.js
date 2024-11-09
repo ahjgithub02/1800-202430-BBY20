@@ -36,3 +36,71 @@ function readReminders() {
     });
 
 }
+
+function displayJoindServers() {
+    let ServerTemplate = document.getElementById("serverDropTemplate"); // Retrieve the HTML template element.
+
+    // Check if the user is logged in
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            //find all servers where the owner is the logged in user
+            db.collection("servers").where('owner', '==', user.uid).onSnapshot(
+                (allOwnedServers) => {
+                    document.getElementById("ownedServersDropdown").innerHTML = "";
+
+                    // Iterate through each document in the QuerySnapshot
+                    allOwnedServers.forEach((doc) => {
+                        var serverName = doc.data().name;
+                        var serverId = doc.id;
+
+                        // Clone the template content
+                        let newJoinedServer = ServerTemplate.content.cloneNode(true);
+
+                        // Set the server name and ID in the new item
+                        let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
+                        dropdownItem.innerHTML = serverName + " &#x1F451;";
+                        dropdownItem.id = serverId;
+
+                        // Append the new server item to the dropdown
+                        document.getElementById("ownedServersDropdown").appendChild(newJoinedServer);
+
+                        // Log document data for debugging
+                        console.log(doc.id, " => ", doc.data());
+                    });
+                }
+            );
+            db.collection("users/" + user.uid + "/joinedServers")
+                .onSnapshot(
+                    (allJoinedServers) => {
+                        document.getElementById("joinedServersDropdown").innerHTML = "";
+                        // Iterate through each document in the QuerySnapshot
+                        allJoinedServers.forEach((doc) => {
+                            var serverName = doc.data().name;
+                            var serverId = doc.data().id;
+
+                            // Clone the template content
+                            let newJoinedServer = ServerTemplate.content.cloneNode(true);
+
+                            // Set the server name and ID in the new item
+                            let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
+                            dropdownItem.innerHTML = serverName;
+                            dropdownItem.id = serverId;
+
+                            // Append the new server item to the dropdown
+                            document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+
+                            // Log document data for debugging
+                            console.log(doc.id, " => ", doc.data());
+                        });
+
+                        console.log("Servers have been loaded");
+                    },
+                    (error) => {
+                        console.log("Error getting documents: ", error);
+                    }
+                );
+        } else {
+            console.log("No user is logged in."); // Log a message when no user is logged in
+        }
+    });
+}
