@@ -41,8 +41,9 @@ async function makeServer() {
                 db.collection("servers").add({
                     code: serverCode,
                     description: serverDescription,
-                    name: serverName,
-                    owner: user.uid
+                    severName: serverName,
+                    ownerId: user.uid,
+                    ownerName: user.displayName
                 })
                     .then(() => {
                         console.log("Server created with code: ", serverCode);
