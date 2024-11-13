@@ -4,8 +4,8 @@ function isEmpty(value) {
 }
 
 function writeReminder() {
-    const reminderValue = document.getElementById("valueOfReminder").value;
-    const reminderDueTime = document.getElementById("reminderDueTime").value;
+    const reminderValue = document.getElementById("modalTaskTitle").value;
+    const reminderDueTime = document.getElementById("modalTaskDueTime").value;
 
     if (!isEmpty(reminderValue)) {
         //check if the user is logged in
@@ -17,7 +17,14 @@ function writeReminder() {
                     reminder: reminderValue,
                     priority: "normal",
                     duetime: reminderDueTime
-                })
+                }).then(() => {
+                    console.log("Reminder successfully added!");
+                    // Close the modal after saving
+                    let modal = bootstrap.Modal.getInstance(document.getElementById('taskModal'));
+                    modal.hide();
+                }).catch((error) => {
+                    console.error("Error adding reminder: ", error);
+                });
 
             } else {
                 console.log("No user is logged in."); // Log a message when no user is logged in
@@ -30,4 +37,4 @@ function writeReminder() {
 }
 
 const newReminderButton = document.querySelector("#addReminderButton");
-newReminderButton.addEventListener("click", writeReminder);
+newReminderButton.removeEventListener("click", writeReminder);
