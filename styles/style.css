@@ -36,4 +36,36 @@ footer.py-3.bg-info.fixed-bottom {
     padding-bottom: 0% !important;
 }
 
-    
+.modal-body {
+    padding: 1.5rem; /* Adds padding inside the modal body */
+}
+
+.priority-buttons {
+    display: flex; /* Ensures buttons are aligned horizontally */
+    gap: 0.5rem; /* Adds consistent space between buttons */
+}
+
+.priority-btn {
+    flex: 1; /* Makes all buttons the same width */
+    text-align: center; /* Centers the text inside the buttons */
+    padding: 0.75rem 0; /* Ensures consistent height for all buttons */
+    border-width: 2px; /* Visible border for better styling */
+    transition: all 0.3s ease; /* Smooth hover and focus effect */
+}
+
+.priority-btn:hover, 
+.priority-btn:focus {
+    border-color: #000; /* Highlight border on hover or focus */
+    background-color: #f8f9fa; /* Slightly different background on interaction */
+}
+
+.priority-buttons .btn-check:checked + .priority-btn {
+    border-color: #000; /* Black border when selected */
+    background-color: #000; /* Black background when selected */
+    color: #fff; /* White text when selected */
+}
+
+.priority-buttons .btn-check {
+    display: none; /* Hide the default radio buttons */
+}
+

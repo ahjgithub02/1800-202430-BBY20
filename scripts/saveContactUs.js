@@ -1,3 +1,18 @@
+// Auto-fill name and email when the user is authenticated
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        // Retrieve user details
+        const displayName = user.displayName || ""; // Use Firebase profile name
+        const email = user.email || ""; // Use Firebase profile email
+
+        // Autofill the form fields
+        document.getElementById('nameInput').value = displayName;
+        document.getElementById('emailInput').value = email;
+    } else {
+        console.log("No user is signed in.");
+    }
+});
+
 function saveContactUs() {
     const name = document.getElementById('nameInput').value;
     const email = document.getElementById('emailInput').value;
