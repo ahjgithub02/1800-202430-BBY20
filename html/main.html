@@ -28,6 +28,15 @@
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+     <!-- Firebase libraries -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    
     <!-- Link to styles of your own -->
     <link href="/styles/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles/style.css">
@@ -61,7 +70,7 @@
                             <span class="material-icons">menu</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="./todolist/myCalendar.html">My Calendar</a></li>
+                            <li><a class="dropdown-item" href="/calendar-20/myCalendar.html">My Calendar</a></li>
                             <li><a class="dropdown-item" href="#">My Server</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -90,23 +99,10 @@
   
           <!-- Three columns of text below the carousel -->
           <div class="row">
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="/images/andrew.jpg" alt="Andrew profile image" width="140" height="140">              <h2>Andrew Hwang</h2>
-              <p> Project Manager - Designer</p>
-              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="/images/brownie.jpg" alt="Brownie profile image" width="140" height="140">
-              <h2>Brownie Tran</h2>
-              <p> Programmer - System Analyst</p>
-              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="/images/mohammad.png" alt="Mohammad profile image" width="140" height="140">
-              <h2>Mohammad Sadeghi</h2>
-              <p>Programmer - UX/UI</p>
-              <p><a href="#"><i class="bi bi-linkedin"></i></a></p>
-            </div><!-- /.col-lg-4 -->
+            <h3> Welcome and Thank you for choosing our app <span id="name-goes-here"></span>, 
+              We would love to be a supportive companion on your journey to becoming a more productive person.
+            </h3>
+            <p> Hopes that your time with us leads to great success in your studies at BCIT! </p>
           </div><!-- /.row -->
   
   
@@ -176,6 +172,7 @@
     <script>window.jQuery || document.write('<script src="./scripts/jquery-3.2.1.slim.min.js"><\/script>')</script>
     <script src="/scripts/popper.min.js"></script>
     <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/main.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
