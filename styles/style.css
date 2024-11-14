@@ -103,3 +103,38 @@ th, td {
 th {
     background-color: antiquewhite;
 }
+
+.feature-box {
+    background-color: #fff;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100%; /* Ensure the card takes full height */
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+    color: #0056b3;
+}
+
+.feature-box:hover .card-title {
+    color: #007bff;
+}
+
+.feature-box:focus {
+    outline: none;
+}
+
+.card-body {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Ensure text is centered */
+    padding: 20px; /* Add some padding to prevent content from touching the edges */
+}
