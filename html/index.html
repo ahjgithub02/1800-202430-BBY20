@@ -38,69 +38,169 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- Stuff for body goes here -->
-    <nav class="navbar navbar-expand-lg bg-primary-subtle">
+
+    <nav class="navbar navbar-expand-lg bg-primary-subtle fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./main.html"><img src="/images/RemindMe.jpg" alt="RemindMe" height="50"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <span class="material-icons">menu</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">My Calendar</a></li>
-                            <li><a class="dropdown-item" href="#">My Server</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">To-Do List</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <!-- Brand -->
+            <a class="navbar-brand" href="#top">
+                <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
+                <b>RemindMe</b>
+            </a>
+
+            <!-- Left Side: Features and About Us -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+            </ul>
+
+            <!-- Right Side: Login and Sign Up -->
+            <div class="d-flex">
+                <a href="login.html" class="btn btn-outline-primary me-2" role="button">Login</a>
+                <a href="signup.html" class="btn btn-primary" role="button">Sign Up</a>
             </div>
         </div>
     </nav>
 
+
+
     <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="/images/welcomebanner.jpg" class="d-block mx-lg-auto img-fluid" alt="RemindMe app theme"
-                    width="700" height="500" loading="lazy">
+                <img src="/images/RemindMe.jpg" class="d-block mx-lg-auto img-fluid" alt="RemindMe icon" width="700"
+                    height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to RemindMe</h1>
-                <h3> - Your Ultimate Collaborative Reminder App - </h3>
-                <p class="lead">RemindMe is your go-to app for managing tasks and deadlines while staying connected with
-                    peers.
-                    The Collaborative Live Active Calendar (CLAC) lets group members share assignments and reminders in
-                    real time,
-                    keeping everyone in sync. Whether in a class or work group, RemindMe keeps you updated on shared
-                    tasks while allowing
-                    you to organize your personal schedule. </p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="./login.html" > <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Log in</button> </a>
+                <p class="lead">Stay organized and connected with RemindMe! Share tasks, deadlines, and updates in
+                    real-time with our Collaborative Live Active Calendar (CLAC). Perfect for groups or personal
+                    schedules, RemindMe keeps everyone on track effortlessly.
+                    you to organize your personal schedule.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start align-items-center">
+                    <!-- Email Input -->
+                    <input type="email" class="form-control me-3" placeholder="Enter email address"
+                        aria-label="Email Address" style="width: auto;">
 
+                    <!-- Get Started Button -->
+                    <a href="./login.html">
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Get Started</button>
+                    </a>
+                </div>
+                <!-- Social Media Buttons -->
+                <div class="d-grid gap-2 mt-4">
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Continue with Google</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Continue with Facebook</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Continue with Twitter</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div id="top"></div>
 
-    <footer class="py-3 bg-info fixed-bottom">
-        <div class="container navbar justify-content-evenly"></div>
-    </footer>
+    <div class="container py-5" id="features">
+        <h2 class="text-center fw-bold mb-5 display-4">Features</h2>
+        <!-- Feature 1 -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <h3 class="fw-bold display-5 mb-3 text-primary">Automated Task Lists</h3>
+            <p class="lead fs-4">Effortlessly create or import fully automated task lists that simplify your workflow
+                and help you stay stress-free.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <h3 class="fw-bold display-5 mb-3 text-primary">Collaborative Servers</h3>
+            <p class="lead fs-4">Join collaborative servers to share tasks, updates, and reminders with your team in
+                real time for seamless coordination.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <h3 class="fw-bold display-5 mb-3 text-primary">Calendar Integration</h3>
+            <p class="lead fs-4">Organize your schedule effortlessly with our intuitive calendar feature, designed for
+                productivity and clarity.</p>
+        </div>
+    </div>
+
+    <div class="container py-5" id="about">
+        <h2 class="text-center fw-bold mb-5 display-4">About Us</h2>
+
+        <!-- Andrew Hwang -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <div class="text-center">
+                <img class="rounded-circle mb-3" src="/images/andrew.jpg" alt="Andrew profile image" width="140"
+                    height="140">
+                <h3 class="fw-bold display-6">Andrew Hwang</h3>
+                <p class="lead text-secondary">Project Manager - Designer</p>
+                <p>Andrew is the visionary behind the RemindMe project. With a background in design and project
+                    management, he ensures the app’s development aligns with user needs and expectations.</p>
+                <p>Email: <a href="mailto:andrew@test.ca">andrew@test.ca</a></p>
+                <p><a href="#"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+            </div>
+        </div>
+
+        <!-- Brownie Tran -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <div class="text-center">
+                <img class="rounded-circle mb-3" src="/images/brownie.jpg" alt="Brownie profile image" width="140"
+                    height="140">
+                <h3 class="fw-bold display-6">Brownie Tran</h3>
+                <p class="lead text-secondary">Programmer - System Analyst</p>
+                <p>Brownie specializes in system analysis and backend development, ensuring the app runs smoothly and
+                    handles complex data efficiently. He thrives on solving technical challenges.</p>
+                <p>Email: <a href="mailto:brownie@test.ca">brownie@test.ca</a></p>
+                <p><a href="#"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+            </div>
+        </div>
+
+        <!-- Mohammad Sadeghi -->
+        <div class="mb-4 p-5 bg-light rounded shadow-lg">
+            <div class="text-center">
+                <img class="rounded-circle mb-3" src="/images/mohammad.png" alt="Mohammad profile image" width="140"
+                    height="140">
+                <h3 class="fw-bold display-6">Mohammad Sadeghi</h3>
+                <p class="lead text-secondary">Programmer - UX/UI</p>
+                <p>Mohammad is passionate about creating user-friendly designs and seamless user experiences. His
+                    expertise in UX/UI brings the visual and functional elements of the app together.</p>
+                <p>Email: <a href="mailto:mohammad@test.ca">mohammad@test.ca</a></p>
+                <p><a href="#"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
+
+    <script>
+        // Smooth scroll with an offset to account for the fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+    
+                // Special handling for the #top link
+                if (targetId === 'top') {
+                    window.scrollTo({
+                        top: 0, // Scroll to the very top of the page
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 65, // Adjust 80px offset based on navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 
