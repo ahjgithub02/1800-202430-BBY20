@@ -1,8 +1,4 @@
-// Check if inputted reminder is empty or whitespace
-function isEmpty(value) {
-    return (value == null || (typeof value === "string" && value.trim().length === 0));
-}
-
+//This random code generated is from https://sentry.io/answers/generate-random-string-characters-in-javascript/
 function generateServerCode() {
     //characters that could be included in a servers code
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
