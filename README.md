@@ -39,11 +39,10 @@ What we'd like to build in the future:
 ## 7. Contents of Folder
 Content of the project folder:
 
-```
-
 ## 8. Code acknowledgement
 * generateServerCode function in makeServer.js is from https://sentry.io/answers/generate-random-string-characters-in-javascript/
 
+```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
