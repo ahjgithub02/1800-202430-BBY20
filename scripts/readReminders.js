@@ -44,13 +44,13 @@ function displayJoindServers() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             //find all servers where the owner is the logged in user
-            db.collection("servers").where('owner', '==', user.uid).onSnapshot(
+            db.collection("servers").where('ownerId', '==', user.uid).onSnapshot(
                 (allOwnedServers) => {
                     document.getElementById("ownedServersDropdown").innerHTML = "";
 
                     // Iterate through each document in the QuerySnapshot
                     allOwnedServers.forEach((doc) => {
-                        var serverName = doc.data().name;
+                        var serverName = doc.data().serverName;
                         var serverId = doc.id;
 
                         // Clone the template content

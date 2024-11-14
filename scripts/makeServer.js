@@ -1,4 +1,4 @@
-//This random code generated is from https://sentry.io/answers/generate-random-string-characters-in-javascript/
+//This random code generated function is from https://sentry.io/answers/generate-random-string-characters-in-javascript/
 function generateServerCode() {
     //characters that could be included in a servers code
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
