@@ -6,6 +6,15 @@ function isEmpty(value) {
 function writeReminder() {
     const reminderValue = document.getElementById("modalTaskTitle").value;
     const reminderDueTime = document.getElementById("modalTaskDueTime").value;
+    const reminderPriorityButtons = document.querySelectorAll('input[name="priority"]');
+
+    let reminderPriority = "";
+
+    reminderPriorityButtons.forEach(button => {
+        if (button.checked) {
+            reminderPriority = button.defaultValue;
+        }
+    });
 
     if (!isEmpty(reminderValue)) {
         //check if the user is logged in
@@ -15,7 +24,7 @@ function writeReminder() {
 
                 reminders.add({
                     reminder: reminderValue,
-                    priority: "normal",
+                    priority: reminderPriority,
                     duetime: reminderDueTime
                 }).then(() => {
                     console.log("Reminder successfully added!");
