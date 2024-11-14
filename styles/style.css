@@ -27,7 +27,7 @@ main.inner.cover{
 }
 
 .container.col-xxl-8.px-4.py-5, .row.flex-lg-row-reverse.align-items-center.g-5.py-5 {
-    padding-top: 10px !important;
+    padding-top: 50px !important;
     padding-bottom: 0% !important;
 }
 
@@ -69,3 +69,37 @@ footer.py-3.bg-info.fixed-bottom {
     display: none; /* Hide the default radio buttons */
 }
 
+.jumbotron {
+    padding: 50px 0;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+
+#server-container {
+    background-color:aquamarine;
+}
+
+#owned-container{
+    display: none;
+}
+
+#joined-container {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 3px solid blueviolet;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: antiquewhite;
+}

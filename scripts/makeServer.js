@@ -41,7 +41,7 @@ async function makeServer() {
                 db.collection("servers").add({
                     code: serverCode,
                     description: serverDescription,
-                    severName: serverName,
+                    serverName: serverName,
                     ownerId: user.uid,
                     ownerName: user.displayName
                 })
