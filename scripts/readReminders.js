@@ -27,7 +27,7 @@ function readReminders() {
                         console.log("Error getting documents: ", error);
                     }
                 );
-                console.log("Reminders have been loaded");
+            console.log("Reminders have been loaded");
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }

@@ -44,7 +44,7 @@
 
 </head>
 
-<body>
+<body onload="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
 
   <!------------------------------>
   <!-- Your HTML Layout go here -->
@@ -118,30 +118,21 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>Your Servers</h2>
-          <p>Show every servers that you owned or joined. </p>
-          <span style="display: table-row">
-            <input class="btn btn-secondary" id="list_owned" type="button" value="Owned Servers"
-              style="background-color: #0d6efd; margin-right: 15px;">
-            <input class="btn btn-secondary" id="list_joined" type="button" value="Joined Servers"
-              style="background-color:aqua; border-color: aqua;">
-          </span>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md">
           <h2>Join Server</h2>
           <p>Joining your class or group reminder server with just a simple code. </p>
-          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md">
           <h2>Create Server</h2>
           <p>Create your own server and invite other people to help build a more productive group.</p>
-          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
         </div>
       </div>
       <hr>
 
       <div id="server-container">
+        <h2>Owned Servers</h2>
         <div id="owned-container">
           <table>
             <thead>
@@ -155,6 +146,8 @@
             </tbody>
           </table>
         </div>
+        <hr>
+        <h2>Joined Servers</h2>
         <div id="joined-container">
           <table>
             <thead>
