@@ -15,17 +15,34 @@ async function joinServer() {
                 } else {
                     console.log("Found a match");
                     const docRefId = querySnapshot.docs[0];
+                    let ifJoined = false;
 
-                    const ifJoined = await db.collection("users/" + user.uid + "/joinedServers").where('id', '==', docRefId.id).get();
+                    await db.doc("users/" + user.uid).get().then(doc => {
+                        if (doc.exists) {
+                            const joinedServersArray = doc.data().joinedServersArray;
+
+                            if (joinedServersArray && joinedServersArray.includes(docRefId.id)) { 
+                                ifJoined = true;
+                            }
+                        } else {
+                            console.error("User document not found");
+                        }
+                    }).catch(error => {
+                        console.error("Error fetching user document: ", error);
+                    });
+
+
 
                     const ifOwner = docRefId.data().ownerId === user.uid;
 
                     if (!ifOwner) {
                         //check if user already in server
-                        if (ifJoined.empty) {
-                            db.collection("users/" + user.uid + "/joinedServers").add({
-                                id: docRefId.id,
-                                name: docRefId.data().serverName
+                        if (!ifJoined) {
+                            db.doc("users/" + user.uid).set({
+                                joinedServersArray: firebase.firestore.FieldValue.arrayUnion(docRefId.id)
+
+                            }, {
+                                merge: true
                             })
                                 .then(() => {
                                     console.log("Joined server!");

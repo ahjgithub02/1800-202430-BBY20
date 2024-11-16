@@ -2,189 +2,199 @@
 <html lang="en">
 
 <head>
-    <title>Home Page</title>
-    <meta name="comp1800 template" content="My 1800 App">
+  <title>Collaborative Live Active Calendar</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/"> 
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
 
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous">
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    
 
-    <!-- Other libraries go here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Other libraries go here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-     <!-- Firebase libraries -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    
-    <!-- Link to styles of your own -->
-    <link href="/styles/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/style.css">
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="icon" href="/images/favicon.ico">
+  <!-- Firebase libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <!-- Link to styles of your own -->
+  <link href="/styles/carousel.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <link rel="icon" href="/images/favicon.ico">
 
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
 
-    <template id="serverTemplate">
-      <tr class="servers">
-        <td class="serverCode"></td>
-        <td class="serverName"></td>
-        <td class="serverDescription"></td>
-      </tr>
-    </template>
+  <!-- Templates -->
+  <template id="ownedServersTemplate">
+    <tr class="servers">
+      <td class="serverCode"></td>
+      <td class="serverName"></td>
+      <td class="serverDescription"></td>
+    </tr>
+  </template>
 
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <nav class="navbar navbar-expand-lg bg-primary-subtle">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/html/main.html"><img src="/images/RemindMe.jpg" alt="RemindMe" height="50"> </a>
-            <a class="navbar-brand" href="/html/main.html"> Home </a>
-            <a class="navbar-brand" href="/html/profile/profile.html"> Profile</a>
-            <a class="navbar-brand" href="/html/contact/contactUs.html"> Contact</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <span class="material-icons">menu</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="/calendar-20/myCalendar.html">My Calendar</a></li>
-                            <li><a class="dropdown-item" href="./serverPage.html">My Server</a></li>
-                            <li><a class="dropdown-item" href="#">To-Do List</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <div class="d-flex" style="margin-left: 15px;">
-                              <a class="btn btn-outline-success" id="logoutButton" href="/html/index.html">Logout</a>
-                          </div>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+  <template id="joinedServersTemplate">
+    <tr class="servers">
+      <td class="serverCode"></td>
+      <td class="serverName"></td>
+      <td class="serverDescription"></td>
+    </tr>
+  </template>
+
+  <!------------------------------>
+  <!-- Stuff for body goes here -->
+  <nav class="navbar navbar-expand-lg bg-primary-subtle">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/html/main.html"><img src="/images/RemindMe.jpg" alt="RemindMe" height="50"> </a>
+      <a class="navbar-brand" href="/html/main.html"> Home </a>
+      <a class="navbar-brand" href="/html/profile/profile.html"> Profile</a>
+      <a class="navbar-brand" href="/html/contact/contactUs.html"> Contact</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="material-icons">menu</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="/calendar-20/myCalendar.html">My Calendar</a></li>
+              <li><a class="dropdown-item" href="./serverPage.html">My Server</a></li>
+              <li><a class="dropdown-item" href="#">To-Do List</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <div class="d-flex" style="margin-left: 15px;">
+                <a class="btn btn-outline-success" id="logoutButton" href="/html/index.html">Logout</a>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Collaborative Live Active Calendar (CLAC)</h1>
+        <p>This is our app's core feature which will allow you and other people in
+          the same group to create tasks and reminders to notify everybody about
+          every deadline and its due date. By collaborating in this server, you can
+          help and get help on every assignment's deadlines which a lot of people usually forget!
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Your Servers</h2>
+          <p>Show every servers that you owned or joined. </p>
+          <span style="display: table-row">
+            <input class="btn btn-secondary" id="list_owned" type="button" value="Owned Servers"
+              style="background-color: #0d6efd; margin-right: 15px;">
+            <input class="btn btn-secondary" id="list_joined" type="button" value="Joined Servers"
+              style="background-color:aqua; border-color: aqua;">
+          </span>
         </div>
-    </nav>
-        
-    <main>
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-          <div class="container">
-            <h1 class="display-3">Collaborative Live Active Calendar (CLAC)</h1>
-            <p>This is our app's core feature which will allow you and other people in 
-                the same group to create tasks and reminders to notify everybody about 
-                every deadline and its due date. By collaborating in this server, you can
-                help and get help on every assignment's deadlines which a lot of people usually forget!
-            </p>
-          </div>
+        <div class="col-md-4">
+          <h2>Join Server</h2>
+          <p>Joining your class or group reminder server with just a simple code. </p>
+          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">View details &raquo;</a></p>
         </div>
-  
-        <div class="container">
-          <!-- Example row of columns -->
-          <div class="row">
-            <div class="col-md-4">
-              <h2>Your Servers</h2>
-              <p>Show every servers that you owned or joined. </p>
-              <span style="display: table-row"> 
-                <input class="btn btn-secondary" id="list_owned" type="button" value="Owned Servers" style="background-color: #0d6efd; margin-right: 15px;">
-                <input class="btn btn-secondary" id="list_joined" type="button" value="Joined Servers" style="background-color:aqua; border-color: aqua;"> 
-              </span>
-            </div>
-            <div class="col-md-4">
-              <h2>Join Server</h2>
-              <p>Joining your class or group reminder server with just a simple code. </p>
-              <p><a class="btn btn-secondary" href="./joinServer.html" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-              <h2>Create Server</h2>
-              <p>Create your own server and invite other people to help build a more productive group.</p>
-              <p><a class="btn btn-secondary" href="./makeServer.html" role="button">View details &raquo;</a></p>
-            </div>
-          </div>
-          <hr>
+        <div class="col-md-4">
+          <h2>Create Server</h2>
+          <p>Create your own server and invite other people to help build a more productive group.</p>
+          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+      <hr>
 
-          <div id="server-container">
-            <div id="owned-container">
-              <table> 
-                <thead>
-                  <tr>
-                    <th> Server Code</th>
-                    <th> Server Name</th>
-                    <th> Description</th>
-                  </tr>
-                </thead>
-                <tbody id="owned"> 
-                </tbody>
-              </table>
-            </div>
-            <div id="joined-container">
-              <table> 
-                <thead>
-                  <tr>
-                    <th> Server Code</th>
-                    <th> Server Name</th>
-                    <th> Description</th>
-                  </tr>
-                </thead>
-                <tbody id="joined"> 
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div id="server-container">
+        <div id="owned-container">
+          <table>
+            <thead>
+              <tr>
+                <th> Server Code</th>
+                <th> Server Name</th>
+                <th> Description</th>
+              </tr>
+            </thead>
+            <tbody id="owned">
+            </tbody>
+          </table>
+        </div>
+        <div id="joined-container">
+          <table>
+            <thead>
+              <tr>
+                <th> Server Code</th>
+                <th> Server Name</th>
+                <th> Description</th>
+              </tr>
+            </thead>
+            <tbody id="joined">
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-            <hr>
-            <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>   
-        </div>  
-    </main>
-       
-    <footer class="py-3 bg-info fixed-bottom">
-          <div class="container navbar justify-content-evenly">
-              <a href="/html/reminders/createNewReminders.html"><i class="bi bi-plus-circle"></i></a>
-              <a href="./joinServer.html"><i class="bi bi-cloud"></i></a>
-              <a href="/html/reminders/reminders.html"><i class="bi bi-calendar-check-fill"></i></a>
-          </div>
-    </footer>
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+      <hr>
+      <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
+    </div>
+  </main>
 
-    <!-- Link to scripts of your own -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/scripts/firebaseAPI_BBY20.js"></script>
-    <script src="/scripts/server.js"></script>
-    <script src="/scripts/signout.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <footer class="py-3 bg-info fixed-bottom">
+    <div class="container navbar justify-content-evenly">
+      <a href="/html/reminders/createNewReminders.html"><i class="bi bi-plus-circle"></i></a>
+      <a href="./joinServer.html"><i class="bi bi-cloud"></i></a>
+      <a href="/html/reminders/reminders.html"><i class="bi bi-calendar-check-fill"></i></a>
+    </div>
+  </footer>
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+
+  <!-- Link to scripts of your own -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="/scripts/firebaseAPI_BBY20.js"></script>
+  <script src="/scripts/server.js"></script>
+  <script src="/scripts/signout.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 

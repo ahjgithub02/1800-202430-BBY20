@@ -21,15 +21,13 @@ function readReminders() {
                             newreminder.querySelector('.timeText').innerHTML = reminderDueDate;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
-
-                            console.log(doc.id, " => ", doc.data());
-                            console.log("Reminders have been loaded");
                         });
                     },
                     (error) => {
                         console.log("Error getting documents: ", error);
                     }
                 );
+                console.log("Reminders have been loaded");
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }
@@ -63,34 +61,37 @@ function displayJoindServers() {
 
                         // Append the new server item to the dropdown
                         document.getElementById("ownedServersDropdown").appendChild(newJoinedServer);
-
-                        // Log document data for debugging
-                        console.log(doc.id, " => ", doc.data());
                     });
                 }
             );
-            db.collection("users/" + user.uid + "/joinedServers")
+            db.doc("users/" + user.uid)
                 .onSnapshot(
-                    (allJoinedServers) => {
+                    (doc) => {
                         document.getElementById("joinedServersDropdown").innerHTML = "";
                         // Iterate through each document in the QuerySnapshot
-                        allJoinedServers.forEach((doc) => {
-                            var serverName = doc.data().name;
-                            var serverId = doc.data().id;
+                        const joinedServersArray = doc.data().joinedServersArray;
 
-                            // Clone the template content
-                            let newJoinedServer = ServerTemplate.content.cloneNode(true);
+                        //iterates for every item(server Id) in the joinedServersArray
+                        joinedServersArray.forEach(async (doc) => {
+                            //gets the document of the server using its id in the array
+                            await db.doc("servers/" + doc).get().then(server => {
+                                var serverName = server.data().serverName;
+                                var serverId = server.id;
 
-                            // Set the server name and ID in the new item
-                            let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
-                            dropdownItem.innerHTML = serverName;
-                            dropdownItem.id = serverId;
+                                // Clone the template content
+                                let newJoinedServer = ServerTemplate.content.cloneNode(true);
 
-                            // Append the new server item to the dropdown
-                            document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+                                // Set the server name and ID in the new item
+                                let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
+                                dropdownItem.innerHTML = serverName;
+                                dropdownItem.id = serverId;
 
-                            // Log document data for debugging
-                            console.log(doc.id, " => ", doc.data());
+                                // Append the new server item to the dropdown
+                                document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+
+                            }).catch(error => {
+                                console.error("Error fetching user document: ", error);
+                            });
                         });
 
                         console.log("Servers have been loaded");
