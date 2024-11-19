@@ -8,10 +8,17 @@
     height: 40px; 
 }
 
+.bg-secondary-subtle{
+    background-color: #5A2A27 !important;
+}
+
 .nav-item .dropdown-toggle::after {
     display: none; 
 }
 
+body {
+    background-color: #C4BBAF;
+}
 
 main.inner.cover{
     padding: 7rem 0;
@@ -140,7 +147,6 @@ th {
 }
 
 .card-body {
-    display: flex; /* Use flexbox */
     flex-direction: column; /* Stack items vertically */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
