@@ -52,7 +52,7 @@
 
 </head>
 
-<body onload="readReminders(), displayJoindServers()">
+<body onload="readPersonalReminders(), displayJoindServers()">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -77,9 +77,19 @@
         </div>
     </template>
 
-    <template id="serverDropTemplate">
-        <a class="dropdown-item" id="" href="#">Action</a>
+    <template>
+        <div class="row">
+            <div class="col-12 mb-2">
+                <button class="btn btn-secondary w-100 mb-1"></button>
+            </div>
+        </div>
     </template>
+
+    <template id="serverDropTemplate">
+        <a class="dropdown-item server" id="" href="#">Action</a>
+    </template>
+
+    <!-- End of templates -->
 
 
     <nav class="navbar navbar-expand-lg bg-primary-subtle">
@@ -122,15 +132,15 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-6">
-                <button class="btn btn-primary w-100">Own list</button>
+                <button onclick="readPersonalReminders()" class="btn btn-lg catagory-button  w-100">Own list</button>
             </div>
             <div class="col-6">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton"
+                    <button class="btn catagory-button btn-lg dropdown-toggle w-100" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Shared list
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu server-dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <div id="ownedServersDropdown"></div>
                         <div id="joinedServersDropdown"></div>
                     </div>
@@ -140,18 +150,14 @@
 
         <div class="card shadow-sm border-0">
             <div class="card-body">
-                <h2 class="text-center server-name">Personal Reminders</h2>
+                <h2 class="text-center" id="server-name"></h2>
             </div>
 
             <div class="container">
                 <div class="row">
                     <!-- Channels List -->
                     <div class="col-md-2" id="channels-list">
-                        <div class="row">
-                            <div class="col-12 mb-2">
-                                <button class="btn btn-secondary w-100 mb-1">COMP 1100</button>
-                            </div>
-                        </div>
+
                     </div>
 
                     <!-- Reminders List -->

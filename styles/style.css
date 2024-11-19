@@ -45,6 +45,27 @@ footer.py-3.bg-info.fixed-bottom {
     gap: 0.5rem; /* Adds consistent space between buttons */
 }
 
+.catagory-button {
+    background-color: #7a5e56;
+    color: white;
+}
+
+.server-dropdown-menu{
+    background-color: #aa8478;
+    transition: all 0.5s ease;
+}
+
+.server:focus,
+.server:hover {
+    background-color:#b38d7f;
+}
+
+.catagory-button:hover,
+.catagory-button:focus {
+    background-color: #71574f;
+    color: white;
+}
+
 .priority-btn {
     flex: 1; /* Makes all buttons the same width */
     text-align: center; /* Centers the text inside the buttons */
