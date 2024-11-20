@@ -176,7 +176,7 @@ th {
   .col-3 {
     background-color: #C4BBAF; /* Updated background color */
   }
-  
+
   .list-group {
     list-style: none; /* Removes bullet points */
     padding: 0;
@@ -195,6 +195,22 @@ th {
   .list-item button:hover {
     text-decoration: underline;
   }
+
+  .add-list {
+    font-size: 25px;
+    background-color: #5C4742;
+
+  }
+
+  .add-list i{
+    font-size: 29px;
+    margin-right: 10px;
+  }
+
+  .add-list button {
+    display: flex;
+    align-items: center;
+  }
   
   /* Dividing Sections */
   .mb-auto {
@@ -203,4 +219,8 @@ th {
   
   .mt-auto {
     margin-top: auto;
+  }
+
+  footer {
+    display: none;
   }

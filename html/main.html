@@ -143,9 +143,9 @@
       </div>
   
       <!-- Lists Section -->
-      <div class="col-3 border-end d-flex flex-column" style="height: 100vh; padding: 20px; background-color: #C4BBAF;">
+      <div class="col-3 border-end d-flex flex-column" style="height: 100vh; padding: 20px; padding-bottom: 0%; background-color: #C4BBAF;">
         <h4 class="text-dark">Lists</h4>
-        <ul id="navigationListsTop" class="list-group list-group-flush">
+        <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
           <li class="list-item">
             <button class="btn btn-link text-decoration-none w-100 text-start text-dark" onclick="selectList('own')">
               Own List
@@ -157,6 +157,11 @@
             </button>
           </li>
         </ul>
+        <div class="add-list mt-auto">  
+          <button class="btn btn-link text-decoration-none w-100 text-start text-white">
+            <i class="bi bi-plus"></i> New list
+          </button>
+        </div>
       </div>
   
       <!-- Selected Lists Section -->
