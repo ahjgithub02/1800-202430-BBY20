@@ -1,5 +1,4 @@
 function readPersonalReminders() {
-    let numOfReminders = 0;
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
 
     //check if the user is logged in
@@ -8,6 +7,7 @@ function readPersonalReminders() {
             db.collection("users/" + user.uid + "/reminders")
                 .onSnapshot(
                     (allReminders) => {
+                        let numOfReminders = 0;
                         document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
                         allReminders.forEach((doc) => {
                             numOfReminders++;
@@ -31,6 +31,7 @@ function readPersonalReminders() {
                         console.log("Error getting documents: ", error);
                     }
                 );
+            document.getElementById("addReminder").addEventListener('click', writePersonalReminder);
             console.log("Reminders have been loaded");
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -66,6 +67,7 @@ function displayJoindServers() {
                         // Append the new server item to the dropdown
                         document.getElementById("ownedServersDropdown").appendChild(newJoinedServer);
 
+                        
                         dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
 
                     });
@@ -117,7 +119,18 @@ function displayJoindServers() {
 }
 
 function readServerReminders(serverId, serverName) {
-    let numOfReminders = 0;
+    let addReminderButton = document.getElementById("addReminder");
+
+    // Remove all event listeners by replacing the element with its clone
+    let newAddReminderButton = addReminderButton.cloneNode(true);
+    addReminderButton.parentNode.replaceChild(newAddReminderButton, addReminderButton);
+
+    // Update reference to the new button
+    addReminderButton = newAddReminderButton;
+
+    // Add the event listener with a reference to the serverId
+    addReminderButton.addEventListener('click', () => writeServerReminder(serverId));
+    
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
 
     //check if the user is logged in
@@ -126,6 +139,7 @@ function readServerReminders(serverId, serverName) {
             db.collection("servers/" + serverId + "/reminders")
                 .onSnapshot(
                     (allReminders) => {
+                        let numOfReminders = 0;
                         document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
                         allReminders.forEach((doc) => {
                             numOfReminders++;
@@ -151,10 +165,9 @@ function readServerReminders(serverId, serverName) {
                 );
             console.log(serverName + " reminders have been loaded");
             document.getElementById("server-name").innerHTML = serverName;
+
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }
     });
-
-
 }
