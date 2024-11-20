@@ -48,7 +48,7 @@
             </a>
     
             <!-- Left Side: Features and About Us -->
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto d-flex flex-row ">
                 <li class="nav-item">
                     <a class="nav-link" href="#features" style="color: white;">Features</a>
                 </li>
@@ -62,7 +62,7 @@
                 <a href="login.html" class="btn btn-outline-light me-2" role="button"
                     style="color: white; border-color: white;">Login</a>
                 <a href="signup.html" class="btn btn-primary" role="button"
-                    style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">Sign Up</a>
+                    style="background-color: #8D5B4C; color: white; border-color: #8D5B4C; display: none;">Sign Up</a>
             </div>
         </div>
     </nav>
@@ -71,8 +71,8 @@
     <div style="background-color: #C4BBAF;">
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="/images/RemindMe.jpg" class="d-block mx-lg-auto img-fluid" alt="RemindMe icon" width="700"
+                <div id="main-image-div" class="col-10 col-sm-8 col-lg-6">
+                    <img id="main-image" src="/images/RemindMe.jpg" class="d-block mx-lg-auto img-fluid" alt="RemindMe icon" width="700"
                         height="500" loading="lazy">
                 </div>
                 <div class="col-lg-6">
@@ -86,11 +86,9 @@
                             aria-label="Email Address" style="width: auto;">
 
                         <!-- Get Started Button -->
-                        <a href="./login.html">
-                            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2"
-                                style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">Get
-                                Started</button>
-                        </a>
+                        <a href="./login.html" class="btn btn-primary btn-lg px-4 me-md-2"
+                        style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">
+                        Get Started </a>
                     </div>
                     <!-- Social Media Buttons -->
                     <div class="d-grid gap-2 mt-4">

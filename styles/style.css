@@ -261,3 +261,31 @@ footer {
     z-index: 1050 !important;
     /* Make sure the toast appears on top */
 }
+
+@media only screen and (max-width: 700px){
+    
+    #main-image-div  {
+        align-self: center;
+        justify-self: center;
+        margin-top: 50px;
+        width: 250px;
+
+    }
+
+    .nav-item {
+        padding-right: 15px;
+    }
+
+    .row {
+        display: table-row;
+    }
+
+    #main-image {
+        width: 50vw;
+        height: 55vw;
+    }
+
+    .col-lg-6 {
+        margin-top: 24px;
+    }
+}
