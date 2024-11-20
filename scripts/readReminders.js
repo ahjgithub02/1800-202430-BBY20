@@ -1,4 +1,5 @@
 function readPersonalReminders() {
+    let numOfReminders = 0;
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
 
     //check if the user is logged in
@@ -9,6 +10,7 @@ function readPersonalReminders() {
                     (allReminders) => {
                         document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
                         allReminders.forEach((doc) => {
+                            numOfReminders++;
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
@@ -22,6 +24,7 @@ function readPersonalReminders() {
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
+                        document.getElementById("reminderCount").innerHTML = numOfReminders;
                         document.getElementById("server-name").innerHTML = "Personal";
                     },
                     (error) => {
@@ -114,7 +117,7 @@ function displayJoindServers() {
 }
 
 function readServerReminders(serverId, serverName) {
-
+    let numOfReminders = 0;
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
 
     //check if the user is logged in
@@ -125,6 +128,8 @@ function readServerReminders(serverId, serverName) {
                     (allReminders) => {
                         document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
                         allReminders.forEach((doc) => {
+                            numOfReminders++;
+
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
@@ -138,6 +143,7 @@ function readServerReminders(serverId, serverName) {
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
+                        document.getElementById("reminderCount").innerHTML = numOfReminders;
                     },
                     (error) => {
                         console.log("Error getting documents: ", error);

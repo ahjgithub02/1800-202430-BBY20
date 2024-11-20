@@ -3,7 +3,7 @@ function isEmpty(value) {
     return (value == null || (typeof value === "string" && value.trim().length === 0));
 }
 
-function writeReminder() {
+function writePersonalReminder() {
     const reminderValue = document.getElementById("modalTaskTitle").value;
     const reminderDueTime = document.getElementById("modalTaskDueTime").value;
     const reminderPriorityButtons = document.querySelectorAll('input[name="priority"]');
@@ -29,7 +29,7 @@ function writeReminder() {
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
-                    let modal = bootstrap.Modal.getInstance(document.getElementById('taskModal'));
+                    let modal = bootstrap.Modal.getInstance(document.getElementById("taskModal"));
                     modal.hide();
                 }).catch((error) => {
                     console.error("Error adding reminder: ", error);
@@ -46,4 +46,4 @@ function writeReminder() {
 }
 
 const newReminderButton = document.querySelector("#addReminderButton");
-newReminderButton.removeEventListener("click", writeReminder);
+newReminderButton.removeEventListener("click", writePersonalReminder);
