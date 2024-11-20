@@ -118,93 +118,67 @@
     </div>
   </nav>
 
-      <!-- Main Page Content -->
-      <div class="container mt-5">
-        <div class="card shadow-sm border-0">
-            <div class="card-body">
-                <div class="mb-3">
-                    <label for="valueOfReminder" class="form-label">Your Lists</label>
+  <div class="container mt-5">
+    <!-- Main Flexbox -->
+    <div class="d-flex flex-row" style="height: 80vh;">
+        <!-- Task List Section -->
+        <div class="d-flex flex-column" style="width: 25%; background-color: #f8f9fa; padding: 15px; border-right: 1px solid #ddd;">
+            <!-- Own List -->
+            <button onclick="readPersonalReminders()" class="btn btn-lg catagory-button w-100 mb-3">Own List</button>
+            <div id="personalTaskList" class="mb-4">
+                <!-- List Own Tasks Here -->
+            </div>
+            <!-- Shared List -->
+            <div class="dropdown">
+                <button class="btn catagory-button btn-lg dropdown-toggle w-100" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Shared List
+                </button>
+                <div class="dropdown-menu server-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div id="ownedServersDropdown"></div>
+                    <div id="joinedServersDropdown"></div>
                 </div>
-
-                <!-- Button to open modal -->
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" id="addReminderButton" type="button" data-bs-toggle="modal"
-                        data-bs-target="#taskModal">
-                        + Add New List
-                    </button>
-                </div>
-
-                <!-- Go Back Button -->
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="taskModalLabel">Create New Task</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Reminders Section -->
+        <div class="flex-grow-1 d-flex flex-column" style="width: 75%;">
+            <!-- Reminders Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4"
+                style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
+                <div class="d-flex align-items-center">
+                    <h2 class="mb-0 text-white me-3">Reminders</h2>
+                    <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
                 </div>
-                <div class="modal-body">
-                    <!-- Task Creation Form Inside Modal -->
-                    <div class="mb-3">
-                        <label for="modalTaskTitle" class="form-label">Task Name</label>
-                        <input type="text" class="form-control" id="modalTaskTitle" placeholder="Enter Task Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modalTaskDueTime" class="form-label">Due Date and Time</label>
-                        <input type="datetime-local" class="form-control" id="modalTaskDueTime" name="modalTaskDueTime" required>
-                    </div>
-                    <!-- Priority Options -->
-                    <div class="mb-3">
-                        <label class="form-label">Priority</label>
-                        <div class="priority-buttons">
-                            <input type="radio" class="btn-check" name="priority" id="priority-highest" value="highest" required>
-                            <label class="btn btn-outline-dark priority-btn" for="priority-highest">Highest</label>
-                
-                            <input type="radio" class="btn-check" name="priority" id="priority-moderate" value="moderate">
-                            <label class="btn btn-outline-dark priority-btn" for="priority-moderate">Moderate</label>
-                
-                            <input type="radio" class="btn-check" name="priority" id="priority-low" value="low">
-                            <label class="btn btn-outline-dark priority-btn" for="priority-low">Low</label>
-                
-                            <!-- No Priority Selected by Default -->
-                            <input type="radio" class="btn-check" name="priority" id="priority-none" value="none" checked>
-                            <label class="btn btn-outline-dark priority-btn" for="priority-none">No Priority</label>
+                <!-- Add Reminder Button -->
+                <a class="btn d-flex justify-content-center align-items-center" id="addReminderButton"
+                    title="Add a New Reminder" href="./reminders/createNewReminders.html"
+                    style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
+                    +
+                </a>
+            </div>
+            <!-- Reminders List -->
+            <div class="card shadow-sm border-0 flex-grow-1">
+                <div class="card-body">
+                    <h2 class="text-center" id="server-name"></h2>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <!-- Channels List -->
+                        <div class="col-md-2" id="channels-list">
+                        </div>
+                        <!-- Reminders List -->
+                        <div class="col-md-10" id="reminders-list">
                         </div>
                     </div>
-                </div>                
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="writeReminder()">Save Task</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-  <!-- Marketing messaging and featurettes
-        ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <h2 class="text-center mt-5" id="name-goes-here"></h2>
-
-  <div class="container py-5">
-    <!-- Reminders Title and Counter Box -->
-    <div class="d-flex justify-content-between align-items-center mb-4"
-      style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
-      <div class="d-flex align-items-center">
-        <h2 class="mb-0 text-white me-3">Reminders</h2>
-        <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
-      </div>
-      <!-- Add Reminder Button -->
-      <a class="btn d-flex justify-content-center align-items-center" id="addReminderButton" title="Add a New Reminder"
-        href="./reminders/createNewReminders.html"
-        style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
-        +
-      </a>
-    </div>
+    
 
 
   </div>
