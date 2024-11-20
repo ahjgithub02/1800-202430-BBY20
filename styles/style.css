@@ -1,11 +1,15 @@
 .nav-item .dropdown-toggle {
-    border: 2px solid black; 
+    border: 2px solid white; 
     border-radius: 8px; 
     padding: 10px 20px; 
     font-size: 24px; 
     display: flex; 
     align-items: center; 
     height: 40px; 
+}
+
+.material-icons {
+    color: white;
 }
 
 .bg-secondary-subtle{
@@ -153,3 +157,50 @@ th {
     text-align: center; /* Ensure text is centered */
     padding: 20px; /* Add some padding to prevent content from touching the edges */
 }
+
+/* Left Navbar */
+.col-1 {
+    background-color: #8D5B4C; /* Updated background color */
+  }
+  
+  .col-1 button {
+    font-size: 24px;
+    color: #FFFFFF; /* White icon color */
+  }
+  
+  .col-1 button:hover {
+    color: #D9C4B6; /* Light beige hover effect */
+  }
+  
+  /* Lists and Selected Lists */
+  .col-3 {
+    background-color: #C4BBAF; /* Updated background color */
+  }
+  
+  .list-group {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list-group .list-item {
+    padding: 10px 0;
+  }
+  
+  .list-item button {
+    font-size: 18px;
+    color: #5C4742; /* Adjusted text color to a darker brown */
+  }
+  
+  .list-item button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dividing Sections */
+  .mb-auto {
+    margin-bottom: auto;
+  }
+  
+  .mt-auto {
+    margin-top: auto;
+  }
