@@ -124,10 +124,10 @@
 
   <h2 class="text-center mt-5" id="name-goes-here"></h2>
 
-  <div class="main container-fluid py-5">
+  <div class="container-fluid py-5">
     <div class="row">
       <!-- Left Sidebar Navbar -->
-      <div id="left-sidebar" class="col-1 d-flex flex-column align-items-center py-3" style="background-color: #8D5B4C; height: 100vh;">
+      <div class="col-1 d-flex flex-column align-items-center py-3" style="background-color: #8D5B4C; height: 100vh;">
         <button class="btn btn-link text-light p-3" onclick="selectList('own')" title="Own List">
           <i class="bi bi-person"></i>
         </button>
@@ -143,16 +143,15 @@
       </div>
 
       <!-- Lists Section -->
-      <div id="lists-section" class="col-3 border-end d-flex flex-column"
+      <div class="col-3 border-end d-flex flex-column"
         style="height: 100vh; padding: 20px; padding-bottom: 0%; background-color: #C4BBAF;">
         <h4 class="text-dark">Lists</h4>
         <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
-          <li id="own-list" class="list-item">
+          <li class="list-item">
             <button class="btn btn-link text-decoration-none w-100 text-start text-dark" onclick="selectList('own')">
               Own List
             </button>
           </li>
-          <li><hr></li>
           <li class="list-item">
             <button class="btn btn-link text-decoration-none w-100 text-start text-dark" onclick="selectList('shared')">
               Shared List
@@ -160,14 +159,14 @@
           </li>
         </ul>
         <div class="add-list mt-auto">
-          <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal" data-bs-target="#newListModal">
+          <button class="btn btn-link text-decoration-none w-100 text-start text-white">
             <i class="bi bi-plus"></i> New list
           </button>
-        </div>        
+        </div>
       </div>
 
       <!-- Selected Lists Section -->
-      <div id="selected-list-section" class="col-3 border-end d-flex flex-column" style="height: 100vh; padding: 20px; background-color: #C4BBAF;">
+      <div class="col-3 border-end d-flex flex-column" style="height: 100vh; padding: 20px; background-color: #C4BBAF;">
         <h4 id="selectedListTitle" class="text-dark">Selected List</h4>
         <ul id="selectedListItems" class="list-group list-group-flush">
           <!-- Dynamically added list items -->
@@ -175,7 +174,7 @@
       </div>
 
       <!-- Reminders Section -->
-      <div id="main-section" class="col-5">
+      <div class="col-5">
         <div id="remindersSection" class="p-3">
           <!-- Reminders Title and Counter Box -->
           <div class="d-flex justify-content-between align-items-center mb-4"
@@ -186,13 +185,10 @@
             </div>
             <!-- Add Reminder Button -->
             <a class="btn d-flex justify-content-center align-items-center" id="addReminderButton"
-              title="Add a New Reminder" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
+              title="Add a New Reminder" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal" type="button"
               style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
               +
             </a>
-          </div>
-          <div id="listRemindersContainer" class="mt-4">
-            <!-- Dynamically added reminders will go here -->
           </div>
         </div>
 
@@ -263,35 +259,6 @@
     </div>
   </div>
 
-  <!-- Modal to create new list -->
-  <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
-    <div id="new-list-modal" class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newListModalLabel">Create New List</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="listName" class="form-label">List Name</label>
-              <input type="text" class="form-control" id="listName" placeholder="Enter list name">
-            </div>
-            <div class="mb-3">
-              <label for="listDescription" class="form-label">Description</label>
-              <textarea class="form-control" id="listDescription" rows="3" placeholder="Enter description"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" id="create-list">Create</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <!-- Toast Notification (hidden by default) -->
   <div id="taskNotification"
     class="toast align-items-center text-white bg-success border-0 position-fixed bottom-0 end-0 m-3" role="alert"
@@ -305,10 +272,9 @@
     </div>
   </div>
 
-  <div id="footer">
-    <hr>
-    <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
-  </div>
+
+  <hr>
+  <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
 
   <footer class="py-3 bg-info fixed-bottom">
     <div class="container navbar justify-content-evenly">
@@ -334,7 +300,6 @@
   <script src="/scripts/bootstrap.min.js"></script>
   <script src="/scripts/main.js"></script>
   <script src="/scripts/signout.js"></script>
-  <script src="/scripts/createList.js"></script>
 
 </body>
 
