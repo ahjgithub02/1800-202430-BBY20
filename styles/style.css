@@ -262,6 +262,10 @@ footer {
     /* Make sure the toast appears on top */
 }
 
+.own-list-items {
+    border: brown solid 0.5px;;
+}
+
 @media only screen and (max-width: 700px){
     
     #main-image-div  {
@@ -320,5 +324,6 @@ footer {
     body, .main {
         padding-bottom: 0% !important;
     }
+
 
 }
