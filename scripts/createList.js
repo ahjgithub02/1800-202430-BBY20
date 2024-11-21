@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Skip rendering if the list button already exists
   
           const newListButton = document.createElement("button");
-          newListButton.className = "btn btn-link text-decoration-none w-100 text-start text-dark";
+          newListButton.className = "own-list-items btn btn-link text-decoration-none w-100 text-start text-dark";
           newListButton.textContent = listData.name;
   
           // Append the button to the "Own List" section
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Close the modal
             const modal = bootstrap.Modal.getInstance(document.getElementById("newListModal"));
             modal.hide();
-            
+
           } catch (error) {
             console.error("Error adding new list: ", error);
           }
