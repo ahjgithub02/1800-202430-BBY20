@@ -288,4 +288,37 @@ footer {
     .col-lg-6 {
         margin-top: 24px;
     }
+
+    #firebaseui-auth-container {
+        justify-self: center;
+        width: 75vw;
+    }
+
+    #left-sidebar {
+        display: none !important;
+    }
+
+    #selected-list-section {
+        display: none !important;
+    }
+
+    #main-section {
+        display: none !important;
+    }
+
+    #lists-section {
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+        width: 96vw;
+        height: 100% !important;
+    }
+
+    #footer {
+        display: none !important;
+    }
+
+    body, .main {
+        padding-bottom: 0% !important;
+    }
+
 }

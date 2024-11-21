@@ -17,3 +17,4 @@ function insertNameFromFirestore() {
 var currentUser;
 
 insertNameFromFirestore();
+
