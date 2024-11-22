@@ -25,7 +25,7 @@ function readPersonalReminders() {
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
                         document.getElementById("reminderCount").innerHTML = numOfReminders;
-                        document.getElementById("server-name").innerHTML = "Personal";
+                        document.getElementById("selectedListTitle").innerHTML = "Personal";
                     },
                     (error) => {
                         console.log("Error getting documents: ", error);
@@ -49,7 +49,7 @@ function displayJoindServers() {
             //find all servers where the owner is the logged in user
             await db.collection("servers").where('ownerId', '==', user.uid).onSnapshot(
                 (allOwnedServers) => {
-                    document.getElementById("ownedServersDropdown").innerHTML = "";
+                    document.getElementById("ownedServersLists").innerHTML = "";
 
                     // Iterate through each document in the QuerySnapshot
                     allOwnedServers.forEach((doc) => {
@@ -65,9 +65,9 @@ function displayJoindServers() {
                         dropdownItem.id = serverId;
 
                         // Append the new server item to the dropdown
-                        document.getElementById("ownedServersDropdown").appendChild(newJoinedServer);
+                        document.getElementById("ownedServersLists").appendChild(newJoinedServer);
 
-                        
+
                         dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
 
                     });
@@ -130,7 +130,7 @@ function readServerReminders(serverId, serverName) {
 
     // Add the event listener with a reference to the serverId
     addReminderButton.addEventListener('click', () => writeServerReminder(serverId));
-    
+
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
 
     //check if the user is logged in
@@ -164,7 +164,61 @@ function readServerReminders(serverId, serverName) {
                     }
                 );
             console.log(serverName + " reminders have been loaded");
-            document.getElementById("server-name").innerHTML = serverName;
+            document.getElementById("selectedListTitle").innerHTML = serverName;
+
+        } else {
+            console.log("No user is logged in."); // Log a message when no user is logged in
+        }
+    });
+}
+
+function readOwnListReminders(listId, serverName) {
+    let addReminderButton = document.getElementById("addReminder");
+
+    // Remove all event listeners by replacing the element with its clone
+    let newAddReminderButton = addReminderButton.cloneNode(true);
+    addReminderButton.parentNode.replaceChild(newAddReminderButton, addReminderButton);
+
+    // Update reference to the new button
+    addReminderButton = newAddReminderButton;
+
+    // Add the event listener with a reference to the listId
+    addReminderButton.addEventListener('click', () => writeOwnListReminder(listId));
+
+    let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
+
+    //check if the user is logged in
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection("users/" + user.uid + "/lists/" + listId + "/reminders")
+                .onSnapshot(
+                    (allReminders) => {
+                        let numOfReminders = 0;
+                        document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
+                        allReminders.forEach((doc) => {
+                            numOfReminders++;
+
+                            var reminderText = doc.data().reminder;
+                            var reminderPriority = doc.data().priority;
+                            var reminderDueDate = doc.data().duetime;
+
+                            let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
+
+                            newreminder.querySelector('.reminderText').innerHTML = reminderText;
+                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
+                            newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
+
+                            document.getElementById("reminders-list").appendChild(newreminder);
+                        });
+                        document.getElementById("reminderCount").innerHTML = numOfReminders;
+                    },
+                    (error) => {
+                        console.log("Error getting documents: ", error);
+                    }
+                );
+            console.log(serverName + " reminders have been loaded");
+            document.getElementById("selectedListTitle").innerHTML = serverName;
 
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
