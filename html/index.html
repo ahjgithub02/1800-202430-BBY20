@@ -9,44 +9,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
+    <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Boostrap Library JS CDN  go here -->
+    <!-- Custom CSS Stylesheet -->
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+
+    <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
-    <!-- Other libraries go here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="/styles/style.css">
-
-    <link rel="icon" href="/images/favicon.ico">
 
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #5A2A27;">
         <div class="container-fluid d-flex align-items-center">
-            <!-- Brand -->
+
+            <!-- RemindMe Logo -->
             <a class="navbar-brand" href="#top" style="display: flex; align-items: center;">
                 <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
                 <b style="color: white; margin-left: 10px;">RemindMe</b>
             </a>
-    
+
             <!-- Left Side: Features and About Us -->
             <ul class="navbar-nav me-auto d-flex flex-row ">
                 <li class="nav-item">
@@ -56,30 +50,37 @@
                     <a class="nav-link" href="#about" style="color: white;">About Us</a>
                 </li>
             </ul>
-    
-            <!-- Right Side: Login and Sign Up -->
+
+            <!-- Right Side: Login / Sign Up -->
             <div class="d-flex">
                 <a href="login.html" class="btn btn-outline-light me-2" role="button"
-                    style="color: white; border-color: white;">Login</a>
+                    style="color: white; border-color: white;">Login / Sign Up</a>
                 <a href="signup.html" class="btn btn-primary" role="button"
                     style="background-color: #8D5B4C; color: white; border-color: #8D5B4C; display: none;">Sign Up</a>
             </div>
+
         </div>
     </nav>
-    
 
+    <!-- Welcome Message Div Container -->
     <div style="background-color: #C4BBAF;">
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+                <!-- RemindMe Logo -->
                 <div id="main-image-div" class="col-10 col-sm-8 col-lg-6">
-                    <img id="main-image" src="/images/RemindMe.jpg" class="d-block mx-lg-auto img-fluid" alt="RemindMe icon" width="700"
-                        height="500" loading="lazy">
+                    <img id="main-image" src="/images/RemindMe.jpg" class="d-block mx-lg-auto img-fluid"
+                        alt="RemindMe icon" width="700" height="500" loading="lazy">
                 </div>
+
                 <div class="col-lg-6">
+
+                    <!-- Welcome Message-->
                     <h1 class="display-5 fw-bold lh-1 mb-3" style="color: #5A2A27;">Welcome to RemindMe</h1>
                     <p class="lead">Stay organized and connected with RemindMe! Share tasks, deadlines, and updates in
                         real-time with our Collaborative Live Active Calendar (CLAC). Perfect for groups or personal
                         schedules, RemindMe keeps everyone on track effortlessly.</p>
+
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start align-items-center">
                         <!-- Email Input -->
                         <input type="email" class="form-control me-3" placeholder="Enter email address"
@@ -87,9 +88,10 @@
 
                         <!-- Get Started Button -->
                         <a href="./login.html" class="btn btn-primary btn-lg px-4 me-md-2"
-                        style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">
-                        Get Started </a>
+                            style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">
+                            Get Started </a>
                     </div>
+
                     <!-- Social Media Buttons -->
                     <div class="d-grid gap-2 mt-4">
                         <button type="button" class="btn btn-outline-secondary btn-lg"
@@ -99,38 +101,49 @@
                         <button type="button" class="btn btn-outline-secondary btn-lg"
                             style="border-color: black; color: black;">Continue with Twitter</button>
                     </div>
+
                 </div>
             </div>
         </div>
 
+        <!-- Div with scroll-to-top id -->
         <div id="top"></div>
 
+        <!-- Div container for features section -->
         <div class="container py-5" id="features">
+
+            <!-- Features title -->
             <h2 class="text-center fw-bold mb-5 display-4" style="color: #5A2A27;">Features</h2>
+
             <!-- Feature 1 -->
             <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
                 <h3 class="fw-bold display-5 mb-3" style="color: white;">Automated Task Lists</h3>
                 <p class="lead fs-4">Effortlessly create or import fully automated task lists that simplify your
                     workflow and help you stay stress-free.</p>
             </div>
+
             <!-- Feature 2 -->
             <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
                 <h3 class="fw-bold display-5 mb-3" style="color: white;">Collaborative Servers</h3>
                 <p class="lead fs-4">Join collaborative servers to share tasks, updates, and reminders with your team in
                     real time for seamless coordination.</p>
             </div>
+
             <!-- Feature 3 -->
             <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
                 <h3 class="fw-bold display-5 mb-3" style="color: white;">Calendar Integration</h3>
                 <p class="lead fs-4">Organize your schedule effortlessly with our intuitive calendar feature, designed
                     for productivity and clarity.</p>
             </div>
+
         </div>
 
+        <!-- Div container for the About Us page-->
         <div class="container py-5" id="about">
+
+            <!-- About Us title-->
             <h2 class="text-center fw-bold mb-5 display-4" style="color: #5A2A27;">About Us</h2>
 
-            <!-- Andrew Hwang -->
             <!-- Andrew Hwang -->
             <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
                 <div class="text-center">
@@ -176,40 +189,7 @@
         </div>
     </div>
 
-
-
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-
-    <script>
-        // Smooth scroll with an offset to account for the fixed navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                // Special handling for the #top link
-                if (targetId === 'top') {
-                    window.scrollTo({
-                        top: 0, // Scroll to the very top of the page
-                        behavior: 'smooth'
-                    });
-                } else {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 65, // Adjust 80px offset based on navbar height
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="/scripts/smooth-scroll.js"></script>
 
 </body>
 
