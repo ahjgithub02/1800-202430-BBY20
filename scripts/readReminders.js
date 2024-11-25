@@ -11,16 +11,13 @@ function readPersonalReminders() {
                         document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
                         allReminders.forEach((doc) => {
                             numOfReminders++;
-                            var reminderText = doc.data().reminder;
-                            var reminderPriority = doc.data().priority;
-                            var reminderDueDate = doc.data().duetime;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
-                            newreminder.querySelector('.reminderText').innerHTML = reminderText;
+                            newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
-                            newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
-                            newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
+                            newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
+                            newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
@@ -39,6 +36,7 @@ function readPersonalReminders() {
     });
 
 }
+// Variable inlining
 
 function displayJoindServers() {
     let ServerTemplate = document.getElementById("serverDropTemplate"); // Retrieve the HTML template element.
