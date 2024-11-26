@@ -16,13 +16,13 @@ function readPersonalReminders() {
 
                             newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
                         document.getElementById("reminderCount").innerHTML = numOfReminders;
-                        document.getElementById("selectedListTitle").innerHTML = "Personal";
                     },
                     (error) => {
                         console.log("Error getting documents: ", error);
@@ -216,7 +216,6 @@ function readOwnListReminders(listId, serverName) {
                     }
                 );
             console.log(serverName + " reminders have been loaded");
-            document.getElementById("selectedListTitle").innerHTML = serverName;
 
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
