@@ -16,7 +16,7 @@ function readPersonalReminders() {
 
                             newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
-                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(doc.id));
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => copyReminderDocument(doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
 
