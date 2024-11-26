@@ -139,7 +139,7 @@
       </div>
 
       <!-- Lists Section -->
-      <div id="lists-section" class="col-3 border-end d-flex flex-column"
+      <div id="lists-section" class="reminders col-3 border-end d-flex flex-column"
         style="height: 100vh; padding: 20px; padding-bottom: 0%; background-color: #C4BBAF;">
         <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
           <li class="list-item">
@@ -169,7 +169,7 @@
       </div>
 
       <!-- Selected Lists Section -->
-      <div id="selected-list-section" class="col-3 border-end d-flex flex-column"
+      <div id="selected-list-section" class="reminders col-3 border-end d-flex flex-column"
         style="height: 100vh; padding: 20px; background-color: #C4BBAF;">
         <h4 id="selectedListTitle" class="text-dark">Selected List</h4>
         <ul id="selectedListItems" class="list-group list-group-flush">
@@ -178,7 +178,7 @@
       </div>
 
       <!-- Reminders Section -->
-      <div id="main-section" class="col-5">
+      <div id="main-section" class="reminders col-5">
         <div id="remindersSection" class="p-3">
           <!-- Reminders Title and Counter Box -->
           <div class="d-flex justify-content-between align-items-center mb-4"
@@ -279,6 +279,69 @@
       </div>
     </div>
   </div>
+
+  <!-- Server page (hidden by default) -->
+  <main id="CLAC">
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Collaborative Live Active Calendar (CLAC)</h1>
+        <p>This is our app's core feature which will allow you and other people in
+          the same group to create tasks and reminders to notify everybody about
+          every deadline and its due date. By collaborating in this server, you can
+          help and get help on every assignment's deadlines which a lot of people usually forget!
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md">
+          <h2>Join Server</h2>
+          <p>Joining your class or group reminder server with just a simple code. </p>
+          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
+        </div>
+        <div class="col-md">
+          <h2>Create Server</h2>
+          <p>Create your own server and invite other people to help build a more productive group.</p>
+          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
+        </div>
+      </div>
+      <hr>
+
+      <div id="server-container">
+        <h2>Owned Servers</h2>
+        <div id="owned-container">
+          <table>
+            <thead>
+              <tr>
+                <th> Server Code</th>
+                <th> Server Name</th>
+                <th> Description</th>
+              </tr>
+            </thead>
+            <tbody id="owned">
+            </tbody>
+          </table>
+        </div>
+        <hr>
+        <h2>Joined Servers</h2>
+        <div id="joined-container">
+          <table>
+            <thead>
+              <tr>
+                <th> Server Code</th>
+                <th> Server Name</th>
+                <th> Description</th>
+              </tr>
+            </thead>
+            <tbody id="joined">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
 
 
   <!-- Toast Notification (hidden by default) -->

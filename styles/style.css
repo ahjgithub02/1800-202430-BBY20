@@ -27,9 +27,7 @@
     margin-top: 6rem;
 }
 
-.main {
-    margin-left: 4rem; /* Same as sidebar width */
-  }
+
 
 .login-message {
     text-align: center;
@@ -292,6 +290,15 @@ footer {
 
 .own-list-items {
     border: brown solid 0.5px;;
+}
+
+#CLAC {
+    padding-left: 62px;
+    display: ;
+}
+
+.reminders {
+    display: none !important;
 }
 
 @media only screen and (max-width: 700px){
