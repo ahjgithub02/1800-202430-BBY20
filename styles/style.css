@@ -33,7 +33,7 @@
     flex-direction: row;
     width: 65%;
     padding: 20px 20px;
-    height: 86%;
+    height: 100%;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -325,6 +325,10 @@ th {
 
 .own-list-items {
     border: brown solid 0.5px;;
+}
+
+.profile-update {
+    padding-top: 50px;
 }
 
 #CLAC {
