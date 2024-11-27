@@ -16,7 +16,7 @@ function readPersonalReminders() {
 
                             newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
-                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => copyReminderDocument(doc.id));
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder("personal", doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
 
@@ -36,7 +36,6 @@ function readPersonalReminders() {
     });
 
 }
-// Variable inlining
 
 function displayJoindServers() {
     let ServerTemplate = document.getElementById("serverDropTemplate"); // Retrieve the HTML template element.
@@ -78,13 +77,14 @@ function displayJoindServers() {
                         document.getElementById("joinedServersDropdown").innerHTML = "";
                         // Iterate through each document in the QuerySnapshot
                         const joinedServersArray = doc.data().joinedServersArray;
+                        var serverId;
 
                         //iterates for every item(server Id) in the joinedServersArray
                         joinedServersArray.forEach(async (doc) => {
                             //gets the document of the server using its id in the array
                             await db.doc("servers/" + doc).get().then(server => {
                                 var serverName = server.data().serverName;
-                                var serverId = server.id;
+                                serverId = server.id;
 
                                 // Clone the template content
                                 let newJoinedServer = ServerTemplate.content.cloneNode(true);
@@ -105,6 +105,8 @@ function displayJoindServers() {
                         });
 
                         console.log("Servers have been loaded");
+                        localStorage.setItem("personal", "true");
+                        localStorage.setItem("listId", serverId);
                     },
                     (error) => {
                         console.log("Error getting documents: ", error);
@@ -130,6 +132,7 @@ function readServerReminders(serverId, serverName) {
     addReminderButton.addEventListener('click', () => writeServerReminder(serverId));
 
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
+    document.getElementById("addReminderButton").classList.add("d-flex");
 
     //check if the user is logged in
     firebase.auth().onAuthStateChanged(user => {
@@ -150,6 +153,7 @@ function readServerReminders(serverId, serverName) {
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(serverId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
 
@@ -162,7 +166,9 @@ function readServerReminders(serverId, serverName) {
                     }
                 );
             console.log(serverName + " reminders have been loaded");
-            document.getElementById("selectedListTitle").innerHTML = serverName;
+            localStorage.setItem("listId", serverId);
+            localStorage.setItem("personal", "false");
+            
 
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -184,6 +190,7 @@ function readOwnListReminders(listId, serverName) {
     addReminderButton.addEventListener('click', () => writeOwnListReminder(listId));
 
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
+    document.getElementById("addReminderButton").classList.add("d-flex");
 
     //check if the user is logged in
     firebase.auth().onAuthStateChanged(user => {
@@ -204,6 +211,7 @@ function readOwnListReminders(listId, serverName) {
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(listId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
 
@@ -216,6 +224,8 @@ function readOwnListReminders(listId, serverName) {
                     }
                 );
             console.log(serverName + " reminders have been loaded");
+            localStorage.setItem("listId", listId);
+            localStorage.setItem("personal", "true");
 
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
