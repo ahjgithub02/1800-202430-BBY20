@@ -142,49 +142,82 @@
             <!-- Lists Section -->
             <div class="list-container">
               <div class="child-list-container-1">
-                <div id="lists-section" class="reminders border-end" style="height: 100vh; background-color: #C4BBAF;">
-                  <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
+                <div id="lists-section" class="reminders border-end" style="background-color: #C4BBAF;">
+                  <ul id="navigationListsTop">
                     <li class="list-item">
-                      <h5>Due Today
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Due Today
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Due This Week (7 Days)
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Due This Week (7 Days)
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Priority
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Priority
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Personal Lists
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Personal Lists
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                          <button class="plus-button" id="" data-bs-toggle="modal" data-bs-target="#newListModal">
+                            +
+                          </button>
+                        </div>
+                      </div>
                       <div id="own-list"></div>
                     </li>
                     <li class="list-item">
-                      <h5>
-                        Owned Shared List
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Owned Shared List
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                            Create
+                          </button>
+
+                        </div>
+                      </div>
                       <div id="ownedServersLists"></div>
                     </li>
                     <li class="list-item">
-                      <h5>
-                        Joined Shared List
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Joined Shared List
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">0</span>
+                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                            Join
+                          </button>
+                        </div>
+                      </div>
                       <div id="joinedServersDropdown"></div>
                     </li>
                   </ul>
-                </div>
-                <div class="child-list-container-2">
-                  <div class="add-list">
-                    <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal"
-                      data-bs-target="#newListModal">
-                      <i class="bi bi-plus"></i> New list
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -196,8 +229,7 @@
             <div id="main-section" class="reminders">
               <div id="remindersSection">
                 <!-- Reminders Title and Counter Box -->
-                <div class="d-flex justify-content-between align-items-center mb-4"
-                  style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
+                <div class="reminder-counter-box">
                   <div class="d-flex align-items-center">
                     <h2 id="ReminderlistName" class="mb-0 text-white me-3">Reminders</h2>
                     <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>

@@ -32,10 +32,12 @@
     display: flex;
     flex-direction: row;
     width: 65%;
-    padding: 20px 20px;
     height: 100%;
     overflow: hidden;
     overflow-y: scroll;
+    padding: 20px 15px;
+    padding-top: 0px;
+    margin-top: 7px;
 }
 
 .list-container, #main-section {
@@ -53,8 +55,61 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 4rem; /* Fixed width for the sidebar */
-  }
+    width: 4rem;
+}
+
+.list-item {
+    background-color: #A5978B;
+    color: black;
+    margin: 7px;
+    border-radius: 10px;
+    border: 2px solid black;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.list-title {
+    margin: 0;
+}
+
+#navigationListsTop {
+    padding: 0;
+}
+
+.reminder-category-button-parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.reminder-category-button-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.plus-button {
+    padding-top: 0;
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: #C4BBAF;
+}
+
+#addReminderButton {
+    padding-top: 5px;
+}
+
+.reminder-counter-box {
+    background-color: #5C4742;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 15px;
+}
 
 .nav-item .dropdown-toggle {
     border: 2px solid white;
