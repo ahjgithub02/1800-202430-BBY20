@@ -97,55 +97,52 @@
   <!-- Your HTML Layout go here -->
   <!------------------------------>
   <!-- Stuff for body goes here -->
-  <nav class="navbar navbar-expand-lg bg-secondary-subtle fixed-top">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="./main.html">
-        <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
-      </a>
+  <div class="parent-main-container">
 
-      <!-- Navbar Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="./main.html">
+          <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
+        </a>
 
-      <!-- Collapsible Menu -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <!-- Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <span class="material-icons">menu</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="./profile/profile.html">Profile</a></li>
-              <li><a class="dropdown-item" href="./server/serverPage.html">My Server</a></li>
-              <li><a class="dropdown-item" href="./contact/contactUs.html">Contact Us</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="btn btn-outline-success dropdown-item" id="logoutButton" href="./index.html">Logout</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible Menu -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <!-- Dropdown Menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span class="material-icons">menu</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="./profile/profile.html">Profile</a></li>
+                <li><a class="dropdown-item" href="./server/serverPage.html">My Server</a></li>
+                <li><a class="dropdown-item" href="./contact/contactUs.html">Contact Us</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="btn btn-outline-success dropdown-item" id="logoutButton" href="./index.html">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
+    <div class="parent-main-container-2">
 
-
-  <!-- Marketing messaging and featurettes
+      <!-- Marketing messaging and featurettes
         ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-  <h2 class="text-center" id="name-goes-here"></h2>
-
-  <div class="main container-fluid py-5">
-    <div class="row justify-content-center">
+      <!-- Wrap the rest of the page in another container to center all the content. -->
       <!-- Left Sidebar Navbar -->
       <div class="col-1 py-3 sidebar" id="sidebar">
         <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List">
@@ -163,60 +160,91 @@
         </button>
       </div>
 
-      <!-- Lists Section -->
-      <div id="lists-section" class="reminders col-2 border-end d-flex flex-column"
-        style="height: 100vh; padding: 0px; padding-bottom: 0%; background-color: #C4BBAF;">
-        <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
-          <li class="list-item">
-            <h5>Personal Lists
-            </h5>
-            <div id="own-list"></div>
-          </li>
-          <li class="list-item">
-            <h5>
-              Owned Shared List
-            </h5>
-            <div id="ownedServersLists"></div>
-          </li>
-          <li class="list-item">
-            <h5>
-              Joined Shared List
-            </h5>
-            <div id="joinedServersDropdown"></div>
-          </li>
-        </ul>
-        <div class="add-list mt-auto" style="width: calc(100% - 20px);">
-          <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal"
-            data-bs-target="#newListModal" >
-            <i class="bi bi-plus"></i> New list
-          </button>
-        </div>
-      </div>
+      <div class="parent-main-container-3">
+        <h2 class="welcome-username-message" id="name-goes-here"></h2>
 
-      <!-- Reminders Section -->
-      <div id="main-section" class="reminders col-8">
-        <div id="remindersSection" class="p-3">
-          <!-- Reminders Title and Counter Box -->
-          <div class="d-flex justify-content-between align-items-center mb-4"
-            style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
-            <div class="d-flex align-items-center">
-              <h2 class="mb-0 text-white me-3">Reminders</h2>
-              <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
+        <div class="parent-main-container-4">
+          <div class="child-main-container-4-1">
+            <!-- Lists Section -->
+            <div class="list-container">
+              <div class="child-list-container-1">
+                <div id="lists-section" class="reminders border-end" style="height: 100vh; background-color: #C4BBAF;">
+                  <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
+                    <li class="list-item">
+                      <h5>Due Today
+                      </h5>
+                      <div id=""></div>
+                    </li>
+                    <li class="list-item">
+                      <h5>Due This Week (7 Days)
+                      </h5>
+                      <div id=""></div>
+                    </li>
+                    <li class="list-item">
+                      <h5>Priority
+                      </h5>
+                      <div id=""></div>
+                    </li>
+                    <li class="list-item">
+                      <h5>Personal Lists
+                      </h5>
+                      <div id="own-list"></div>
+                    </li>
+                    <li class="list-item">
+                      <h5>
+                        Owned Shared List
+                      </h5>
+                      <div id="ownedServersLists"></div>
+                    </li>
+                    <li class="list-item">
+                      <h5>
+                        Joined Shared List
+                      </h5>
+                      <div id="joinedServersDropdown"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="child-list-container-2">
+                  <div class="add-list">
+                    <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal"
+                      data-bs-target="#newListModal">
+                      <i class="bi bi-plus"></i> New list
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- Add Reminder Button -->
-            <a class="btn d-flex justify-content-center align-items-center" id="addReminderButton"
-              title="Add a New Reminder" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
-              style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
-              +
-            </a>
           </div>
-        </div>
 
-        <div id="listRemindersContainer" class="mt-4">
-          <!-- Dynamically added reminders will go here -->
-          <ul class="list-group" id="reminders-list">
-            <!-- Manually created task list will be inserted here -->
-          </ul>
+          <div class="child-main-container-4-2">
+
+            <!-- Reminders Section -->
+            <div id="main-section" class="reminders">
+              <div id="remindersSection">
+                <!-- Reminders Title and Counter Box -->
+                <div class="d-flex justify-content-between align-items-center mb-4"
+                  style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
+                  <div class="d-flex align-items-center">
+                    <h2 class="mb-0 text-white me-3">Reminders</h2>
+                    <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
+                  </div>
+                  <!-- Add Reminder Button -->
+                  <a class="btn d-flex justify-content-center align-items-center" id="addReminderButton"
+                    title="Add a New Reminder" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
+                    style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
+                    +
+                  </a>
+                </div>
+              </div>
+
+              <div id="listRemindersContainer" class="mt-4">
+                <!-- Dynamically added reminders will go here -->
+                <ul class="list-group" id="reminders-list">
+                  <!-- Manually created task list will be inserted here -->
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -376,14 +404,6 @@
 
   <hr>
   <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
-
-  <footer class="py-3 bg-info fixed-bottom">
-    <div class="container navbar justify-content-evenly">
-      <a href="./reminders/createNewReminders.html"><i class="bi bi-plus-circle"></i></a>
-      <a href="./server/serverPage.html"><i class="bi bi-cloud"></i></a>
-      <a href="./reminders/reminders.html"><i class="bi bi-calendar-check-fill"></i></a>
-    </div>
-  </footer>
 
   <!---------------------------------------------->
   <!-- Your own JavaScript functions go here    -->
