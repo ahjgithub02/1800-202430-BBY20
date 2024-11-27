@@ -1,6 +1,6 @@
 .sidebar {
     background-color: #8D5B4C;
-    height: 100vh; /* Full-height sidebar */
+    height: 91vh; /* Full-height sidebar */
     position: fixed; /* Keep it fixed to the left */
     top: 4.7rem;
     left: 0;
@@ -8,7 +8,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: calc(100vh - 4rem);
     width: 4rem; /* Fixed width for the sidebar */
     z-index: 1;
   }
@@ -270,6 +269,7 @@ th {
 .add-list button {
     display: flex;
     align-items: center;
+    
 }
 
 /* Dividing Sections */
@@ -277,7 +277,7 @@ th {
     margin-bottom: auto;
 }
 
-.mt-auto {
+#checkedList {
     margin-top: auto;
 }
 
@@ -334,6 +334,14 @@ footer {
     #main-image {
         width: 50vw;
         height: 55vw;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    #checkedList {
+        margin-top: 0;
     }
 
     .col-lg-6 {

@@ -16,7 +16,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         } else {
             window.scrollTo({
                 // Adjust 65px offset based on navbar height
-                top: targetElement.offsetTop - 65,
+                top: targetElement.offsetTop - -20,
                 behavior: 'smooth'
             });
         }

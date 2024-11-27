@@ -147,7 +147,7 @@
   <div class="main container-fluid py-5">
     <div class="row justify-content-center">
       <!-- Left Sidebar Navbar -->
-      <div class="col-1 d-flex flex-column align-items-center py-3 sidebar" id="sidebar">
+      <div class="col-1 py-3 sidebar" id="sidebar">
         <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List">
           <i class="bi bi-person"></i>
         </button>
@@ -155,7 +155,7 @@
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
           <i class="bi bi-people"></i>
         </button>
-        <button class="btn btn-link text-light p-3 mt-auto" onclick="deleteReminder()" title="Completed List">
+        <button id="checkedList" class="btn btn-link text-light p-3" onclick="deleteReminder()" title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
         <button class="btn btn-link text-light p-3" onclick="completeReminder()" title="Trash">
@@ -164,8 +164,8 @@
       </div>
 
       <!-- Lists Section -->
-      <div id="lists-section" class="reminders col-3 border-end d-flex flex-column"
-        style="height: 100vh; padding: 20px; padding-bottom: 0%; background-color: #C4BBAF;">
+      <div id="lists-section" class="reminders col-2 border-end d-flex flex-column"
+        style="height: 100vh; padding: 0px; padding-bottom: 0%; background-color: #C4BBAF;">
         <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
           <li class="list-item">
             <h5>Personal Lists
@@ -185,16 +185,16 @@
             <div id="joinedServersDropdown"></div>
           </li>
         </ul>
-        <div class="add-list mt-auto">
+        <div class="add-list mt-auto" style="width: calc(100% - 20px);">
           <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal"
-            data-bs-target="#newListModal">
+            data-bs-target="#newListModal" >
             <i class="bi bi-plus"></i> New list
           </button>
         </div>
       </div>
 
       <!-- Reminders Section -->
-      <div id="main-section" class="reminders col-5">
+      <div id="main-section" class="reminders col-8">
         <div id="remindersSection" class="p-3">
           <!-- Reminders Title and Counter Box -->
           <div class="d-flex justify-content-between align-items-center mb-4"
