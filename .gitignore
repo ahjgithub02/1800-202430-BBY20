@@ -3,3 +3,9 @@
 node_modules/
 .vscode/
 firebaseAPI_BBY20.js
+404.html
+firebase.json
+firestore.indexes.json
+firestore.rules
+.firebase
+.firebaserc

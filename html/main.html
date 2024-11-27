@@ -105,36 +105,10 @@
         <a class="navbar-brand" href="./main.html">
           <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
         </a>
-
-        <!-- Navbar Toggler -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible Menu -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <!-- Dropdown Menu -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <span class="material-icons">menu</span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="./profile/profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="./server/serverPage.html">My Server</a></li>
-                <li><a class="dropdown-item" href="./contact/contactUs.html">Contact Us</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="btn btn-outline-success dropdown-item" id="logoutButton" href="./index.html">Logout</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      </div>
+      <div class="container-fluid"> 
+        <a href="./profile/profile.html"> Profile </a>
+        <a href="./contact/contactUs.html"> Contact </a>
       </div>
     </nav>
 
@@ -164,7 +138,7 @@
         <h2 class="welcome-username-message" id="name-goes-here"></h2>
 
         <div class="parent-main-container-4">
-          <div class="child-main-container-4-1">
+          <div class="child-main-container-4-1 reminders">
             <!-- Lists Section -->
             <div class="list-container">
               <div class="child-list-container-1">
@@ -216,7 +190,7 @@
             </div>
           </div>
 
-          <div class="child-main-container-4-2">
+          <div class="child-main-container-4-2 reminders">
 
             <!-- Reminders Section -->
             <div id="main-section" class="reminders">
@@ -245,7 +219,71 @@
               </div>
             </div>
           </div>
+
         </div>
+
+        <!-- Server page (hidden by default) -->
+        <main id="CLAC">
+                    <div class="jumbotron">
+                      <div class="container">
+                        <h1 class="display-3">Collaborative Live Shared lists</h1>
+                        <p>This is our app's core feature which will allow you and other people in
+                          the same group to create tasks and reminders to notify everybody about
+                          every deadline and its due date. By collaborating in list, you can
+                          help and get help on every assignment's deadlines which a lot of people usually forget!
+                        </p>
+                      </div>
+                    </div>
+        
+                    <div class="container">
+                      <!-- Example row of columns -->
+                      <div class="row">
+                        <div class="col-md">
+                          <h2>Join a Shared list</h2>
+                          <p>Joining your class or group reminder server with just a simple code. </p>
+                          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
+                        </div>
+                        <div class="col-md">
+                          <h2>Create a Shared list</h2>
+                          <p>Create your own server and invite other people to help build a more productive group.</p>
+                          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
+                        </div>
+                      </div>
+                      <hr>
+        
+                      <div id="server-container">
+                        <h2>Owned Shared lists</h2>
+                        <div id="owned-container">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th> List Code</th>
+                                <th> List Name</th>
+                                <th> Description</th>
+                              </tr>
+                            </thead>
+                            <tbody id="owned">
+                            </tbody>
+                          </table>
+                        </div>
+                        <hr>
+                        <h2>Joined Shared lists</h2>
+                        <div id="joined-container">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th> List Code</th>
+                                <th> List Name</th>
+                                <th> Description</th>
+                              </tr>
+                            </thead>
+                            <tbody id="joined">
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+          </main>
       </div>
     </div>
   </div>
@@ -323,69 +361,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Server page (hidden by default) -->
-  <main id="CLAC">
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">Collaborative Live Shared lists</h1>
-        <p>This is our app's core feature which will allow you and other people in
-          the same group to create tasks and reminders to notify everybody about
-          every deadline and its due date. By collaborating in list, you can
-          help and get help on every assignment's deadlines which a lot of people usually forget!
-        </p>
-      </div>
-    </div>
-
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md">
-          <h2>Join a Shared list</h2>
-          <p>Joining your class or group reminder server with just a simple code. </p>
-          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
-        </div>
-        <div class="col-md">
-          <h2>Create a Shared list</h2>
-          <p>Create your own server and invite other people to help build a more productive group.</p>
-          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
-        </div>
-      </div>
-      <hr>
-
-      <div id="server-container">
-        <h2>Owned Shared lists</h2>
-        <div id="owned-container">
-          <table>
-            <thead>
-              <tr>
-                <th> List Code</th>
-                <th> List Name</th>
-                <th> Description</th>
-              </tr>
-            </thead>
-            <tbody id="owned">
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h2>Joined Shared lists</h2>
-        <div id="joined-container">
-          <table>
-            <thead>
-              <tr>
-                <th> List Code</th>
-                <th> List Name</th>
-                <th> Description</th>
-              </tr>
-            </thead>
-            <tbody id="joined">
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </main>
 
 
   <!-- Toast Notification (hidden by default) -->
