@@ -33,6 +33,9 @@
     flex-direction: row;
     width: 65%;
     padding: 20px 20px;
+    height: 86%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .list-container, #main-section {
@@ -325,7 +328,6 @@ th {
 }
 
 #CLAC {
-    padding-left: 62px;
     display: none;
 }
 
@@ -337,10 +339,8 @@ th {
     display: none !important; 
 }
 
-#listRemindersContainer {
-    height: 65%;
-    overflow: hidden;
-    overflow-y: scroll;
+.block {
+    display: block !important; 
 }
 
 @media only screen and (max-width: 700px){
