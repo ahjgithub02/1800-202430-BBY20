@@ -1,3 +1,12 @@
+firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        // No user is signed in, redirect to login page
+        window.location.assign("/html/login.html");
+    } else if (user && window.location.href === "https://remindme-ce614.web.app/index.html") {
+        window.location.assign("/html/main.html");
+    }
+});
+
 function insertNameFromFirestore() {
     // Check if the user is logged in:
     firebase.auth().onAuthStateChanged(user => {
