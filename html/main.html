@@ -106,9 +106,10 @@
           <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
         </a>
       </div>
-      <div class="container-fluid"> 
-        <a href="./profile/profile.html"> Profile </a>
-        <a href="./contact/contactUs.html"> Contact </a>
+      <div class="container-fluid-2">
+        <div class="container-fluid-white-circle">
+          <a href="./profile/profile.html"><i class="bi bi-person"></i></a>
+        </div>
       </div>
     </nav>
 
@@ -126,7 +127,8 @@
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
           <i class="bi bi-people"></i>
         </button>
-        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders()" title="Completed List">
+        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders()"
+          title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
         <button class="btn btn-link text-light p-3" onclick="deleteReminder()" title="Trash">
@@ -142,49 +144,82 @@
             <!-- Lists Section -->
             <div class="list-container">
               <div class="child-list-container-1">
-                <div id="lists-section" class="reminders border-end" style="height: 100vh; background-color: #C4BBAF;">
-                  <ul id="navigationListsTop" class="list-group list-group-flush flex-grow-1">
+                <div id="lists-section" class="reminders border-end" style="background-color: #C4BBAF;">
+                  <ul id="navigationListsTop">
                     <li class="list-item">
-                      <h5>Due Today
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Due Today
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">2</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Due This Week (7 Days)
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Due This Week (7 Days)
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">2</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Priority
-                      </h5>
-                      <div id=""></div>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Priority
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span class="reminder-counter">2</span>
+                        </div>
+                      </div>
                     </li>
                     <li class="list-item">
-                      <h5>Personal Lists
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Personal Lists
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span id="personal-list-counter" class="reminder-counter"></span>
+                          <button class="plus-button" id="" data-bs-toggle="modal" data-bs-target="#newListModal">
+                            +
+                          </button>
+                        </div>
+                      </div>
                       <div id="own-list"></div>
                     </li>
                     <li class="list-item">
-                      <h5>
-                        Owned Shared List
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Owned Shared List
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span id="owned-list-counter" class="reminder-counter"></span>
+                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                            Create
+                          </button>
+
+                        </div>
+                      </div>
                       <div id="ownedServersLists"></div>
                     </li>
                     <li class="list-item">
-                      <h5>
-                        Joined Shared List
-                      </h5>
+                      <div class="reminder-category-button-parent">
+                        <h5 class="list-title">
+                          Joined Shared List
+                        </h5>
+                        <div class="reminder-category-button-child">
+                          <span id="joined-list-counter" class="reminder-counter"></span>
+                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                            Join
+                          </button>
+                        </div>
+                      </div>
                       <div id="joinedServersDropdown"></div>
                     </li>
                   </ul>
-                </div>
-                <div class="child-list-container-2">
-                  <div class="add-list">
-                    <button class="btn btn-link text-decoration-none w-100 text-start text-white" data-bs-toggle="modal"
-                      data-bs-target="#newListModal">
-                      <i class="bi bi-plus"></i> New list
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -196,8 +231,7 @@
             <div id="main-section" class="reminders">
               <div id="remindersSection">
                 <!-- Reminders Title and Counter Box -->
-                <div class="d-flex justify-content-between align-items-center mb-4"
-                  style="background-color: #5C4742; padding: 15px; border-radius: 8px;">
+                <div class="reminder-counter-box">
                   <div class="d-flex align-items-center">
                     <h2 id="ReminderlistName" class="mb-0 text-white me-3">Reminders</h2>
                     <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
@@ -224,66 +258,66 @@
 
         <!-- Server page (hidden by default) -->
         <main id="CLAC">
-                    <div class="jumbotron">
-                      <div class="container">
-                        <h1 class="display-3">Collaborative Live Shared lists</h1>
-                        <p>This is our app's core feature which will allow you and other people in
-                          the same group to create tasks and reminders to notify everybody about
-                          every deadline and its due date. By collaborating in list, you can
-                          help and get help on every assignment's deadlines which a lot of people usually forget!
-                        </p>
-                      </div>
-                    </div>
-        
-                    <div class="container">
-                      <!-- Example row of columns -->
-                      <div class="row">
-                        <div class="col-md">
-                          <h2>Join a Shared list</h2>
-                          <p>Joining your class or group reminder server with just a simple code. </p>
-                          <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
-                        </div>
-                        <div class="col-md">
-                          <h2>Create a Shared list</h2>
-                          <p>Create your own server and invite other people to help build a more productive group.</p>
-                          <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
-                        </div>
-                      </div>
-                      <hr>
-        
-                      <div id="server-container">
-                        <h2>Owned Shared lists</h2>
-                        <div id="owned-container">
-                          <table>
-                            <thead>
-                              <tr>
-                                <th> List Code</th>
-                                <th> List Name</th>
-                                <th> Description</th>
-                              </tr>
-                            </thead>
-                            <tbody id="owned">
-                            </tbody>
-                          </table>
-                        </div>
-                        <hr>
-                        <h2>Joined Shared lists</h2>
-                        <div id="joined-container">
-                          <table>
-                            <thead>
-                              <tr>
-                                <th> List Code</th>
-                                <th> List Name</th>
-                                <th> Description</th>
-                              </tr>
-                            </thead>
-                            <tbody id="joined">
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-          </main>
+          <div class="jumbotron">
+            <div class="container">
+              <h1 class="display-3">Collaborative Live Shared lists</h1>
+              <p>This is our app's core feature which will allow you and other people in
+                the same group to create tasks and reminders to notify everybody about
+                every deadline and its due date. By collaborating in list, you can
+                help and get help on every assignment's deadlines which a lot of people usually forget!
+              </p>
+            </div>
+          </div>
+
+          <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+              <div class="col-md">
+                <h2>Join a Shared list</h2>
+                <p>Joining your class or group reminder server with just a simple code. </p>
+                <p><a class="btn btn-secondary" href="./joinServer.html" role="button">Join &raquo;</a></p>
+              </div>
+              <div class="col-md">
+                <h2>Create a Shared list</h2>
+                <p>Create your own server and invite other people to help build a more productive group.</p>
+                <p><a class="btn btn-secondary" href="./makeServer.html" role="button">Create &raquo;</a></p>
+              </div>
+            </div>
+            <hr>
+
+            <div id="server-container">
+              <h2>Owned Shared lists</h2>
+              <div id="owned-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th> List Code</th>
+                      <th> List Name</th>
+                      <th> Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="owned">
+                  </tbody>
+                </table>
+              </div>
+              <hr>
+              <h2>Joined Shared lists</h2>
+              <div id="joined-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th> List Code</th>
+                      <th> List Name</th>
+                      <th> Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="joined">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   </div>
@@ -376,9 +410,21 @@
     </div>
   </div>
 
-
   <hr>
-  <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
+
+  <div class="footer-parent">
+    <div class="footer-1">
+      <p>&copy; 2024 BCIT COMP 1800 RemindMe Team</p>
+      <div class="footer-1-child">
+        <img src="/images/instagram.png" alt="instagram">
+        <img src="/images/tiktok.png" alt="tiktok">
+        <img src="/images/twitter.png" alt="twitter">
+      </div>
+    </div>
+    <div class="footer-2">
+      <p>Need help? <a href="./contact/contactUs.html"> Contact Us</a></p>
+    </div>
+  </div>
 
   <!---------------------------------------------->
   <!-- Your own JavaScript functions go here    -->
