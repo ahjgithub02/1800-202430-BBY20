@@ -47,11 +47,13 @@ function displayJoindServers() {
             await db.collection("servers").where('ownerId', '==', user.uid).onSnapshot(
                 (allOwnedServers) => {
                     document.getElementById("ownedServersLists").innerHTML = "";
+                    let numOfLists = 0;
 
                     // Iterate through each document in the QuerySnapshot
                     allOwnedServers.forEach((doc) => {
                         var serverName = doc.data().serverName;
                         var serverId = doc.id;
+                        numOfLists++;
 
                         // Clone the template content
                         let newJoinedServer = ServerTemplate.content.cloneNode(true);
@@ -69,6 +71,7 @@ function displayJoindServers() {
 
                     });
                     console.log("Owned servers loaded");
+                    document.getElementById("owned-list-counter").innerHTML = numOfLists;
                 }
             );
             await db.doc("users/" + user.uid)
@@ -78,13 +81,16 @@ function displayJoindServers() {
                         // Iterate through each document in the QuerySnapshot
                         const joinedServersArray = doc.data().joinedServersArray;
                         var serverId;
+                        let numOfLists = 0;
 
                         //iterates for every item(server Id) in the joinedServersArray
                         joinedServersArray.forEach(async (doc) => {
+                            numOfLists++;
                             //gets the document of the server using its id in the array
                             await db.doc("servers/" + doc).get().then(server => {
                                 var serverName = server.data().serverName;
                                 serverId = server.id;
+                                
 
                                 // Clone the template content
                                 let newJoinedServer = ServerTemplate.content.cloneNode(true);
@@ -104,6 +110,7 @@ function displayJoindServers() {
                             });
                         });
 
+                        document.getElementById("joined-list-counter").innerHTML = numOfLists;
                         console.log("Servers have been loaded");
                         localStorage.setItem("personal", "true");
                         localStorage.setItem("listId", serverId);

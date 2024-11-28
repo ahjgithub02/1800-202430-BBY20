@@ -27,14 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Function to load and render all user's lists
       const loadUserLists = async () => {
+        let numOfLists = 0;
         try {
           const snapshot = await userListsCollection.get();
           snapshot.forEach((doc) => {
+            numOfLists++
             renderListButton(doc.data(), doc.id);
           });
         } catch (error) {
           console.error("Error fetching user lists: ", error);
         }
+        document.getElementById("personal-list-counter").innerHTML = numOfLists;
       };
 
       // Load lists on page load without clearing existing ones
