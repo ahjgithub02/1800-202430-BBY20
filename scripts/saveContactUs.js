@@ -1,3 +1,12 @@
+firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        // No user is signed in, redirect to login page
+        window.location.assign("/html/login.html");
+    } else if (user && window.location.href === "https://remindme-ce614.web.app/index.html") {
+        window.location.assign("/html/main.html");
+    }
+});
+
 // Auto-fill name and email when the user is authenticated
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
