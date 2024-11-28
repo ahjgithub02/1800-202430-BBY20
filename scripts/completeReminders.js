@@ -60,7 +60,6 @@ function completeListReminder(listId, reminderId) {
     });
 }
 
-
 //Copies checked reminder from a shared list and moves it to the completed collection, removing it from the reminders list
 function completeSharedListReminder(listId, reminderId) {
     console.log(listId + ": " + reminderId);
@@ -150,6 +149,7 @@ function displayPersonalCompletedReminders(id) {
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
 
@@ -196,6 +196,7 @@ function displaySharedCompletedReminders(id) {
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
                             newreminder.querySelector('.reminderCheckbox').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
+                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
 
@@ -215,4 +216,107 @@ function displaySharedCompletedReminders(id) {
             console.log("No user is logged in."); // Log a message when no user is logged in
         }
     });
+}
+
+function undoCompletedReminder(listId, reminderId) {
+    console.log("undone the reminder with id: " + reminderId + "in list: " + listId);
+
+    const id = localStorage.getItem("listId");
+    const personal = localStorage.getItem("personal");
+    if (personal == "true") {
+        console.log("It is a personal reminder");
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // Reference to the completed reminder document
+                const completedReminderDoc = db.doc("users/" + user.uid + "/lists/" + listId + "/completed/" + reminderId);
+                // Reference to the reminder collection of the list
+                const reminderCollection = db.collection("users/" + user.uid + "/lists/" + listId + "/reminders");
+
+                // Gets the data of the reminder
+                completedReminderDoc.get()
+                    .then((reminder) => {
+                        if (reminder.exists) {
+                            // Extract data
+                            const reminderText = reminder.data().reminder;
+                            const reminderPriority = reminder.data().priority;
+                            const reminderDueTime = reminder.data().duetime;
+
+                            // Add to completed collection
+                            return reminderCollection.add({
+                                reminder: reminderText,
+                                priority: reminderPriority,
+                                duetime: reminderDueTime,
+                                id: reminderId
+
+                            });
+                        } else {
+                            console.log("Reminder does not exist.");
+                        }
+                    })
+                    .then(() => {
+                        console.log("Reminder moved to completed collection.");
+
+                        completedReminderDoc.delete().then(() => {
+                            console.log("Reminder successfully deleted from reminders collection!");
+                        }).catch((error) => {
+                            console.error("Error removing document: ", error);
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Error completing reminder: ", error);
+                    });
+            } else {
+                console.log("No user is logged in."); // Log a message when no user is logged in
+            }
+        });
+
+    } else {
+        console.log("It is a shared reminder")
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // Reference to the completed reminder document
+                const completedReminderDoc = db.doc("servers/" + listId + "/completed/" + reminderId);
+                // Reference to the reminder collection of the list
+                const reminderCollection = db.collection("servers/" + listId + "/reminders");
+
+                // Gets the data of the reminder
+                completedReminderDoc.get()
+                    .then((reminder) => {
+                        if (reminder.exists) {
+                            // Extract data
+                            const reminderText = reminder.data().reminder;
+                            const reminderPriority = reminder.data().priority;
+                            const reminderDueTime = reminder.data().duetime;
+
+                            // Add to completed collection
+                            return reminderCollection.add({
+                                reminder: reminderText,
+                                priority: reminderPriority,
+                                duetime: reminderDueTime,
+                                id: reminderId
+
+                            });
+                        } else {
+                            console.log("Reminder does not exist.");
+                        }
+                    })
+                    .then(() => {
+                        console.log("Reminder moved to completed collection.");
+
+                        completedReminderDoc.delete().then(() => {
+                            console.log("Reminder successfully deleted from reminders collection!");
+                        }).catch((error) => {
+                            console.error("Error removing document: ", error);
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Error completing reminder: ", error);
+                    });
+            } else {
+                console.log("No user is logged in."); // Log a message when no user is logged in
+            }
+        });
+    }
 }
