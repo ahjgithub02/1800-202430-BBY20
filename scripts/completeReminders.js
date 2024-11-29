@@ -126,6 +126,7 @@ function displayCompletedReminders() {
 function displayPersonalCompletedReminders(id) {
 
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable.
+    let deleteReminderButton = document.getElementById("deleteReminderButton");
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
 
@@ -152,6 +153,7 @@ function displayPersonalCompletedReminders(id) {
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
+                            newreminder
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
