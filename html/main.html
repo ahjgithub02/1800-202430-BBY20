@@ -124,7 +124,7 @@
       <!-- Left Sidebar Navbar -->
       <div class="col-1 py-3 sidebar" id="sidebar">
         <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List">
-          <i class="bi bi-person"></i>
+          <i class="bi-list-check"></i>
         </button>
         <button class="btn btn-link text-light p-3" id="CLACButton" title="Shared List"
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
@@ -172,7 +172,7 @@
                     <li class="list-item">
                       <div class="reminder-category-button-parent">
                         <h5 class="list-title">
-                          Priority
+                          Overdue
                         </h5>
                         <div class="reminder-category-button-child">
                           <span class="reminder-counter">2</span>
@@ -182,13 +182,13 @@
                     <li class="list-item">
                       <div class="reminder-category-button-parent">
                         <h5 class="list-title">
-                          Personal Lists
+                          Your Lists
                         </h5>
                         <div class="reminder-category-button-child">
-                          <span id="personal-list-counter" class="reminder-counter"></span>
                           <button class="plus-button" id="" data-bs-toggle="modal" data-bs-target="#newListModal">
                             +
                           </button>
+                          <span id="personal-list-counter" class="reminder-counter"></span>
                         </div>
                       </div>
                       <div id="own-list"></div>
@@ -199,11 +199,10 @@
                           Owned Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <span id="owned-list-counter" class="reminder-counter"></span>
                           <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
                             Create
                           </button>
-
+                          <span id="owned-list-counter" class="reminder-counter"></span>
                         </div>
                       </div>
                       <div id="ownedServersLists"></div>
@@ -214,10 +213,10 @@
                           Joined Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <span id="joined-list-counter" class="reminder-counter"></span>
                           <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
                             Join
                           </button>
+                          <span id="joined-list-counter" class="reminder-counter"></span>
                         </div>
                       </div>
                       <div id="joinedServersDropdown"></div>

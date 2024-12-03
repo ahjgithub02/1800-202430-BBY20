@@ -316,10 +316,19 @@ th {
     /* Center vertically */
     align-items: center;
     /* Center horizontally */
-    text-align: center;
+    text-align: left;
     /* Ensure text is centered */
     padding: 20px;
     /* Add some padding to prevent content from touching the edges */
+}
+
+.placeholder-text {
+    font-style: italic;
+}
+
+.parent-container-profile-footer {
+    padding: 10px;
+    padding-bottom: 28px;
 }
 
 /* Left Navbar */
@@ -450,6 +459,12 @@ th {
     padding: 0px 15px;
 }
 
+@media (min-width: 701px) and (max-width: 991px){
+    .navbar {
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+}
+
 @media only screen and (max-width: 700px){
     
     #main-image-div  {
@@ -465,7 +480,8 @@ th {
     }
 
     .row {
-        display: table-row;
+        display: flex;
+
     }
 
     #main-image {
@@ -532,5 +548,22 @@ th {
     /* Adjust button padding for better spacing */
     .sidebar button {
         padding: 0.5rem 1rem;
+    }
+
+    .navbar {
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .card-body {
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: center;
+        /* Center vertically */
+        align-items: center;
+        /* Center horizontally */
+        text-align: left;
+        /* Ensure text is centered */
+        padding: 20px;
+        /* Add some padding to prevent content from touching the edges */
     }
 }
