@@ -15,7 +15,7 @@ function readPersonalReminders() {
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
                             newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
-                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder("personal", doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
@@ -145,6 +145,7 @@ function readServerReminders(serverId, serverName) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("servers/" + serverId + "/reminders")
+                .orderBy("duetime", "desc")
                 .onSnapshot(
                     (allReminders) => {
                         let numOfReminders = 0;
@@ -159,7 +160,7 @@ function readServerReminders(serverId, serverName) {
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
-                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(serverId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
@@ -203,6 +204,7 @@ function readOwnListReminders(listId, serverName) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users/" + user.uid + "/lists/" + listId + "/reminders")
+                .orderBy("duetime", "desc")
                 .onSnapshot(
                     (allReminders) => {
                         let numOfReminders = 0;
@@ -217,7 +219,7 @@ function readOwnListReminders(listId, serverName) {
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
-                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(listId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;

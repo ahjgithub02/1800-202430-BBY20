@@ -126,7 +126,6 @@ function displayCompletedReminders() {
 function displayPersonalCompletedReminders(id) {
 
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable.
-    let deleteReminderButton = document.getElementById("deleteReminderButton");
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
 
@@ -148,7 +147,7 @@ function displayPersonalCompletedReminders(id) {
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
-                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
@@ -196,7 +195,7 @@ function displaySharedCompletedReminders(id) {
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
                             newreminder.querySelector('.reminderText').innerHTML = reminderText;
-                            newreminder.querySelector('.reminderCheckbox').id = doc.id;
+                            newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;

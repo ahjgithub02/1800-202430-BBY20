@@ -47,7 +47,7 @@
   <!-- Templates (These will not be displayed) -->
   <template id="reminderTemplate">
     <div class="form-check mb-2">
-      <input class="form-check-input reminderCheckbox" type="checkbox" value="" id="">
+      <input class="form-check-input reminderCheckbox" type="checkbox">
       <div class="col-auto">
         <p class="form-check-label reminderText">Reminder text</p>
       </div>
@@ -57,7 +57,7 @@
       <div class="col-auto">
         <p class="form-check-label timeText">Reminder timestamp</p>
       </div>
-      <button class="bt plus-button" onclick="deleteReminder()" title="Delete reminder">
+      <button class="bt plus-button" onclick="deleteReminder(this)" title="Delete reminder">
         <i class="bi bi-trash"></i>
       </button>
       <hr>
@@ -134,7 +134,7 @@
           title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
-        <button class="btn btn-link text-light p-3" onclick="deleteReminder()" title="Trash">
+        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders()" title="Trash">
           <i class="bi bi-trash"></i>
         </button>
       </div>
