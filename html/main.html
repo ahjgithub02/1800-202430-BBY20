@@ -57,6 +57,9 @@
       <div class="col-auto">
         <p class="form-check-label timeText">Reminder timestamp</p>
       </div>
+      <div class="col-auto">
+        <p class="form-check-label reminderCreator">Reminder creator</p>
+      </div>
       <button class="bt plus-button" onclick="deleteReminder(this)" title="Delete reminder">
         <i class="bi bi-trash"></i>
       </button>
@@ -240,10 +243,11 @@
                   </div>
                   <div class="display-flexable-buttons">
                     Trash
-                    </div>
+                  </div>
                   <!-- Add Reminder Button -->
-                  <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center" id="addReminderButton"
-                    title="Add a New Reminder" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
+                  <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center"
+                    id="addReminderButton" title="Add a New Reminder" aria-modal data-bs-toggle="modal"
+                    data-bs-target="#taskModal"
                     style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
                     +
                   </a>

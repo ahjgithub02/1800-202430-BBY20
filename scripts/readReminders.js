@@ -52,33 +52,37 @@ function displayJoindServers() {
                         const joinedServersArray = doc.data().joinedServersArray;
                         var serverId;
                         let numOfLists = 0;
+                        console.log(joinedServersArray);
+                        
 
-                        //iterates for every item(server Id) in the joinedServersArray
-                        joinedServersArray.forEach(async (doc) => {
-                            numOfLists++;
-                            //gets the document of the server using its id in the array
-                            await db.doc("servers/" + doc).get().then(server => {
-                                var serverName = server.data().serverName;
-                                serverId = server.id;
-                                
+                        if (joinedServersArray) {
+                            //iterates for every item(server Id) in the joinedServersArray
+                            joinedServersArray.forEach(async (doc) => {
+                                numOfLists++;
+                                //gets the document of the server using its id in the array
+                                await db.doc("servers/" + doc).get().then(server => {
+                                    var serverName = server.data().serverName;
+                                    serverId = server.id;
+                                    
 
-                                // Clone the template content
-                                let newJoinedServer = ServerTemplate.content.cloneNode(true);
+                                    // Clone the template content
+                                    let newJoinedServer = ServerTemplate.content.cloneNode(true);
 
-                                // Set the server name and ID in the new item
-                                let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
-                                dropdownItem.innerHTML = serverName;
-                                dropdownItem.id = serverId;
+                                    // Set the server name and ID in the new item
+                                    let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
+                                    dropdownItem.innerHTML = serverName;
+                                    dropdownItem.id = serverId;
 
-                                // Append the new server item to the dropdown
-                                document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+                                    // Append the new server item to the dropdown
+                                    document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
 
-                                dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
+                                    dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
 
-                            }).catch(error => {
-                                console.error("Error fetching user document: ", error);
+                                }).catch(error => {
+                                    console.error("Error fetching user document: ", error);
+                                });
                             });
-                        });
+                        }
 
                         document.getElementById("joined-list-counter").innerHTML = numOfLists;
                         console.log("Servers have been loaded");
