@@ -1,40 +1,10 @@
-function readPersonalReminders() {
-    let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable. 
-
-    //check if the user is logged in
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            db.collection("users/" + user.uid + "/reminders")
-                .onSnapshot(
-                    (allReminders) => {
-                        let numOfReminders = 0;
-                        document.getElementById("reminders-list").innerHTML = ""; // Clear the list to avoid duplicates
-                        allReminders.forEach((doc) => {
-                            numOfReminders++;
-
-                            let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
-
-                            newreminder.querySelector('.reminderText').innerHTML = doc.data().reminder;
-                            newreminder.querySelector('.form-check').id = doc.id;
-                            newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder("personal", doc.id));
-                            newreminder.querySelector('.priorityText').innerHTML = "Priority: " + doc.data().priority;
-                            newreminder.querySelector('.timeText').innerHTML = "Due: " + doc.data().duetime;
-
-                            document.getElementById("reminders-list").appendChild(newreminder);
-                        });
-                        document.getElementById("reminderCount").innerHTML = numOfReminders;
-                    },
-                    (error) => {
-                        console.log("Error getting documents: ", error);
-                    }
-                );
-            document.getElementById("addReminder").addEventListener('click', writePersonalReminder);
-            console.log("Reminders have been loaded");
-        } else {
-            console.log("No user is logged in."); // Log a message when no user is logged in
-        }
-    });
-
+function readReminder() {
+    document.getElementById("addReminderButton").classList.remove("d-flex");
+    document.getElementById("addReminderButton").style.display = "none";
+    
+    const p = document.createElement("h3");
+    p.innerHTML =  "Select a list!";
+    document.getElementById("reminders-list").appendChild(p);
 }
 
 function displayJoindServers() {

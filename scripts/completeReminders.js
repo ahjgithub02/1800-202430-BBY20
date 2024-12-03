@@ -150,6 +150,7 @@ function displayPersonalCompletedReminders(id) {
                             newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
+                            newreminder.querySelector('.bt').remove();
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
                             newreminder
@@ -198,6 +199,7 @@ function displaySharedCompletedReminders(id) {
                             newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.reminderCheckbox').checked = true;
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(id, doc.id));
+                            newreminder.querySelector('.bt').remove();
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
 
