@@ -1,6 +1,8 @@
 function readReminder() {
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
+    document.getElementById("deleteListButton").classList.remove("d-flex");
+    document.getElementById("deleteListButton").style.display = "none";
     
     const p = document.createElement("h3");
     p.innerHTML =  "Select a list!";
