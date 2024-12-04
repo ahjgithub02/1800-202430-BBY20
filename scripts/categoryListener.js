@@ -2,6 +2,7 @@
 
 // Function to display tasks due today
 function displayYourDueTodayTasks(id) {
+  localStorage.setItem("listId", "DueToday");
   let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
   console.log("1")
   // Hide add and delete buttons for due today tasks (optional)
@@ -88,8 +89,8 @@ function displayYourDueTodayTasks(id) {
   });
 }
 
-
 function displayYourDueThisWeeksTasks(id) {
+  localStorage.setItem("listId", "DueThisWeek");
   let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
   console.log("1")
   // Hide add and delete buttons for due today tasks (optional)
@@ -177,6 +178,7 @@ function displayYourDueThisWeeksTasks(id) {
 }
 
 function displayYourOverdueTasks(id) {
+  localStorage.setItem("listId", "Overdue");
   let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
   console.log("1")
   // Hide add and delete buttons for due today tasks (optional)

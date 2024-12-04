@@ -226,7 +226,7 @@ function displaySharedDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
+                            newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
 
                             const restoreButton = document.createElement('button');
                             restoreButton.className = 'bt plus-button';
@@ -404,21 +404,56 @@ function deleteReminderPermenant(element) {
     });
 }
 
+function deleteListPermenant() {
+    const listId = localStorage.getItem("listId");
+    const personal = localStorage.getItem("personal");
+
+    if (listId === "DueToday" || listId === "DueThisWeek" || listId === "Overdue" || personal === "false") {
+        console.error("Non deletable list.");
+        return;
+    }
+
+    firebase.auth().onAuthStateChanged(user => {
+        if (!user) {
+            console.log("No user is logged in.");
+            return;
+        }
+
+        const dbPath = "users/" + user.uid + "/lists/" + listId;
+
+        db.doc(dbPath)
+            .delete()
+            .then(() => {
+                console.log("List successfully deleted from database!");
+            })
+            .catch((error) => {
+                console.error("Error deleting list: ", error);
+            });
+    });
+    console.log("Deleted the list with id: " + listId + " from database.");
+}
+
+
+
+
+
+
+
 // Get modal and buttons
 const modal = document.getElementById('confirmationModal');
 const cancelDeleteButton = document.getElementById('cancelDelete');
 
 // Close the modal when the cancel button is clicked
-cancelDeleteButton.addEventListener('click', function() {
+cancelDeleteButton.addEventListener('click', function () {
     modal.classList.remove('show');
 });
 
 document.body.addEventListener('click', function (event) {
     // Handle reminder delete checkbox
-    if (event.target && event.target.classList.contains('reminderDelete')) {  
+    if (event.target && event.target.classList.contains('reminderDelete')) {
         const alertBox = document.getElementById('taskDelete');
         const parent = event.target.parentElement;
-        const hasRestoreButton = parent.querySelector('.reminderRestore') != null;   
+        const hasRestoreButton = parent.querySelector('.reminderRestore') != null;
 
         // Handle reminder delete permanently checkbox
         if (hasRestoreButton) {
@@ -426,7 +461,7 @@ document.body.addEventListener('click', function (event) {
             const alertBox = document.getElementById('taskDeletePermanent');
             console.log(event.target);
             modal.classList.add('show');
-            confirmDeleteButton.addEventListener('click', function(e) {
+            confirmDeleteButton.addEventListener('click', function (e) {
                 console.log(parent);
                 deleteReminderPermenant(parent);
                 modal.classList.remove('show');
@@ -449,7 +484,7 @@ document.body.addEventListener('click', function (event) {
                 }, 500); // Wait for fade-out to finish
             }, 500);
         }
-    }  
+    }
     // Handle reminder restore checkbox
     else if (event.target && event.target.classList.contains('reminderRestore')) {
         const alertBox = document.getElementById('taskRestore');
