@@ -201,7 +201,7 @@
                           Owned Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                          <button class="plus-button" id="" data-bs-toggle="modal" data-bs-target="#joinCalendarModal">
                             Create
                           </button>
                           <span id="owned-list-counter" class="reminder-counter"></span>
@@ -215,7 +215,7 @@
                           Joined Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <button class="plus-button" id="" data-bs-toggle="" data-bs-target="">
+                          <button class="plus-button" id="" data-bs-toggle="modal" data-bs-target="#createCalendarModal">
                             Join
                           </button>
                           <span id="joined-list-counter" class="reminder-counter"></span>
@@ -286,12 +286,16 @@
               <div class="col-md">
                 <h2>Join a Shared list</h2>
                 <p>Joining your class or group reminder server with just a simple code. </p>
-                <p><a class="btn btn-secondary" href="./server/joinServer.html" role="button">Join &raquo;</a></p>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#joinCalendarModal">
+                  Join &raquo;
+              </button>
               </div>
               <div class="col-md">
                 <h2>Create a Shared list</h2>
                 <p>Create your own server and invite other people to help build a more productive group.</p>
-                <p><a class="btn btn-secondary" href="./server/makeServer.html" role="button">Create &raquo;</a></p>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createCalendarModal">
+                  Create &raquo;
+                </button>
               </div>
             </div>
             <hr>
@@ -379,34 +383,47 @@
   </div>
 
 
-  <!-- Modal to create new list -->
-  <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
-    <div id="new-list-modal" class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newListModalLabel">Create New List</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="listName" class="form-label">List Name</label>
-              <input type="text" class="form-control" id="listName" placeholder="Enter list name">
+  <!-- Modal to join shared list -->
+  <div class="modal fade" id="joinCalendarModal" tabindex="-1" aria-labelledby="joinCalendarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="joinCalendarModalLabel">Join Collaborative Live Active Calendar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="mb-3">
-              <label for="listDescription" class="form-label">Description</label>
-              <textarea class="form-control" id="listDescription" rows="3" placeholder="Enter description"></textarea>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <input type="text" id="serverCode" class="form-control" placeholder="Code" aria-label="Code" aria-describedby="basic-addon1">
+                </div>
             </div>
-          </form>
+            <div class="modal-footer">
+                <button type="button" id="joinServer" class="btn btn-primary">Join</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" id="create-list">Create</button>
-        </div>
-      </div>
     </div>
   </div>
 
+  <!-- Modal to create shared list -->
+  <div class="modal fade" id="createCalendarModal" tabindex="-1" aria-labelledby="createCalendarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCalendarModalLabel">Create a Collaborative Live Active Calendar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="serverName" placeholder="Name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="create-list">Create</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+  </div>
 
   <!-- Toast Notification (hidden by default) -->
   <div id="taskNotification"
@@ -420,6 +437,8 @@
         aria-label="Close"></button>
     </div>
   </div>
+
+  
 
   <hr>
 
@@ -459,6 +478,8 @@
   <script src="/scripts/serverPage.js"></script>
   <script src="/scripts/categoryListener.js"></script>
   <script src="/scripts/togglediv.js"></script>
+  <script src="/scripts/joinServer.js"></script>
+  <script src="/scripts/makeServer.js"></script>
 
 </body>
 

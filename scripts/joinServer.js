@@ -47,7 +47,7 @@ async function joinServer() {
                                 .then(() => {
                                     console.log("Joined server!");
                                     //relocates to reminders page after joining server
-                                    window.location.href = '../reminders/reminders.html';
+                                    window.location.href = '/html/main.html';
                                 })
                                 .catch((error) => {
                                     console.error("Error joining server: ", error);

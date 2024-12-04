@@ -13,12 +13,11 @@ function generateServerCode() {
 
 async function makeServer() {
     const serverName = document.getElementById("serverName").value;
-    const serverDescription = document.getElementById("serverDescription").value;
     let serverCode = "";
 
     firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
-            if (serverName.trim() !== "" && serverDescription.trim() !== "") {
+            if (serverName.trim() !== "") {
                 console.log("Creating server...");
                 let isUnique = false;
 
@@ -36,7 +35,6 @@ async function makeServer() {
                 // Add the server with the unique code
                 db.collection("servers").add({
                     code: serverCode,
-                    description: serverDescription,
                     serverName: serverName,
                     ownerId: user.uid,
                     ownerName: user.displayName
@@ -45,7 +43,7 @@ async function makeServer() {
                         console.log("Server created with code: ", serverCode);
                         localStorage.setItem('serverCode', serverCode);
 
-                        window.location.href = 'servercreated.html';
+                        window.location.href = '/html/main.html';
                     })
                     .catch((error) => {
                         console.error("Error adding server: ", error);
@@ -59,3 +57,4 @@ async function makeServer() {
         }
     });
 }
+document.querySelector("#create-list").addEventListener("click", makeServer);
