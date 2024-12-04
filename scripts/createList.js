@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Get modal and list container elements
-  const createButton = document.getElementById("create-list");
+  const createButton = document.getElementById("create-your-list");
   const listNameInput = document.getElementById("listName");
-  const listDescriptionInput = document.getElementById("listDescription");
   let ServerTemplate = document.getElementById("serverDropTemplate"); // Retrieve the HTML template element.
 
   // Initialize Firebase and Firestore
@@ -46,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add event listener to "Create" button for adding new lists
       createButton.addEventListener("click", async () => {
         const listName = listNameInput.value.trim();
-        const listDescription = listDescriptionInput.value.trim();
 
         // Validate input
         if (listName === "") {
@@ -58,19 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
           // Add the new list to Firestore
           await userListsCollection.add({
             name: listName,
-            description: listDescription || "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
           });
 
           // Render the new list button
           renderListButton({
-            name: listName,
-            description: listDescription
+            name: listName
           });
 
           // Clear modal inputs
           listNameInput.value = "";
-          listDescriptionInput.value = "";
 
           // Close the modal
           const modal = bootstrap.Modal.getInstance(document.getElementById("newListModal"));
