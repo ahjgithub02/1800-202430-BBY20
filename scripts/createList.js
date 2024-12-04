@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Append the button to the "Own List" section
         document.getElementById("own-list").appendChild(newPersonalList);
-        dropdownItem.addEventListener('click', () => readOwnListReminders(dropdownItem.id, dropdownItem.innerHTML));
+        dropdownItem.addEventListener('click', () => readOwnListReminders(id, dropdownItem.innerHTML));
       };
 
       // Function to load and render all user's lists

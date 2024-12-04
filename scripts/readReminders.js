@@ -52,7 +52,6 @@ function displayJoindServers() {
                         const joinedServersArray = doc.data().joinedServersArray;
                         var serverId;
                         let numOfLists = 0;
-                        console.log(joinedServersArray);
                         
 
                         if (joinedServersArray) {
@@ -130,6 +129,7 @@ function readServerReminders(serverId, serverName) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
+                            var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -138,6 +138,7 @@ function readServerReminders(serverId, serverName) {
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(serverId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
+                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
@@ -160,6 +161,8 @@ function readServerReminders(serverId, serverName) {
 
 function readOwnListReminders(listId, serverName) {
     let addReminderButton = document.getElementById("addReminder");
+    console.log("list id: " + listId);
+    
 
     // Remove all event listeners by replacing the element with its clone
     let newAddReminderButton = addReminderButton.cloneNode(true);
@@ -189,6 +192,7 @@ function readOwnListReminders(listId, serverName) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
+                            var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -197,6 +201,7 @@ function readOwnListReminders(listId, serverName) {
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(listId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
+                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });

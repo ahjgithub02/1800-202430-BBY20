@@ -17,6 +17,8 @@ function writePersonalReminder() {
     });
 
     if (!isEmpty(reminderValue)) {
+        console.log(user);
+        
         //check if the user is logged in
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
@@ -25,7 +27,8 @@ function writePersonalReminder() {
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime
+                    duetime: reminderDueTime,
+                    creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
@@ -69,7 +72,8 @@ function writeServerReminder(serverId) {
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime
+                    duetime: reminderDueTime,
+                    creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
@@ -95,6 +99,7 @@ function writeOwnListReminder(listId) {
     const reminderPriorityButtons = document.querySelectorAll('input[name="priority"]');
 
     console.log("The list id is " + listId)
+    
 
     let reminderPriority = "";
 
@@ -109,11 +114,12 @@ function writeOwnListReminder(listId) {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 var reminders = db.collection("users/" + user.uid + "/lists/" + listId + "/reminders");
-
+                
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime
+                    duetime: reminderDueTime,
+                    creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
