@@ -159,11 +159,11 @@ function displayPersonalDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
+                            // newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
 
 
                             const restoreButton = document.createElement('button');
-                            restoreButton.className = 'bt plus-button';
+                            restoreButton.className = 'bt plus-button reminderRestore';
                             restoreButton.setAttribute('onclick', 'undodeletedReminder(this)');
                             restoreButton.setAttribute('title', 'Restore reminder');
 
@@ -403,3 +403,62 @@ function deleteReminderPermenant(element) {
             });
     });
 }
+
+// Get modal and buttons
+const modal = document.getElementById('confirmationModal');
+const cancelDeleteButton = document.getElementById('cancelDelete');
+
+// Close the modal when the cancel button is clicked
+cancelDeleteButton.addEventListener('click', function() {
+    modal.classList.remove('show');
+});
+
+document.body.addEventListener('click', function (event) {
+    // Handle reminder delete checkbox
+    if (event.target && event.target.classList.contains('reminderDelete')) {  
+        const alertBox = document.getElementById('taskDelete');
+        const parent = event.target.parentElement;
+        const hasRestoreButton = parent.querySelector('.reminderRestore') != null;   
+
+        // Handle reminder delete permanently checkbox
+        if (hasRestoreButton) {
+            const confirmDeleteButton = document.getElementById('confirmDelete');
+            const alertBox = document.getElementById('taskDeletePermanent');
+            console.log(event.target);
+            modal.classList.add('show');
+            confirmDeleteButton.addEventListener('click', function(e) {
+                console.log(parent);
+                deleteReminderPermenant(parent);
+                modal.classList.remove('show');
+
+                alertBox.classList.add('show'); // Show the alert
+                setTimeout(() => {
+                    alertBox.classList.add('hide'); // Fade out after 0.5 second
+                    setTimeout(() => {
+                        alertBox.classList.remove('show', 'hide'); // Reset classes
+                    }, 500); // Wait for fade-out to finish
+                }, 500);
+            });
+
+        } else {
+            alertBox.classList.add('show'); // Show the alert
+            setTimeout(() => {
+                alertBox.classList.add('hide'); // Fade out after 0.5 second
+                setTimeout(() => {
+                    alertBox.classList.remove('show', 'hide'); // Reset classes
+                }, 500); // Wait for fade-out to finish
+            }, 500);
+        }
+    }  
+    // Handle reminder restore checkbox
+    else if (event.target && event.target.classList.contains('reminderRestore')) {
+        const alertBox = document.getElementById('taskRestore');
+        alertBox.classList.add('show'); // Show the alert
+        setTimeout(() => {
+            alertBox.classList.add('hide'); // Fade out after 0.5 second
+            setTimeout(() => {
+                alertBox.classList.remove('show', 'hide'); // Reset classes
+            }, 500); // Wait for fade-out to finish
+        }, 500);
+    }
+});
