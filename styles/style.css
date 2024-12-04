@@ -510,7 +510,7 @@ th {
 }
 
 /* Modal styles */
-.modal {
+#confirmationModal {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed position */
     z-index: 1; /* Sit on top */
@@ -523,45 +523,13 @@ th {
 }
 
 /* Modal content */
-.modal-content {
-    background-color: white;
+#modalConfirmation-content {
+    background-color: #C4BBAF;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
     text-align: center;
-}
-
-/* Close button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Button styles */
-.btn {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.btn-danger {
-    background-color: red;
-    color: white;
-}
-
-.btn-secondary {
-    background-color: gray;
-    color: white;
 }
 
 
