@@ -459,6 +459,6 @@ document.body.addEventListener('click', function (event) {
             setTimeout(() => {
                 alertBox.classList.remove('show', 'hide'); // Reset classes
             }, 500); // Wait for fade-out to finish
-        }, 500);
+        }, 500);    
     }
 });
