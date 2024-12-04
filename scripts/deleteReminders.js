@@ -159,7 +159,7 @@ function displayPersonalDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
+                            newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
 
 
                             const restoreButton = document.createElement('button');
@@ -226,7 +226,7 @@ function displaySharedDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
+                            newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
 
                             const restoreButton = document.createElement('button');
                             restoreButton.className = 'bt plus-button';
@@ -397,6 +397,39 @@ function deleteReminderPermenant(element) {
             .delete()
             .then(() => {
                 console.log("Reminder successfully deleted from database!");
+            })
+            .catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+    });
+}
+
+function deleteListPermenant() {
+    const listId = localStorage.getItem("listId");
+
+    if (listId === "DueToday" || listId === "DueThisWeek" || listId === "Overdue") {
+        console.error("Non deletable list.");
+        return;
+    }
+
+    console.log("Deleted the list with id: " + listId + " from database.");
+
+    const personal = localStorage.getItem("personal");
+
+    firebase.auth().onAuthStateChanged(user => {
+        if (!user) {
+            console.log("No user is logged in.");
+            return;
+        }
+
+        const dbPath = personal === "true"
+            ? "users/" + user.uid + "/lists/" + listId
+            : "servers/" + listId;
+
+        db.doc(dbPath)
+            .delete()
+            .then(() => {
+                console.log("List successfully deleted from database!");
             })
             .catch((error) => {
                 console.error("Error removing document: ", error);
