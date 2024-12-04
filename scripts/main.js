@@ -29,7 +29,7 @@ insertNameFromFirestore();
 
 function handleSideBarButtons() {
     const CALCButton = document.getElementById("CLACButton");
-    const RemindersButton = document.getElementById("remindersButton");
+    const remindersButton = document.getElementById("remindersButton");
     const reminders = document.querySelectorAll(".reminders");
     const CLAC = document.getElementById("CLAC");
     
@@ -37,14 +37,14 @@ function handleSideBarButtons() {
         if (user) {
             CALCButton.addEventListener('click', () => {
                 reminders.forEach(reminder => {
-                    reminder.classList.add("hidden");
+                    reminder.style.display = "none";
                 });
                 CLAC.classList.add("block");
             });
 
-            RemindersButton.addEventListener('click', () => {
+            remindersButton.addEventListener('click', () => {
                 reminders.forEach(reminder => {
-                    reminder.classList.remove("hidden");
+                    reminder.style.display = "block";
                 });
                 CLAC.classList.remove("block");
             });

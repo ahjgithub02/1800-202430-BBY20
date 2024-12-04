@@ -482,7 +482,12 @@ th {
 
 @media (min-width: 701px) and (max-width: 991px){
     .navbar {
-        flex-wrap: nowrap; /* Prevent wrapping */
+        flex-wrap: nowrap;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-evenly;
     }
 }
 
@@ -510,7 +515,7 @@ th {
 
     .row {
         display: flex;
-
+        justify-content: space-evenly;
     }
 
     #main-image {

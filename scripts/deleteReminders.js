@@ -29,15 +29,15 @@ function deletePersonalReminder(listId, reminderId) {
                         const reminderText = reminder.data().reminder;
                         const reminderPriority = reminder.data().priority;
                         const reminderDueTime = reminder.data().duetime;
-                        const reminderCreator = reminder.data().creator;
+                        // const reminderCreator = reminder.data().creator;
 
                         // Add to deleted collection
                         return deletedCollection.add({
                             reminder: reminderText,
                             priority: reminderPriority,
                             duetime: reminderDueTime,
-                            id: reminderId,
-                            creator: reminderCreator
+                            id: reminderId
+                            // creator: reminderCreator
 
                         });
                     } else {
@@ -80,15 +80,15 @@ function deleteSharedReminder(listId, reminderId) {
                         const reminderText = reminder.data().reminder;
                         const reminderPriority = reminder.data().priority;
                         const reminderDueTime = reminder.data().duetime;
-                        const reminderCreator = reminder.data().creator;
+                        // const reminderCreator = reminder.data().creator;
 
                         // Add to deleted collection
                         return deletedCollection.add({
                             reminder: reminderText,
                             priority: reminderPriority,
                             duetime: reminderDueTime,
-                            id: reminderId,
-                            creator: reminderCreator
+                            id: reminderId
+                            // creator: reminderCreator
 
                         });
                     } else {
@@ -148,7 +148,7 @@ function displayPersonalDeletedReminders(id) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -156,7 +156,7 @@ function displayPersonalDeletedReminders(id) {
                             newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
                             newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
@@ -215,7 +215,7 @@ function displaySharedDeletedReminders(id) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -223,7 +223,7 @@ function displaySharedDeletedReminders(id) {
                             newreminder.querySelector('.form-check').id = doc.id;
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
                             newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
@@ -286,15 +286,15 @@ function undodeletedReminder(element) {
                             const reminderText = reminder.data().reminder;
                             const reminderPriority = reminder.data().priority;
                             const reminderDueTime = reminder.data().duetime;
-                            const reminderCreator = reminder.data().creator;
+                            // const reminderCreator = reminder.data().creator;
 
                             // Add to deleted collection
                             return reminderCollection.add({
                                 reminder: reminderText,
                                 priority: reminderPriority,
                                 duetime: reminderDueTime,
-                                id: reminderId,
-                                creator: reminderCreator
+                                id: reminderId
+                                // creator: reminderCreator
 
                             });
                         } else {
@@ -336,15 +336,15 @@ function undodeletedReminder(element) {
                             const reminderText = reminder.data().reminder;
                             const reminderPriority = reminder.data().priority;
                             const reminderDueTime = reminder.data().duetime;
-                            const reminderCreator = reminder.data().creator;
+                            // const reminderCreator = reminder.data().creator;
 
                             // Add to deleted collection
                             return reminderCollection.add({
                                 reminder: reminderText,
                                 priority: reminderPriority,
                                 duetime: reminderDueTime,
-                                id: reminderId,
-                                creator: reminderCreator
+                                id: reminderId
+                                // creator: reminderCreator
 
                             });
                         } else {

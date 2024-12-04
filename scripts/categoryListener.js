@@ -1,7 +1,7 @@
 // Add event listener to the parent container (document or a specific parent element)
 
   // Function to display tasks due today
-  function displayDueTodayTasks(id) {
+  function displayYourDueTodayTasks(id) {
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
 console.log("1")
     // Hide add and delete buttons for due today tasks (optional)
@@ -62,7 +62,7 @@ console.log("1")
                             newTask.querySelector('.priorityText').innerHTML = "Priority: " + taskPriority;
                             newTask.querySelector('.timeText').innerHTML = "Due: " + taskDueDate;
                             newTask.querySelector('.reminderCheckbox').checked = false;
-                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoTaskCompletion(reminder.id)); // Handle unchecking the task
+                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(doc.id, reminder.id)); // Handle unchecking the task
 
                             document.getElementById("reminders-list").appendChild(newTask); // Append the new task to the task list
                             
@@ -74,7 +74,7 @@ console.log("1")
               console.log("4")
               // Update the task count
               document.getElementById("reminderCount").innerHTML = numOfTasks;
-              console.log(numOfTasks)
+              console.log("Number of tasks: " + numOfTasks)
             },
             (error) => {
               console.log("Error getting tasks: ", error);
@@ -88,17 +88,8 @@ console.log("1")
     });
   }
 
-  
 
-  // Example function for undoing task completion
-  function undoTaskCompletion(taskId) {
-    console.log("Undo task completion for task ID:", taskId);
-    // Implement the logic to undo the completion of the task in Firestore
-  }
-
-
-
-  function displayDueThisWeeksTasks(id) {
+  function displayYourDueThisWeeksTasks(id) {
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
 console.log("1")
     // Hide add and delete buttons for due today tasks (optional)
@@ -159,7 +150,7 @@ console.log("1")
                             newTask.querySelector('.priorityText').innerHTML = "Priority: " + taskPriority;
                             newTask.querySelector('.timeText').innerHTML = "Due: " + taskDueDate;
                             newTask.querySelector('.reminderCheckbox').checked = false;
-                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoTaskCompletion(reminder.id)); // Handle unchecking the task
+                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(reminder.id)); // Handle unchecking the task
 
                             document.getElementById("reminders-list").appendChild(newTask); // Append the new task to the task list
                             
@@ -185,7 +176,7 @@ console.log("1")
     });
   }
 
-  function displayOverdueTasks(id) {
+  function displayYourOverdueTasks(id) {
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the template element
 console.log("1")
     // Hide add and delete buttons for due today tasks (optional)
@@ -244,7 +235,7 @@ console.log("1")
                             newTask.querySelector('.priorityText').innerHTML = "Priority: " + taskPriority;
                             newTask.querySelector('.timeText').innerHTML = "Due: " + taskDueDate;
                             newTask.querySelector('.reminderCheckbox').checked = false;
-                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoTaskCompletion(reminder.id)); // Handle unchecking the task
+                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(reminder.id)); // Handle unchecking the task
 
                             document.getElementById("reminders-list").appendChild(newTask); // Append the new task to the task list
                             
@@ -270,8 +261,8 @@ console.log("1")
     });
   }
 
-  document.getElementById("dueThisWeek").addEventListener("click", displayDueThisWeeksTasks);
+  document.getElementById("dueThisWeek").addEventListener("click", displayYourDueThisWeeksTasks);
 
-  document.getElementById("dueToday").addEventListener("click", displayDueTodayTasks);
+  document.getElementById("dueToday").addEventListener("click", displayYourDueTodayTasks);
 
-  document.getElementById("overdue").addEventListener("click", displayOverdueTasks);
+  document.getElementById("overdue").addEventListener("click", displayYourOverdueTasks);

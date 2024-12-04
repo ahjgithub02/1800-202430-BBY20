@@ -27,8 +27,8 @@ function writePersonalReminder() {
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime,
-                    creator: user.displayName
+                    duetime: reminderDueTime
+                    // creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
@@ -72,8 +72,8 @@ function writeServerReminder(serverId) {
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime,
-                    creator: user.displayName
+                    duetime: reminderDueTime
+                    // creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving
@@ -118,8 +118,8 @@ function writeOwnListReminder(listId) {
                 reminders.add({
                     reminder: reminderValue,
                     priority: reminderPriority,
-                    duetime: reminderDueTime,
-                    creator: user.displayName
+                    duetime: reminderDueTime
+                    // creator: user.displayName
                 }).then(() => {
                     console.log("Reminder successfully added!");
                     // Close the modal after saving

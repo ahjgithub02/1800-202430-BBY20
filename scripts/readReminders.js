@@ -131,7 +131,7 @@ function readServerReminders(serverId, serverName) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -140,7 +140,7 @@ function readServerReminders(serverId, serverName) {
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(serverId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
@@ -194,7 +194,7 @@ function readOwnListReminders(listId, serverName) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -203,7 +203,7 @@ function readOwnListReminders(listId, serverName) {
                             newreminder.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(listId, doc.id));
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });

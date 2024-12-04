@@ -29,15 +29,18 @@ function completeListReminder(listId, reminderId) {
                         const reminderText = reminder.data().reminder;
                         const reminderPriority = reminder.data().priority;
                         const reminderDueTime = reminder.data().duetime;
-                        const reminderCreator = reminder.data().creator;
+                        // const reminderCreator = reminder.data().creator;
 
+                        // if (!reminderCreator) {
+                        //     console.error("Reminder creater undefined");
+                        // }
                         // Add to completed collection
                         return completedCollection.add({
                             reminder: reminderText,
                             priority: reminderPriority,
                             duetime: reminderDueTime,
-                            id: reminderId,
-                            creator: reminderCreator
+                            id: reminderId
+                            // creator: reminderCreator
 
                         });
                     } else {
@@ -81,15 +84,15 @@ function completeSharedListReminder(listId, reminderId) {
                         const reminderText = reminder.data().reminder;
                         const reminderPriority = reminder.data().priority;
                         const reminderDueTime = reminder.data().duetime;
-                        const reminderCreator = reminder.data().creator;
+                        // const reminderCreator = reminder.data().creator;
 
                         // Add to completed collection
                         return completedCollection.add({
                             reminder: reminderText,
                             priority: reminderPriority,
                             duetime: reminderDueTime,
-                            id: reminderId,
-                            creator: reminderCreator
+                            id: reminderId
+                            // creator: reminderCreator
 
                         });
                     } else {
@@ -148,7 +151,7 @@ function displayPersonalCompletedReminders(id) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -159,7 +162,7 @@ function displayPersonalCompletedReminders(id) {
                             newreminder.querySelector('.bt').remove();
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
@@ -199,7 +202,7 @@ function displaySharedCompletedReminders(id) {
                             var reminderText = doc.data().reminder;
                             var reminderPriority = doc.data().priority;
                             var reminderDueDate = doc.data().duetime;
-                            var reminderCreator = doc.data().creator;
+                            // var reminderCreator = doc.data().creator;
 
                             let newreminder = reminderTemplate.content.cloneNode(true); // Clone the HTML template to create a new reminder (newreminder) that will be filled with Firestore data.
 
@@ -210,7 +213,7 @@ function displaySharedCompletedReminders(id) {
                             newreminder.querySelector('.bt').remove();
                             newreminder.querySelector('.priorityText').innerHTML = "Priority: " + reminderPriority;
                             newreminder.querySelector('.timeText').innerHTML = "Due: " + reminderDueDate;
-                            newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
+                            // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
 
                             document.getElementById("reminders-list").appendChild(newreminder);
                         });
@@ -253,15 +256,15 @@ function undoCompletedReminder(listId, reminderId) {
                             const reminderText = reminder.data().reminder;
                             const reminderPriority = reminder.data().priority;
                             const reminderDueTime = reminder.data().duetime;
-                            const reminderCreator = reminder.data().creator;
+                            // const reminderCreator = reminder.data().creator;
 
                             // Add to completed collection
                             return reminderCollection.add({
                                 reminder: reminderText,
                                 priority: reminderPriority,
                                 duetime: reminderDueTime,
-                                id: reminderId,
-                                creator: reminderCreator
+                                id: reminderId
+                                // creator: reminderCreator
 
                             });
                         } else {
@@ -303,15 +306,15 @@ function undoCompletedReminder(listId, reminderId) {
                             const reminderText = reminder.data().reminder;
                             const reminderPriority = reminder.data().priority;
                             const reminderDueTime = reminder.data().duetime;
-                            const reminderCreator = reminder.data().creator;
+                            // const reminderCreator = reminder.data().creator;
 
                             // Add to completed collection
                             return reminderCollection.add({
                                 reminder: reminderText,
                                 priority: reminderPriority,
                                 duetime: reminderDueTime,
-                                id: reminderId,
-                                creator: reminderCreator
+                                id: reminderId
+                                // creator: reminderCreator
 
                             });
                         } else {
