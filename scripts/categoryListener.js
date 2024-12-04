@@ -50,7 +50,7 @@ console.log("1")
                             var taskPriority = reminder.data().priority;
                             var taskDueDate = reminder.data().duetime; // Firestore Timestamp converted to JavaScript Date
 
-                            if (taskDueDate < formattedStartDate || taskDueDate > formattedEndDate) {
+                            if (taskDueDate == null || taskDueDate < formattedStartDate || taskDueDate > formattedEndDate) {
                                 return;
                             }
                             // Clone the reminder template and fill it with data
@@ -150,7 +150,7 @@ console.log("1")
                             newTask.querySelector('.priorityText').innerHTML = "Priority: " + taskPriority;
                             newTask.querySelector('.timeText').innerHTML = "Due: " + taskDueDate;
                             newTask.querySelector('.reminderCheckbox').checked = false;
-                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(reminder.id)); // Handle unchecking the task
+                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(doc.id, reminder.id)); // Handle unchecking the task
 
                             document.getElementById("reminders-list").appendChild(newTask); // Append the new task to the task list
                             
@@ -235,7 +235,7 @@ console.log("1")
                             newTask.querySelector('.priorityText').innerHTML = "Priority: " + taskPriority;
                             newTask.querySelector('.timeText').innerHTML = "Due: " + taskDueDate;
                             newTask.querySelector('.reminderCheckbox').checked = false;
-                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => undoCompletedReminder(reminder.id)); // Handle unchecking the task
+                            newTask.querySelector('.reminderCheckbox').addEventListener("click", () => completeReminder(doc.id, reminder.id)); // Handle unchecking the task
 
                             document.getElementById("reminders-list").appendChild(newTask); // Append the new task to the task list
                             
