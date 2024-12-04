@@ -144,6 +144,9 @@
         <div class="select-a-list-message">
           <p>Select a list!</p>
         </div>
+        <div class="go-back-mobile-layout hidden">
+          <a class="go-back-button" href="./main.html"><i class="bi bi-arrow-left"></i> Go Back</a>
+        </div>
         <div class="parent-main-container-4">
           <div class="child-main-container-4-1 reminders">
             <!-- Lists Section -->
@@ -152,7 +155,7 @@
                 <div id="lists-section" class="reminders border-end" style="background-color: #C4BBAF;">
                   <ul id="navigationListsTop">
                     <li class="list-item toggle-div" id="dueToday">
-                      <div class="reminder-category-button-parent" >
+                      <div class="reminder-category-button-parent">
                         <h5 class="list-title">
                           Due Today
                         </h5>
@@ -241,11 +244,10 @@
                     <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
                   </div>
                   <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center"
-                  id="deleteListButton" aria-modal data-bs-toggle="modal"
-                  data-bs-target="#taskModal"
-                  style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
+                    id="deleteListButton" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
+                    style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
                     Trash
-                </a>
+                  </a>
                   <!-- Add Reminder Button -->
                   <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center"
                     id="addReminderButton" title="Add a New Reminder" aria-modal data-bs-toggle="modal"
@@ -286,14 +288,16 @@
               <div class="col-md">
                 <h2>Join a Shared list</h2>
                 <p>Joining your class or group reminder server with just a simple code. </p>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#joinCalendarModal">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                  data-bs-target="#joinCalendarModal">
                   Join &raquo;
-              </button>
+                </button>
               </div>
               <div class="col-md">
                 <h2>Create a Shared list</h2>
                 <p>Create your own server and invite other people to help build a more productive group.</p>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createCalendarModal">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                  data-bs-target="#createCalendarModal">
                   Create &raquo;
                 </button>
               </div>
@@ -382,46 +386,72 @@
     </div>
   </div>
 
+  <!-- Modal to create new list -->
+  <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
+    <div id="new-list-modal" class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newListModalLabel">Create New List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="listName" class="form-label">List Name</label>
+              <input type="text" class="form-control" id="listName" placeholder="Enter list name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="create-your-list">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal to join shared list -->
-  <div class="modal fade" id="joinCalendarModal" tabindex="-1" aria-labelledby="joinCalendarModalLabel" aria-hidden="true">
+  <div class="modal fade" id="joinCalendarModal" tabindex="-1" aria-labelledby="joinCalendarModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="joinCalendarModalLabel">Join Collaborative Live Active Calendar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <input type="text" id="serverCode" class="form-control" placeholder="Code" aria-label="Code" aria-describedby="basic-addon1">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="joinServer" class="btn btn-primary">Join</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="joinCalendarModalLabel">Join Collaborative Live Active Calendar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <input type="text" id="serverCode" class="form-control" placeholder="Code" aria-label="Code"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="joinServer" class="btn btn-primary">Join</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Modal to create shared list -->
-  <div class="modal fade" id="createCalendarModal" tabindex="-1" aria-labelledby="createCalendarModalLabel" aria-hidden="true">
+  <div class="modal fade" id="createCalendarModal" tabindex="-1" aria-labelledby="createCalendarModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="createCalendarModalLabel">Create a Collaborative Live Active Calendar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="serverName" placeholder="Name">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="create-list">Create</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createCalendarModalLabel">Create a Collaborative Live Active Calendar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="serverName" placeholder="Name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="create-list">Create</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 

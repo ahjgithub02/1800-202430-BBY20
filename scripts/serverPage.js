@@ -45,27 +45,29 @@ function insertJoinedServersFromFirestore() {
                         // Iterate through each document in the QuerySnapshot
                         const joinedServersArray = doc.data().joinedServersArray;
 
-                        //iterates for every item(server Id) in the joinedServersArray
-                        joinedServersArray.forEach(async (serverId) => {
-                            //gets the document of the server using its id in the array
-                            await db.doc("servers/" + serverId).get().then(server => {
+                        if (joinedServersArray){
+                            //iterates for every item(server Id) in the joinedServersArray
+                            joinedServersArray.forEach(async (serverId) => {
+                                //gets the document of the server using its id in the array
+                                await db.doc("servers/" + serverId).get().then(server => {
 
-                                var serverCode = server.data().code;
-                                var serverName = server.data().serverName;
-                                var serverDescription = server.data().description;
+                                    var serverCode = server.data().code;
+                                    var serverName = server.data().serverName;
+                                    var serverDescription = server.data().description;
 
-                                let newServer = joinedServersTemplate.content.cloneNode(true);
+                                    let newServer = joinedServersTemplate.content.cloneNode(true);
 
-                                newServer.querySelector('.serverCode').innerHTML = serverCode;
-                                newServer.querySelector('.serverName').innerHTML = serverName;
-                                newServer.querySelector('.serverDescription').innerHTML = serverDescription;
+                                    newServer.querySelector('.serverCode').innerHTML = serverCode;
+                                    newServer.querySelector('.serverName').innerHTML = serverName;
+                                    newServer.querySelector('.serverDescription').innerHTML = serverDescription;
 
-                                document.getElementById("joined").appendChild(newServer);
+                                    document.getElementById("joined").appendChild(newServer);
 
-                            }).catch(error => {
-                                console.error("Error fetching user document: ", error);
+                                }).catch(error => {
+                                    console.error("Error fetching user document: ", error);
+                                });
                             });
-                        });
+                        }
 
                     },
                     (error) => {
