@@ -144,6 +144,9 @@
         <div class="select-a-list-message">
           <p>Select a list!</p>
         </div>
+        <div class="go-back-mobile-layout hidden">
+          <a class="go-back-button" href="./main.html"><i class="bi bi-arrow-left"></i> Go Back</a>
+        </div>
         <div class="parent-main-container-4">
           <div class="child-main-container-4-1 reminders">
             <!-- Lists Section -->
@@ -152,7 +155,7 @@
                 <div id="lists-section" class="reminders border-end" style="background-color: #C4BBAF;">
                   <ul id="navigationListsTop">
                     <li class="list-item toggle-div" id="dueToday">
-                      <div class="reminder-category-button-parent" >
+                      <div class="reminder-category-button-parent">
                         <h5 class="list-title">
                           Due Today
                         </h5>
@@ -241,11 +244,10 @@
                     <span id="reminderCount" class="badge bg-light text-dark rounded-circle p-3">0</span>
                   </div>
                   <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center"
-                  id="deleteListButton" aria-modal data-bs-toggle="modal"
-                  data-bs-target="#taskModal"
-                  style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
+                    id="deleteListButton" aria-modal data-bs-toggle="modal" data-bs-target="#taskModal"
+                    style="background-color: #A5978B; color: white; width: 50px; height: 50px; border-radius: 8px; font-size: 24px; border: none; line-height: 1;">
                     Trash
-                </a>
+                  </a>
                   <!-- Add Reminder Button -->
                   <a class="display-flexable-buttons btn d-flex justify-content-center align-items-center"
                     id="addReminderButton" title="Add a New Reminder" aria-modal data-bs-toggle="modal"
