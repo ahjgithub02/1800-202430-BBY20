@@ -480,6 +480,10 @@ th {
     padding: 0px 15px;
 }
 
+.modal-content {
+    background-color: #C4BBAF;
+}
+
 @media (min-width: 701px) and (max-width: 991px){
     .navbar {
         flex-wrap: nowrap;
@@ -493,6 +497,10 @@ th {
 
 @media only screen and (max-width: 700px){
     
+    .shared-list-text {
+        text-align: center;
+    }
+
     .select-a-list-message {
         display: flex;
         flex-direction: column;
@@ -557,6 +565,8 @@ th {
         padding-right: 0% !important;
         width: 96vw;
         height: 100% !important;
+        border: none !important;
+        margin-left: 10px;
     }
 
     #footer {

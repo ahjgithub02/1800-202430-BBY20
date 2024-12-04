@@ -44,7 +44,7 @@ function handleSideBarButtons() {
 
             remindersButton.addEventListener('click', () => {
                 reminders.forEach(reminder => {
-                    reminder.style.display = "block";
+                    reminder.style.display = "";
                 });
                 CLAC.classList.remove("block");
             });
