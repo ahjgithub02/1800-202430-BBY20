@@ -533,6 +533,27 @@ th {
 }
 
 
+.text-end {
+    margin-bottom: 15px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.go-back-in-contacts {
+    padding: 20px 5px;
+}
+
+.thank-you-footer {
+    margin: 10px;
+    padding-bottom: 10px;
+}
+
 @media (min-width: 701px) and (max-width: 991px){
     .navbar {
         flex-wrap: nowrap;
@@ -548,6 +569,7 @@ th {
     
     .shared-list-text {
         text-align: center;
+        margin-bottom: 20px;
     }
 
     .select-a-list-message {
@@ -690,8 +712,6 @@ th {
         /* Center vertically */
         align-items: center;
         /* Center horizontally */
-        text-align: left;
-        /* Ensure text is centered */
         padding: 20px;
         /* Add some padding to prevent content from touching the edges */
     }
@@ -708,5 +728,13 @@ th {
 
     .hidden {
         display: none;
+    }
+
+    .footer-1 img {
+        width: 10%;
+    }
+
+    .footer-2 {
+        margin-bottom: 70px;
     }
 }
