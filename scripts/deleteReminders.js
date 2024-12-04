@@ -159,11 +159,11 @@ function displayPersonalDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
+                            // newreminder.querySelector('.bt').setAttribute('onclick' , 'deleteReminderPermenant(this)');
 
 
                             const restoreButton = document.createElement('button');
-                            restoreButton.className = 'bt plus-button';
+                            restoreButton.className = 'bt plus-button reminderRestore';
                             restoreButton.setAttribute('onclick', 'undodeletedReminder(this)');
                             restoreButton.setAttribute('title', 'Restore reminder');
 
@@ -404,35 +404,61 @@ function deleteReminderPermenant(element) {
     });
 }
 
-function deleteListPermenant() {
-    const listId = localStorage.getItem("listId");
+// Get modal and buttons
+const modal = document.getElementById('confirmationModal');
+const cancelDeleteButton = document.getElementById('cancelDelete');
 
-    if (listId === "DueToday" || listId === "DueThisWeek" || listId === "Overdue") {
-        console.error("Non deletable list.");
-        return;
-    }
+// Close the modal when the cancel button is clicked
+cancelDeleteButton.addEventListener('click', function() {
+    modal.classList.remove('show');
+});
 
-    console.log("Deleted the list with id: " + listId + " from database.");
+document.body.addEventListener('click', function (event) {
+    // Handle reminder delete checkbox
+    if (event.target && event.target.classList.contains('reminderDelete')) {  
+        const alertBox = document.getElementById('taskDelete');
+        const parent = event.target.parentElement;
+        const hasRestoreButton = parent.querySelector('.reminderRestore') != null;   
 
-    const personal = localStorage.getItem("personal");
+        // Handle reminder delete permanently checkbox
+        if (hasRestoreButton) {
+            const confirmDeleteButton = document.getElementById('confirmDelete');
+            const alertBox = document.getElementById('taskDeletePermanent');
+            console.log(event.target);
+            modal.classList.add('show');
+            confirmDeleteButton.addEventListener('click', function(e) {
+                console.log(parent);
+                deleteReminderPermenant(parent);
+                modal.classList.remove('show');
 
-    firebase.auth().onAuthStateChanged(user => {
-        if (!user) {
-            console.log("No user is logged in.");
-            return;
-        }
-
-        const dbPath = personal === "true"
-            ? "users/" + user.uid + "/lists/" + listId
-            : "servers/" + listId;
-
-        db.doc(dbPath)
-            .delete()
-            .then(() => {
-                console.log("List successfully deleted from database!");
-            })
-            .catch((error) => {
-                console.error("Error removing document: ", error);
+                alertBox.classList.add('show'); // Show the alert
+                setTimeout(() => {
+                    alertBox.classList.add('hide'); // Fade out after 0.5 second
+                    setTimeout(() => {
+                        alertBox.classList.remove('show', 'hide'); // Reset classes
+                    }, 500); // Wait for fade-out to finish
+                }, 500);
             });
-    });
-}
+
+        } else {
+            alertBox.classList.add('show'); // Show the alert
+            setTimeout(() => {
+                alertBox.classList.add('hide'); // Fade out after 0.5 second
+                setTimeout(() => {
+                    alertBox.classList.remove('show', 'hide'); // Reset classes
+                }, 500); // Wait for fade-out to finish
+            }, 500);
+        }
+    }  
+    // Handle reminder restore checkbox
+    else if (event.target && event.target.classList.contains('reminderRestore')) {
+        const alertBox = document.getElementById('taskRestore');
+        alertBox.classList.add('show'); // Show the alert
+        setTimeout(() => {
+            alertBox.classList.add('hide'); // Fade out after 0.5 second
+            setTimeout(() => {
+                alertBox.classList.remove('show', 'hide'); // Reset classes
+            }, 500); // Wait for fade-out to finish
+        }, 500);
+    }
+});
