@@ -226,10 +226,10 @@ function displaySharedDeletedReminders(id) {
                             // newreminder.querySelector('.reminderCreator').innerHTML = "Creator: " + reminderCreator;
                             newreminder.querySelector('.reminderCheckbox').disabled = true;
                             newreminder.querySelector('.bt').removeAttribute("onclick");
-                            newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
+                            // newreminder.querySelector('.bt').setAttribute('onclick', 'deleteReminderPermenant(this)');
 
                             const restoreButton = document.createElement('button');
-                            restoreButton.className = 'bt plus-button';
+                            restoreButton.className = 'bt plus-button reminderRestore';
                             restoreButton.setAttribute('onclick', 'undodeletedReminder(this)');
                             restoreButton.setAttribute('title', 'Restore reminder');
 
@@ -374,8 +374,7 @@ function deleteReminderPermenant(element) {
     const listId = localStorage.getItem("listId");
     
 
-    const reminderId = element.parentElement.id;
-    console.log(reminderId);
+    const reminderId = element.id;
     
     console.log("Deleted the reminder with id: " + reminderId + " in list: " + listId + " from database.");
 
