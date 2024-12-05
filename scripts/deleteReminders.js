@@ -459,11 +459,9 @@ document.body.addEventListener('click', function (event) {
         // Handle reminder delete permanently checkbox
         if (hasRestoreButton) {
             const confirmDeleteButton = document.getElementById('confirmDelete');
-            const alertBox = document.getElementById('taskDeletePermanent');
-            console.log(event.target);
+            const alertBox = document.getElementById('taskDeletePermanent');    
             modal.classList.add('show');
             confirmDeleteButton.addEventListener('click', function (e) {
-                console.log(parent);
                 deleteReminderPermenant(parent);
                 modal.classList.remove('show');
 
