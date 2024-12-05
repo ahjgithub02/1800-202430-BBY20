@@ -1,18 +1,18 @@
 function deleteReminder(element) {
 
-    console.log(element.id);
-
     const personal = localStorage.getItem("personal");
     const listId = localStorage.getItem("listId");
     if (personal == "true") {
-        deletePersonalReminder(listId, element.id);
+        deletePersonalReminder(listId, element.parentElement.id);
     } else {
-        deleteSharedReminder(listId, element.id);
+        deleteSharedReminder(listId, element.parentElement.id);
     }
 }
 
 function deletePersonalReminder(listId, reminderId) {
-    console.log("It is a personal reminder: " + reminderId);
+    console.log(reminderId);
+    
+    console.log("It is a personal reminder: " + reminderId + "in list: " + listId);
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -263,7 +263,7 @@ function displaySharedDeletedReminders(id) {
 function undodeletedReminder(element) {
     const listId = localStorage.getItem("listId");
 
-    const reminderId = element.id;
+    const reminderId = element.parentElement.id;
 
     console.log("undone the reminder with id: " + reminderId + " in list: " + listId);
 
@@ -374,13 +374,9 @@ function deleteReminderPermenant(element) {
     const listId = localStorage.getItem("listId");
     
 
-    if (!element || !element) {
-        console.error("Invalid element or missing parent element.");
-        return;
-    }
+    const reminderId = element.parentElement.id;
+    console.log(reminderId);
     
-
-    const reminderId = element.id;
     console.log("Deleted the reminder with id: " + reminderId + " in list: " + listId + " from database.");
 
     const personal = localStorage.getItem("personal");
@@ -393,7 +389,7 @@ function deleteReminderPermenant(element) {
 
         const dbPath = personal === "true"
             ? "users/" + user.uid + "/lists/" + listId + "/deleted/" + reminderId
-            : "servers" + listId + "deleted/" + reminderId;
+            : "servers/" + listId + "/deleted/" + reminderId;
 
         db.doc(dbPath)
             .delete()
