@@ -427,11 +427,6 @@ th {
     margin-top: auto;
 }
 
-.toast {
-    z-index: 1050 !important;
-    /* Make sure the toast appears on top */
-}
-
 .own-list-items {
     border: brown solid 0.5px;;
 }

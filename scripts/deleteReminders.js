@@ -442,6 +442,7 @@ function deleteListPermenant() {
 // Get modal and buttons
 const modal = document.getElementById('confirmationModal');
 const cancelDeleteButton = document.getElementById('cancelDelete');
+const confirmDelete = document.getElementById('confirmDelete');
 
 // Close the modal when the cancel button is clicked
 cancelDeleteButton.addEventListener('click', function () {
