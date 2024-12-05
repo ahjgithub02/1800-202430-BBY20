@@ -123,18 +123,18 @@
       <!-- Wrap the rest of the page in another container to center all the content. -->
       <!-- Left Sidebar Navbar -->
       <div class="col-1 py-3 sidebar" id="sidebar">
-        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List">
+        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List" onclick="window.location.href= './main.html';">
           <i class="bi-list-check"></i>
         </button>
         <button class="btn btn-link text-light p-3" id="CLACButton" title="Shared List"
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
           <i class="bi bi-people"></i>
         </button>
-        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders()"
+        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders(), hideChildContainers()"
           title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
-        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders()" title="Trash">
+        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders(), hideChildContainers()" title="Trash">
           <i class="bi bi-trash"></i>
         </button>
       </div>
@@ -414,7 +414,7 @@
   <!-- Modal to join shared list -->
   <div class="modal fade" id="joinCalendarModal" tabindex="-1" aria-labelledby="joinCalendarModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="joinCalendarModalLabel">Join Collaborative Live Active Calendar</h5>
@@ -437,7 +437,7 @@
   <!-- Modal to create shared list -->
   <div class="modal fade" id="createCalendarModal" tabindex="-1" aria-labelledby="createCalendarModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="createCalendarModalLabel">Create a Collaborative Live Active Calendar</h5>
@@ -464,7 +464,7 @@
 
       <!-- Popup Alert for complete reminder -->
       <div id="taskComplete" class="popup-alert">
-        Task completed!
+        Moved to task completed!
       </div>
 
       <!-- Popup Alert for undoComplete reminder -->
@@ -483,13 +483,13 @@
       </div>
 
       <!-- Modal for warning that user are deleting the reminders permanently-->
-      <div id="confirmationModal" class="modal">
-        <div id="modalConfirmation-content">
-          <h3>Are you sure?</h3>
-          <p>You are about to delete the reminders permanently. This action cannot be undone.</p>
-          <button id="confirmDelete" class="btn btn-danger">Yes, delete</button>
-          <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
-        </div>
+      <div id="confirmationModal" class="modal fade">
+          <div id="modalConfirmation-content">
+            <h3>Are you sure?</h3>
+            <p>You are about to delete the reminders permanently. This action cannot be undone.</p>
+            <button id="confirmDelete" class="btn btn-danger">Yes, delete</button>
+            <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+          </div>
       </div>
 
       <!-- Popup Alert for delete permanently reminder -->
