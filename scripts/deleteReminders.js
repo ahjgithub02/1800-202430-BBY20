@@ -522,7 +522,7 @@ document.body.addEventListener('click', function (event) {
             const alertBox = document.getElementById('taskDeletePermanent');    
             modal.classList.add('show');
             confirmDeleteButton.addEventListener('click', function (e) {
-                deleteReminderPermenant(parent);
+                deleteReminderPermenant(event.target);
                 modal.classList.remove('show');
 
                 alertBox.classList.add('show'); // Show the alert
