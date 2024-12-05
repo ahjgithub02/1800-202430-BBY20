@@ -88,6 +88,11 @@
     width: 4rem;
 }
 
+.sidebar .btn:hover {
+    color: #ffc107;
+    transform: scale(1.2); 
+  }
+
 .list-item {
     background-color: #A5978B;
     color: black;
@@ -95,6 +100,11 @@
     border-radius: 10px;
     list-style-type: none;
     padding: 10px;
+}
+
+.list-item:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
 }
 
 .list-item-2 {
