@@ -374,7 +374,7 @@ function deleteReminderPermenant(element) {
     const listId = localStorage.getItem("listId");
     
 
-    const reminderId = element.id;
+    const reminderId = element.parentElement.id;
     
     console.log("Deleted the reminder with id: " + reminderId + " in list: " + listId + " from database.");
 
