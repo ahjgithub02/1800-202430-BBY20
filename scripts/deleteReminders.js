@@ -1,13 +1,13 @@
 function deleteReminder(element) {
 
-    console.log(element.parentElement.id);
+    console.log(element.id);
 
     const personal = localStorage.getItem("personal");
     const listId = localStorage.getItem("listId");
     if (personal == "true") {
-        deletePersonalReminder(listId, element.parentElement.id);
+        deletePersonalReminder(listId, element.id);
     } else {
-        deleteSharedReminder(listId, element.parentElement.id);
+        deleteSharedReminder(listId, element.id);
     }
 }
 
@@ -263,7 +263,7 @@ function displaySharedDeletedReminders(id) {
 function undodeletedReminder(element) {
     const listId = localStorage.getItem("listId");
 
-    const reminderId = element.parentElement.id;
+    const reminderId = element.id;
 
     console.log("undone the reminder with id: " + reminderId + " in list: " + listId);
 
@@ -372,13 +372,15 @@ function undodeletedReminder(element) {
 
 function deleteReminderPermenant(element) {
     const listId = localStorage.getItem("listId");
+    
 
-    if (!element || !element.parentElement) {
+    if (!element || !element) {
         console.error("Invalid element or missing parent element.");
         return;
     }
+    
 
-    const reminderId = element.parentElement.id;
+    const reminderId = element.id;
     console.log("Deleted the reminder with id: " + reminderId + " in list: " + listId + " from database.");
 
     const personal = localStorage.getItem("personal");
@@ -408,7 +410,7 @@ function deleteListPermenant() {
     const listId = localStorage.getItem("listId");
     const personal = localStorage.getItem("personal");
 
-    if (listId === "DueToday" || listId === "DueThisWeek" || listId === "Overdue" || personal === "false") {
+    if (listId === "DueToday" || listId === "DueThisWeek" || listId === "Overdue") {
         console.error("Non deletable list.");
         return;
     }
@@ -418,26 +420,88 @@ function deleteListPermenant() {
             console.log("No user is logged in.");
             return;
         }
+        var dbPath = "";
 
-        const dbPath = "users/" + user.uid + "/lists/" + listId;
+        if (personal === "false") {
+            const dbPath = "servers/" + listId;
+            db.doc(dbPath).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const data = doc.data(); // Retrieve the document's data
 
-        db.doc(dbPath)
-            .delete()
-            .then(() => {
-                console.log("List successfully deleted from database!");
-            })
-            .catch((error) => {
-                console.error("Error deleting list: ", error);
-            });
+                        if (data.ownerId !== user.uid) {
+                            console.log("The ownerId does not match the user's uid.");
+
+                            // Fetch joinedServersArray from the user's document
+                            const userDocPath = "users/" + user.uid;
+                            db.doc(userDocPath).get()
+                                .then((userDoc) => {
+                                    if (userDoc.exists) {
+                                        const userData = userDoc.data();
+                                        const joinedServersArray = userData.joinedServersArray;
+
+                                        if (Array.isArray(joinedServersArray)) {
+                                            console.log("Joined Servers Array:", joinedServersArray);
+
+                                            // Remove the element locally
+                                            const updatedArray = joinedServersArray.filter(item => item !== listId);
+
+                                            // Update Firestore with the modified array
+                                            db.doc(userDocPath).update({
+                                                joinedServersArray: updatedArray
+                                            })
+                                                .then(() => {
+                                                    console.log(`Successfully removed ${listId} from joinedServersArray.`);
+                                                    document.location.href = "./main.html"; // Redirect after the update
+                                                })
+                                                .catch((error) => {
+                                                    console.error("Error updating document:", error);
+                                                });
+
+                                        } else {
+                                            console.log("No joinedServersArray found or it is not an array.");
+                                        }
+
+                                    } else {
+                                        console.log("User document does not exist.");
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error("Error fetching user document:", error);
+                                });
+                        } else {
+                            console.log("The ownerId matches the user's uid.");
+                            db.doc(dbPath)
+                                .delete()
+                                .then(() => {
+                                    document.location.href = "./main.html";
+                                })
+                                .catch((error) => {
+                                    console.error("Error deleting list: ", error);
+                                });
+                        }
+                    } else {
+                        console.log("Document does not exist.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching document:", error);
+                });
+        } else {
+            const dbPath = "users/" + user.uid + "/lists/" + listId;
+            db.doc(dbPath)
+                .delete()
+                .then(() => {
+                    document.location.href = "./main.html";
+                })
+                .catch((error) => {
+                    console.error("Error deleting list: ", error);
+                });
+        }
+
     });
     console.log("Deleted the list with id: " + listId + " from database.");
 }
-
-
-
-
-
-
 
 // Get modal and buttons
 const modal = document.getElementById('confirmationModal');

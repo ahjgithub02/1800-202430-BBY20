@@ -101,6 +101,10 @@ function displayJoindServers() {
 }
 
 function readServerReminders(serverId, serverName) {
+
+    const deleteListButton = document.getElementById("delete-list-button");
+    deleteListButton.classList.remove("hidden");
+
     let addReminderButton = document.getElementById("addReminder");
 
     // Remove all event listeners by replacing the element with its clone
@@ -162,6 +166,8 @@ function readServerReminders(serverId, serverName) {
 }
 
 function readOwnListReminders(listId, serverName) {
+    const deleteListButton = document.getElementById("delete-list-button");
+    deleteListButton.classList.remove("hidden");
     let addReminderButton = document.getElementById("addReminder");
     console.log("list id: " + listId);
     
