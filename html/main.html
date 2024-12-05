@@ -123,18 +123,18 @@
       <!-- Wrap the rest of the page in another container to center all the content. -->
       <!-- Left Sidebar Navbar -->
       <div class="col-1 py-3 sidebar" id="sidebar">
-        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List">
+        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List" onclick="window.location.href= './main.html';">
           <i class="bi-list-check"></i>
         </button>
         <button class="btn btn-link text-light p-3" id="CLACButton" title="Shared List"
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
           <i class="bi bi-people"></i>
         </button>
-        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders()"
+        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders(), hideChildContainers()"
           title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
-        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders()" title="Trash">
+        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders(), hideChildContainers()" title="Trash">
           <i class="bi bi-trash"></i>
         </button>
       </div>
@@ -464,7 +464,7 @@
 
       <!-- Popup Alert for complete reminder -->
       <div id="taskComplete" class="popup-alert">
-        Task completed!
+        Moved to task completed!
       </div>
 
       <!-- Popup Alert for undoComplete reminder -->
