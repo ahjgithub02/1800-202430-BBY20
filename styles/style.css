@@ -619,12 +619,15 @@ th {
 
     .go-back-mobile-layout {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
         text-align: left;
         font-size: 20px;
         padding: 10px;
+        justify-content: space-between;
     }
+
+
 
     .go-back-button {
         display: inline-flex;
@@ -668,6 +671,7 @@ th {
         width: 30%; /* Width as a percentage */
         box-sizing: border-box; /* Ensures padding and border are included in width */
         margin-left: 5px; /* Ensures the button stays aligned to the left */
+        margin-right: 5px;
     }
 
     #main-image-div  {
