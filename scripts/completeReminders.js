@@ -135,8 +135,6 @@ function displayPersonalCompletedReminders(id) {
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable.
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
-    document.getElementById("deleteListButton").classList.remove("d-flex");
-    document.getElementById("deleteListButton").style.display = "none";
     //check if the user is logged in
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -186,8 +184,6 @@ function displaySharedCompletedReminders(id) {
     let reminderTemplate = document.getElementById("reminderTemplate"); // Retrieve the HTML element with the ID "remindersTemplate" and store it in the cardTemplate variable.
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
-    document.getElementById("deleteListButton").classList.remove("d-flex");
-    document.getElementById("deleteListButton").style.display = "none";
     //check if the user is logged in
     firebase.auth().onAuthStateChanged(user => {
         if (user) {

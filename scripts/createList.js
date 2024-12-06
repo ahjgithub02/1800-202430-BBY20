@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
           await userListsCollection.add({
             name: listName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          }).then(() => {
+            window.location.href = '/html/main.html';
           });
 
           // Render the new list button
