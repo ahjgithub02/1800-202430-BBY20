@@ -1,12 +1,10 @@
 function readReminder() {
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
-    document.getElementById("deleteListButton").classList.remove("d-flex");
-    document.getElementById("deleteListButton").style.display = "none";
     
-    const p = document.createElement("h3");
-    p.innerHTML =  "Select a list!";
-    document.getElementById("reminders-list").appendChild(p);
+    const h3 = document.createElement("h3");
+    h3.innerHTML =  "Select a list!";
+    document.getElementById("reminders-list").appendChild(h3);
 }
 
 function displayJoindServers() {
