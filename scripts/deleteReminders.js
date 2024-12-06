@@ -11,7 +11,7 @@ function deleteReminder(element) {
 
 function deletePersonalReminder(listId, reminderId) {
     console.log(reminderId);
-    
+
     console.log("It is a personal reminder: " + reminderId + "in list: " + listId);
 
     firebase.auth().onAuthStateChanged(user => {
@@ -368,10 +368,9 @@ function undodeletedReminder(element) {
 
 function deleteReminderPermenant(element) {
     const listId = localStorage.getItem("listId");
-    
 
     const reminderId = element.parentElement.id;
-    
+
     console.log("Deleted the reminder with id: " + reminderId + " in list: " + listId + " from database.");
 
     const personal = localStorage.getItem("personal");
@@ -514,7 +513,7 @@ document.body.addEventListener('click', function (event) {
         // Handle reminder delete permanently checkbox
         if (hasRestoreButton) {
             const confirmDeleteButton = document.getElementById('confirmDelete');
-            const alertBox = document.getElementById('taskDeletePermanent');    
+            const alertBox = document.getElementById('taskDeletePermanent');
             modal.classList.add('show');
             confirmDeleteButton.addEventListener('click', function (e) {
                 deleteReminderPermenant(event.target);
@@ -548,6 +547,6 @@ document.body.addEventListener('click', function (event) {
             setTimeout(() => {
                 alertBox.classList.remove('show', 'hide'); // Reset classes
             }, 500); // Wait for fade-out to finish
-        }, 500);    
+        }, 500);
     }
 });

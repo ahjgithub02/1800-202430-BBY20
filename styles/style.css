@@ -740,6 +740,16 @@ th {
         margin-right: 5px;
     }
 
+    .delete-list-button:hover {
+        background-color: #e0e0e0; /* Changes background color on hover */
+        cursor: pointer; /* Adds pointer cursor on hover */
+    }
+
+    .delete-list-button i {
+        margin-right: 8px; /* Space between the icon and text */
+        font-size: 20px; /* Adjust icon size */
+    }
+
     #main-image-div  {
         align-self: center;
         justify-self: center;

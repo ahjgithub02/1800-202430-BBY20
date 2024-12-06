@@ -1,9 +1,9 @@
 function readReminder() {
     document.getElementById("addReminderButton").classList.remove("d-flex");
     document.getElementById("addReminderButton").style.display = "none";
-    
+
     const h3 = document.createElement("h3");
-    h3.innerHTML =  "Select a list!";
+    h3.innerHTML = "Select a list!";
     document.getElementById("reminders-list").appendChild(h3);
 }
 
@@ -37,7 +37,9 @@ function displayJoindServers() {
                         document.getElementById("ownedServersLists").appendChild(newJoinedServer);
 
 
-                        dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
+                        dropdownItem.addEventListener('click', () => {
+                            readServerReminders(dropdownItem.id, dropdownItem.innerHTML, true);
+                        });
 
                     });
                     console.log("Owned servers loaded");
@@ -49,10 +51,11 @@ function displayJoindServers() {
                     (doc) => {
                         document.getElementById("joinedServersDropdown").innerHTML = "";
                         // Iterate through each document in the QuerySnapshot
+
                         const joinedServersArray = doc.data().joinedServersArray;
                         var serverId;
                         let numOfLists = 0;
-                        
+
 
                         if (joinedServersArray) {
                             //iterates for every item(server Id) in the joinedServersArray
@@ -60,22 +63,34 @@ function displayJoindServers() {
                                 numOfLists++;
                                 //gets the document of the server using its id in the array
                                 await db.doc("servers/" + doc).get().then(server => {
-                                    var serverName = server.data().serverName;
-                                    serverId = server.id;
-                                    
 
-                                    // Clone the template content
-                                    let newJoinedServer = ServerTemplate.content.cloneNode(true);
+                                    if (server.data()) {
+                                        document.getElementById("joined-list-counter").innerHTML = numOfLists;
+                                        var serverName = server.data().serverName;
 
-                                    // Set the server name and ID in the new item
-                                    let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
-                                    dropdownItem.innerHTML = serverName;
-                                    dropdownItem.id = serverId;
+                                        serverId = server.id;
 
-                                    // Append the new server item to the dropdown
-                                    document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+                                        // Clone the template content
+                                        let newJoinedServer = ServerTemplate.content.cloneNode(true);
 
-                                    dropdownItem.addEventListener('click', () => readServerReminders(dropdownItem.id, dropdownItem.innerHTML));
+                                        // Set the server name and ID in the new item
+                                        let dropdownItem = newJoinedServer.querySelector(".dropdown-item");
+                                        dropdownItem.innerHTML = serverName;
+                                        dropdownItem.id = serverId;
+
+                                        // Append the new server item to the dropdown
+                                        document.getElementById("joinedServersDropdown").appendChild(newJoinedServer);
+
+                                        dropdownItem.addEventListener('click', () => {
+                                            readServerReminders(dropdownItem.id, dropdownItem.innerHTML, false);
+                                        });
+                                    } else {
+                                        const updatedArray = joinedServersArray.filter(serverId => serverId !== doc);
+
+                                        db.doc("users/" + user.uid).update({
+                                            joinedServersArray: updatedArray
+                                        });
+                                    }
 
                                 }).catch(error => {
                                     console.error("Error fetching user document: ", error);
@@ -83,7 +98,6 @@ function displayJoindServers() {
                             });
                         }
 
-                        document.getElementById("joined-list-counter").innerHTML = numOfLists;
                         console.log("Servers have been loaded");
                         localStorage.setItem("personal", "true");
                         localStorage.setItem("listId", serverId);
@@ -98,10 +112,17 @@ function displayJoindServers() {
     });
 }
 
-function readServerReminders(serverId, serverName) {
+function readServerReminders(serverId, serverName, owned) {
 
-    const deleteListButton = document.getElementById("delete-list-button");
-    deleteListButton.classList.remove("hidden");
+
+    if (owned) {
+        const deleteListButton = document.getElementById("delete-list-button");
+        deleteListButton.classList.remove("hidden");
+
+    } else {
+        const leaveListButton = document.getElementById("leave-list-button");
+        leaveListButton.classList.remove("hidden");
+    }
 
     let addReminderButton = document.getElementById("addReminder");
 
@@ -155,7 +176,7 @@ function readServerReminders(serverId, serverName) {
             console.log(serverName + " reminders have been loaded");
             localStorage.setItem("listId", serverId);
             localStorage.setItem("personal", "false");
-            
+
 
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
@@ -168,7 +189,7 @@ function readOwnListReminders(listId, serverName) {
     deleteListButton.classList.remove("hidden");
     let addReminderButton = document.getElementById("addReminder");
     console.log("list id: " + listId);
-    
+
 
     // Remove all event listeners by replacing the element with its clone
     let newAddReminderButton = addReminderButton.cloneNode(true);

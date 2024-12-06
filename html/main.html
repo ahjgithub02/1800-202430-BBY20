@@ -123,18 +123,20 @@
       <!-- Wrap the rest of the page in another container to center all the content. -->
       <!-- Left Sidebar Navbar -->
       <div class="col-1 py-3 sidebar" id="sidebar">
-        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List" onclick="window.location.href= './main.html';">
+        <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List"
+          onclick="window.location.href= './main.html';">
           <i class="bi-list-check"></i>
         </button>
         <button class="btn btn-link text-light p-3" id="CLACButton" title="Shared List"
           onclick="insertOwnedServerFromFireStore(), insertJoinedServersFromFirestore()">
           <i class="bi bi-people"></i>
         </button>
-        <button id="checkedList" class="btn btn-link text-light p-3" onclick="displayCompletedReminders(), hideChildContainers()"
-          title="Completed List">
+        <button id="checkedList" class="btn btn-link text-light p-3"
+          onclick="displayCompletedReminders(), hideChildContainers()" title="Completed List">
           <i class="bi bi-check-circle"></i>
         </button>
-        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders(), hideChildContainers()" title="Trash">
+        <button class="btn btn-link text-light p-3" onclick="displayDeletedReminders(), hideChildContainers()"
+          title="Trash">
           <i class="bi bi-trash"></i>
         </button>
       </div>
@@ -146,7 +148,10 @@
         </div>
         <div class="go-back-mobile-layout hidden">
           <a class="go-back-button" href="./main.html"><i class="bi bi-arrow-left"></i> Go Back</a>
-          <a id="delete-list-button" class="delete-list-button hidden" data-bs-toggle="modal" data-bs-target="#deleteListModal"><i class="bi bi-trash"> </i> Delete list</a>
+          <a id="delete-list-button" class="delete-list-button hidden" data-bs-toggle="modal"
+            data-bs-target="#deleteListModal"><i class="bi bi-trash"> </i> Delete list</a>
+            <a id="leave-list-button" class="delete-list-button hidden" data-bs-toggle="modal"
+            data-bs-target="#leaveSharedListModal"><i class="bi bi-logout"> </i> Leave list</a>
         </div>
         <div class="parent-main-container-4">
           <div class="child-main-container-4-1 reminders">
@@ -205,7 +210,7 @@
                           Owned Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <button class="plus-button"  data-bs-toggle="modal" data-bs-target="#createCalendarModal">
+                          <button class="plus-button" data-bs-toggle="modal" data-bs-target="#createCalendarModal">
                             Create
                           </button>
                           <span id="owned-list-counter" class="reminder-counter"></span>
@@ -219,10 +224,10 @@
                           Joined Shared List
                         </h5>
                         <div class="reminder-category-button-child">
-                          <button class="plus-button"  data-bs-toggle="modal" data-bs-target="#joinCalendarModal">
+                          <button class="plus-button" data-bs-toggle="modal" data-bs-target="#joinCalendarModal">
                             Join
                           </button>
-                          <span id="joined-list-counter" class="reminder-counter"></span>
+                          <span id="joined-list-counter" class="reminder-counter">0</span>
                         </div>
                       </div>
                       <div id="joinedServersDropdown"></div>
@@ -446,7 +451,7 @@
             Description
             <label for="listDescription" class="form-label"></label>
             <textarea class="form-control" id="listDescription" rows="3" placeholder="Enter description"></textarea>
-            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -456,41 +461,41 @@
     </div>
   </div>
 
-      <!-- Popup Alert for complete reminder -->
-      <div id="taskComplete" class="popup-alert">
-        Moved to task completed!
-      </div>
+  <!-- Popup Alert for complete reminder -->
+  <div id="taskComplete" class="popup-alert">
+    Moved to task completed!
+  </div>
 
-      <!-- Popup Alert for undoComplete reminder -->
-      <div id="taskUndoComplete" class="popup-alert">
-        Task recovered!
-      </div>
+  <!-- Popup Alert for undoComplete reminder -->
+  <div id="taskUndoComplete" class="popup-alert">
+    Task recovered!
+  </div>
 
-      <!-- Popup Alert for delete reminder -->
-      <div id="taskDelete" class="popup-alert">
-        Task Deleted!
-      </div>
+  <!-- Popup Alert for delete reminder -->
+  <div id="taskDelete" class="popup-alert">
+    Task Deleted!
+  </div>
 
-      <!-- Popup Alert for restore reminder -->
-      <div id="taskRestore" class="popup-alert">
-        Task Restored!
-      </div>
+  <!-- Popup Alert for restore reminder -->
+  <div id="taskRestore" class="popup-alert">
+    Task Restored!
+  </div>
 
-      <!-- Modal for warning that user are deleting the reminders permanently-->
-      <div id="confirmationModal" class="modal fade">
-          <div id="modalConfirmation-content">
-            <h3>Are you sure?</h3>
-            <p>You are about to delete the reminders permanently. This action cannot be undone.</p>
-            <button id="confirmDelete" class="btn btn-danger">Yes, delete</button>
-            <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
-          </div>
-      </div>
+  <!-- Modal for warning that user are deleting the reminders permanently-->
+  <div id="confirmationModal" class="modal fade">
+    <div id="modalConfirmation-content">
+      <h3>Are you sure?</h3>
+      <p>You are about to delete the reminders permanently. This action cannot be undone.</p>
+      <button id="confirmDelete" class="btn btn-danger">Yes, delete</button>
+      <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
 
-      <!-- Popup Alert for delete permanently reminder -->
-      <div id="taskDeletePermanent" class="popup-alert">
-        Task Deleted Permanently!
-      </div>
-      
+  <!-- Popup Alert for delete permanently reminder -->
+  <div id="taskDeletePermanent" class="popup-alert">
+    Task Deleted Permanently!
+  </div>
+
 
   <!--Modal to delete a list-->
   <div class="modal fade" id="deleteListModal" tabindex="-1" aria-labelledby="deleteListModalLabel" aria-hidden="true">
@@ -506,6 +511,25 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="button" onclick="deleteListPermenant()" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal to leave a list-->
+  <div class="modal fade" id="leaveSharedListModal" tabindex="-1" aria-labelledby="leaveSharedListModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="leaveSharedListModalLabel">Leave shared list?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to leave this shared list?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" onclick="deleteListPermenant()" class="btn btn-primary">Leave</button>
         </div>
       </div>
     </div>
