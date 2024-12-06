@@ -32,36 +32,35 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #5A2A27;">
+    <nav class="navbar navbar-expand-lg fixed-top bg-secondary-subtle">
         <div class="container-fluid d-flex align-items-center">
 
             <!-- RemindMe Logo -->
-            <a class="navbar-brand" href="#top" style="display: flex; align-items: center;">
+            <a class="navbar-brand" href="#top">
                 <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
-                <b style="color: white; margin-left: 10px;">RemindMe</b>
+                <b class="text-light m-2">RemindMe</b>
             </a>
 
             <!-- Left Side: Features and About Us -->
             <ul class="navbar-nav me-auto d-flex flex-row ">
                 <li class="nav-item">
-                    <a class="nav-link" href="#features" style="color: white;">Features</a>
+                    <a class="nav-link text-light" href="#features">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about" style="color: white;">About Us</a>
+                    <a class="nav-link text-light" href="#about">About Us</a>
                 </li>
             </ul>
 
             <!-- Right Side: Login / Sign Up -->
             <div class="d-flex">
-                <a href="./html/login.html" class="btn btn-outline-light me-2" role="button"
-                    style="color: white; border-color: white;">Login / Sign Up</a>
+                <a href="./html/login.html" class="btn btn-outline-light me-2" role="button">Login / Sign Up</a>
             </div>
 
         </div>
     </nav>
 
     <!-- Welcome Message Div Container -->
-    <div style="background-color: #C4BBAF;">
+    <div>
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 
@@ -74,7 +73,7 @@
                 <div class="col-lg-6">
 
                     <!-- Welcome Message-->
-                    <h1 class="display-5 fw-bold lh-1 mb-3" style="color: #5A2A27;">Welcome to RemindMe</h1>
+                    <h1 class="display-5 fw-bold lh-1 mb-3 secondary-subtle" >Welcome to RemindMe</h1>
                     <p class="lead">Stay organized and connected with RemindMe! Share tasks, deadlines, and updates in
                         real-time with our Collaborative Live Active Calendar (CLAC). Perfect for groups or personal
                         schedules, RemindMe keeps everyone on track effortlessly.</p>
@@ -82,22 +81,18 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start align-items-center">
                         <!-- Email Input -->
                         <input type="email" class="form-control me-3" placeholder="Enter email address"
-                            aria-label="Email Address" style="width: auto;">
+                            aria-label="Email Address">
 
                         <!-- Get Started Button -->
-                        <a href="./html/login.html" class="btn btn-primary btn-lg px-4 me-md-2"
-                            style="background-color: #8D5B4C; color: white; border-color: #8D5B4C;">
+                        <a href="./html/login.html" class="btn btn-lg px-4 me-md-2 get-started-button">
                             Get Started </a>
                     </div>
 
                     <!-- Social Media Buttons -->
                     <div class="d-grid gap-2 mt-4">
-                        <button type="button" class="btn btn-outline-secondary btn-lg"
-                            style="border-color: black; color: black;">Continue with Google</button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg"
-                            style="border-color: black; color: black;">Continue with Facebook</button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg"
-                            style="border-color: black; color: black;">Continue with Twitter</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg continue-with-button">Continue with Google</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg continue-with-button">Continue with Facebook</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg continue-with-button">Continue with Twitter</button>
                     </div>
 
                 </div>
@@ -111,25 +106,25 @@
         <div class="container py-5" id="features">
 
             <!-- Features title -->
-            <h2 class="text-center fw-bold mb-5 display-4" style="color: #5A2A27;">Features</h2>
+            <h2 class="text-center fw-bold mb-5 display-4">Features</h2>
 
             <!-- Feature 1 -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
-                <h3 class="fw-bold display-5 mb-3" style="color: white;">Automated Task Lists</h3>
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
+                <h3 class="fw-bold display-5 mb-3">Automated Task Lists</h3>
                 <p class="lead fs-4">Effortlessly create or import fully automated task lists that simplify your
                     workflow and help you stay stress-free.</p>
             </div>
 
             <!-- Feature 2 -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
-                <h3 class="fw-bold display-5 mb-3" style="color: white;">Collaborative Servers</h3>
-                <p class="lead fs-4">Join collaborative servers to share tasks, updates, and reminders with your team in
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
+                <h3 class="fw-bold display-5 mb-3">Collaborative Lists</h3>
+                <p class="lead fs-4">Join collaborative lists to share tasks, updates, and reminders with your team in
                     real time for seamless coordination.</p>
             </div>
 
             <!-- Feature 3 -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
-                <h3 class="fw-bold display-5 mb-3" style="color: white;">Calendar Integration</h3>
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
+                <h3 class="fw-bold display-5 mb-3">Calendar Integration</h3>
                 <p class="lead fs-4">Organize your schedule effortlessly with our intuitive calendar feature, designed
                     for productivity and clarity.</p>
             </div>
@@ -140,47 +135,47 @@
         <div class="container py-5" id="about">
 
             <!-- About Us title-->
-            <h2 class="text-center fw-bold mb-5 display-4" style="color: #5A2A27;">About Us</h2>
+            <h2 class="text-center fw-bold mb-5 display-4 secondary-subtle">About Us</h2>
 
             <!-- Andrew Hwang -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
                 <div class="text-center">
                     <img class="rounded-circle mb-3" src="./images/andrew.jpg" alt="Andrew profile image" width="140"
                         height="140">
-                    <h3 class="fw-bold display-6" style="color: white;">Andrew Hwang</h3>
-                    <p class="lead" style="color: #FFD700;">Project Manager - Designer</p>
+                    <h3 class="fw-bold display-6">Andrew Hwang</h3>
+                    <p class="lead position-colour">Project Manager - Designer</p>
                     <p>Andrew is the visionary behind the RemindMe project. With a background in design and project
                         management, he ensures the app’s development aligns with user needs and expectations.</p>
-                    <p>Email: <a href="mailto:andrew@test.ca" style="color: #90D5FF;">andrew@test.ca</a></p>
-                    <p><a href="#" style="color: #90D5FF;"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+                    <p>Email: <a href="mailto:andrew@test.ca" class="link-clour">andrew@test.ca</a></p>
+                    <p><a href="#" class="link-clour"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
                 </div>
             </div>
 
             <!-- Brownie Tran -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
                 <div class="text-center">
                     <img class="rounded-circle mb-3" src="/images/brownie.jpg" alt="Brownie profile image" width="140"
                         height="140">
-                    <h3 class="fw-bold display-6" style="color: white;">Brownie Tran</h3>
-                    <p class="lead" style="color: #FFD700;">Programmer - System Analyst</p>
+                    <h3 class="fw-bold display-6">Brownie Tran</h3>
+                    <p class="lead position-colour">Programmer - System Analyst</p>
                     <p>Brownie specializes in system analysis and backend development, ensuring the app runs smoothly
                         and handles complex data efficiently. He thrives on solving technical challenges.</p>
-                    <p>Email: <a href="mailto:brownie@test.ca" style="color: #90D5FF;">brownie@test.ca</a></p>
-                    <p><a href="#" style="color: #90D5FF;"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+                    <p>Email: <a href="mailto:brownie@test.ca" class="link-clour">brownie@test.ca</a></p>
+                    <p><a href="#" class="link-clour"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
                 </div>
             </div>
 
             <!-- Mohammad Sadeghi -->
-            <div class="mb-4 p-5 rounded shadow-lg" style="background-color: #5C4742; color: white;">
+            <div class="mb-4 p-5 rounded shadow-lg text-light features-colour">
                 <div class="text-center">
                     <img class="rounded-circle mb-3" src="/images/mohammad.png" alt="Mohammad profile image" width="140"
                         height="140">
-                    <h3 class="fw-bold display-6" style="color: white;">Mohammad Sadeghi</h3>
-                    <p class="lead" style="color: #FFD700;">Programmer - UX/UI</p>
+                    <h3 class="fw-bold display-6">Mohammad Sadeghi</h3>
+                    <p class="lead position-colour">Programmer - UX/UI</p>
                     <p>Mohammad is passionate about creating user-friendly designs and seamless user experiences. His
                         expertise in UX/UI brings the visual and functional elements of the app together.</p>
-                    <p>Email: <a href="mailto:mohammad@test.ca" style="color: #90D5FF;">mohammad@test.ca</a></p>
-                    <p><a href="#" style="color: #90D5FF;"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
+                    <p>Email: <a href="mailto:mohammad@test.ca" class="link-clour">mohammad@test.ca</a></p>
+                    <p><a href="#" class="link-clour"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a></p>
                 </div>
             </div>
 

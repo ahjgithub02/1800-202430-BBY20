@@ -187,8 +187,40 @@
     color: white;
 }
 
+.features-colour {
+    background-color: #5C4742;
+}
+
 .bg-secondary-subtle {
     background-color: #5A2A27 !important;
+}
+
+.secondary-subtle {
+    color: #5A2A27;
+}
+
+.get-started-button {
+    background-color: #8D5B4C; 
+    color: white; 
+    border-color: #8D5B4C;
+}
+
+.get-started-button:hover {
+    background-color: #8D5B4C;
+    color: white;
+}
+
+.continue-with-button {
+    border-color: black;
+     color: black;
+}
+
+.position-colour {
+    color: #FFD700;
+}
+
+.link-clour {
+    color: #90D5FF;
 }
 
 .nav-item .dropdown-toggle::after {
