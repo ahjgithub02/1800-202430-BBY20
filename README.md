@@ -51,13 +51,52 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── html                     # Folder for html pages
-    /blah.html
+    ├── contact
+        /contactUs.html
+        /thankYou.html
+    ├── profile
+        /profile.html
+        /profileUpdate.html
+    /login.html
+    /main.html
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    /andrew.jpg
+    /brownie.jpg
+    /favicon_io.zip
+    /favicon.ico
+    /instagram.png
+    /mohammad.png
+    /profile_icon.png
+    /reminders_server.webp
+    /RemindMe.jpg
+    /tiktok.png
+    /twitter.png
+    /user.png
 ├── scripts                  # Folder for scripts
-    /blah.js                 #
+    /authentication.js
+    /bootstrap.min.js
+    /categoryListener.js
+    /completeReminders.js 
+    /createList.js
+    /deleteReminders.js   
+    /joinServer.js
+    /main.js
+    /makeServer.js
+    /notications.js
+    /popper.min.js
+    /profile.js
+    /profileUpdate.js
+    /readReminders.js
+    /saveContactUs.js
+    /script.js
+    /serverPage.js
+    /signout.js
+    /smooth-scroll.js
+    /thankYou.js
+    /togglediv.js
+    /writeReminders.js      
 ├── styles                   # Folder for styles
-    /blah.css                #
+    /style.css
 
 
 
