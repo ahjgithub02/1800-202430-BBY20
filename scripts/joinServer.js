@@ -11,7 +11,8 @@ async function joinServer() {
                 //Find server document in firestore where the key, code matches the serverCode
                 const querySnapshot = await db.collection("servers").where('code', '==', serverCode).get();
                 if (querySnapshot.empty) {
-                    console.log("Code doesn't match a server");
+                    console.log("Code doesn't match a list");
+                    alert("Code doesn't match a list");
                 } else {
                     console.log("Found a match");
                     const docRefId = querySnapshot.docs[0];
@@ -45,18 +46,20 @@ async function joinServer() {
                                 merge: true
                             })
                                 .then(() => {
-                                    console.log("Joined server!");
-                                    //relocates to reminders page after joining server
+                                    console.log("Joined list!");
+                                    //relocates to reminders page after joining list
                                     window.location.href = '/html/main.html';
                                 })
                                 .catch((error) => {
-                                    console.error("Error joining server: ", error);
+                                    console.error("Error joining list: ", error);
                                 });
                         } else {
-                            console.log("Already in server!");
+                            console.log("Already in list!");
+                            alert("Already in list!");
                         }
                     } else {
-                        console.log("You own the server!");
+                        console.log("You own the list!");
+                        alert("You own the list!");
                     }
                 }
             } else {
