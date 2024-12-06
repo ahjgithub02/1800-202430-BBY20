@@ -151,6 +151,22 @@
     border: none;
 }
 
+.profile-icon {
+    width: 150px;
+}
+
+.twitter {
+    color: #55acee;
+}
+
+.instagram {
+    color: #ac2bac;
+}
+
+.facebook {
+    color: #3b5998;
+}
+
 #addReminderButton {
     padding-top: 5px;
     background-color: #A5978B;
