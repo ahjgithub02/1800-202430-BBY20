@@ -76,7 +76,6 @@
     <a onclick="toggleDivVisibility()" class="dropdown-item server" id="" href="#">Action</a>
   </template>
 
-  <!-- Templates -->
   <template id="ownedServersTemplate">
     <tr class="servers">
       <td class="serverCode"></td>
@@ -95,13 +94,9 @@
 
   <!-- End of templates -->
 
-
-  <!------------------------------>
-  <!-- Your HTML Layout go here -->
-  <!------------------------------>
-  <!-- Stuff for body goes here -->
   <div class="parent-main-container">
 
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-secondary-subtle">
       <div class="container-fluid">
         <!-- Logo -->
@@ -111,17 +106,13 @@
       </div>
       <div class="container-fluid-2">
         <div class="container-fluid-white-circle">
-          <a href="./profile/profile.html"><img src="/images/user.png"></a>
+          <a href="./profile/profile.html"><img src="/images/user.png"  alt="user profile image"></a>
         </div>
       </div>
     </nav>
 
     <div class="parent-main-container-2">
-
-      <!-- Marketing messaging and featurettes
-        ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-      <!-- Left Sidebar Navbar -->
+      <!-- Left Sidebar  -->
       <div class="col-1 py-3 sidebar" id="sidebar">
         <button class="btn btn-link text-light p-3" id="remindersButton" title="Own List"
           onclick="window.location.href= './main.html';">
@@ -141,6 +132,7 @@
         </button>
       </div>
 
+      <!-- Reminders page -->
       <div class="parent-main-container-3">
         <h2 class="welcome-username-message" id="name-goes-here">f</h2>
         <div class="select-a-list-message">
@@ -304,6 +296,7 @@
             </div>
             <hr>
 
+            <!-- Tables to show owned and joined shared lists -->
             <div id="server-container">
               <h2>Owned Shared lists</h2>
               <div id="owned-container">
@@ -423,7 +416,7 @@
         <div class="modal-body">
           <div class="input-group mb-3">
             <input type="text" id="serverCode" class="form-control" placeholder="Code" aria-label="Code"
-              aria-describedby="basic-addon1">
+              >
           </div>
         </div>
         <div class="modal-footer">
@@ -537,6 +530,7 @@
   </div>
 
   <hr>
+  <!-- Footer -->
   <div class="footer-parent">
     <div class="footer-1">
       <p>&copy; 2024 BCIT COMP 1800 RemindMe Team</p>
@@ -551,16 +545,11 @@
     </div>
   </div>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-
   <!-- Link to scripts of your own -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="./scripts/jquery-3.2.1.slim.min.js"><\/script>')</script>
-  <!--Using env variable to avoid pushing API key into github-->
   <script src="/scripts/firebaseAPI_BBY20.js"></script>
   <script src="/scripts/script.js"></script>
   <script src="/scripts/createList.js"></script>

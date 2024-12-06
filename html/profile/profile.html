@@ -36,28 +36,31 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="/styles/style.css">
-
   <link rel="icon" href="/images/favicon.ico">
 
 </head>
 
 <body>
-
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="/html/main.html"><img src="/images/RemindMe.jpg" alt="RemindMe" height="50"> </a>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="/html/main.html">
+        <img src="/images/RemindMe.jpg" alt="RemindMe" height="50">
+      </a>
+    </div>
+    <div class="container-fluid-2">
+      <div class="container-fluid-white-circle">
+        <a href="./profile.html"><img src="/images/user.png" alt="user profile image"></a>
       </div>
+    </div>
   </nav>
 
   <section>
     <div class="container py-5">
+      <h2> <a class="go-back-button-profile" href="/html/main.html"><i class="bi bi-arrow-left"></i> Go Back</a></h2>
 
-      <a class="go-back-button-profile" href="/html/main.html"><i class="bi bi-arrow-left"></i> Go Back</a>
-
+      <!-- Profile picture, edit profile, logout button section -->
       <div class="row">
         <div class="col-lg-4">
           <div class="card mb-4">
@@ -76,6 +79,8 @@
               
             </div>
           </div>
+
+          <!-- Section for social media (not yet implemented) -->
           <div class="card mb-4 mb-lg-0">
             <div class="card-body p-0">
               <ul class="list-group list-group-flush rounded-3">
@@ -103,6 +108,8 @@
             </div>
           </div>
         </div>
+
+        <!-- User profile information section -->
         <div class="col-lg-8">
           <div class="card mb-4">
             <div class="card-body">
@@ -156,6 +163,7 @@
         </div>
       </div>
 
+      <!-- Div for keeping the footer at end of the page (for visual purpose) -->
       <div>
         <br>
         <br>
@@ -164,23 +172,17 @@
         <br>
         <hr>
       </div>
+      
+      <!-- Footer -->
       <div class="parent-container-profile-footer">
       <p class="col-md-4 mb-0 text-muted">&copy; 2024 BCIT COMP1800 Creations</p>
       </div>
   </section>
 
-
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-
-
   <!-- Link to scripts of your own -->
   <script src="/scripts/firebaseAPI_BBY20.js"> </script>
   <script src="/scripts/profile.js"></script>
   <script src="/scripts/signout.js"></script>
-  <!-- <script src="./scripts/script.js"></script> -->
-
 </body>
 
 </html>

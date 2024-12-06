@@ -14,3 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+const modal = document.getElementById('thankyouModal');
+const close = document.getElementById('closeThankyou');
+// Show modal said that submit succesfully
+document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.ClassList.contains('submitFeedback')) {
+        modal.classList.add('show');
+        close.addEventListener('click', function(e) {
+            modal.classList.remove('show');
+        })
+    }
+})

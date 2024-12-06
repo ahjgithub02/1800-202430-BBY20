@@ -27,6 +27,8 @@ function saveContactUs() {
     const email = document.getElementById('emailInput').value;
     const subject = document.getElementById('subjectInput').value;
     const comments = document.getElementById('commentInput').value;
+    const thankYouModal = new bootstrap.Modal(document.getElementById('thankyouModal'));
+    const close = document.getElementById('closeThankyou');
 
     // Assuming the user is authenticated and `currentUser` is defined
     firebase.auth().onAuthStateChanged(user => {
@@ -41,7 +43,10 @@ function saveContactUs() {
             })
             .then(() => {
                 console.log("Document successfully written!");
-                window.location.href = './thankYou.html';
+                thankYouModal.show();
+                close.addEventListener('click', function(e) {
+                    thankYouModal.close();
+                })
             })
             .catch((error) => {
                 console.error("Error writing document: ", error);
@@ -52,3 +57,19 @@ function saveContactUs() {
     });
 }
 
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if the user is signed in
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // Get the user's display name
+            const displayName = user.displayName || "Guest";
+
+            // Update the thank-you message with the user's name
+            const thankYouMessage = document.querySelector('.card-title');
+            thankYouMessage.textContent = `Thanks for submitting your comment, ${displayName}!`;
+        } else {
+            console.log("No user is signed in.");
+        }
+    });
+}); 
