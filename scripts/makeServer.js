@@ -13,6 +13,7 @@ function generateServerCode() {
 
 async function makeServer() {
     const serverName = document.getElementById("serverName").value;
+    const serverDescription = document.getElementById("listDescription").value;
     let serverCode = "";
 
     firebase.auth().onAuthStateChanged(async (user) => {
@@ -37,7 +38,8 @@ async function makeServer() {
                     code: serverCode,
                     serverName: serverName,
                     ownerId: user.uid,
-                    ownerName: user.displayName
+                    ownerName: user.displayName,
+                    description: serverDescription
                 })
                     .then(() => {
                         console.log("Server created with code: ", serverCode);
